@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutUsController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,11 +21,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function (){
     #### Auth ####
     Route::get('logout', 'AuthController@logout')->name('admin.logout');
 
-    ####################################################
-    ############### Elements ###########################
-    ####################################################
 
-
+    #### About Us ####
+    Route::resource('about_us', 'AboutUsController');
 
 });
 

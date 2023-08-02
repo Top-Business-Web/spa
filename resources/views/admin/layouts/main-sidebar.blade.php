@@ -22,7 +22,14 @@
         <li class="slide">
             <a class="side-menu__item" href="{{route('admins.index')}}">
                 <i class="fe fe-users side-menu__icon"></i>
-                <span class="side-menu__label">المشرفين</span>
+                <span class="side-menu__label">Admins</span>
+            </a>
+        </li>
+
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('about_us.index') }}">
+                <i class="fe fe-book side-menu__icon"></i>
+                <span class="side-menu__label">About Us</span>
             </a>
         </li>
 
