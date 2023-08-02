@@ -162,35 +162,35 @@
                 data: formData,
                 beforeSend: function () {
                     $('#addButton').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                        ' ></span> <span style="margin-left: 4px;">انتظر ..</span>').attr('disabled', true);
+                        ' ></span> <span style="margin-left: 4px;">Wait ..</span>').attr('disabled', true);
                 },
                 success: function (data) {
                     if (data.status == 200) {
                         $('#dataTable').DataTable().ajax.reload();
-                        toastr.success('تم الاضافة بنجاح');
+                        toastr.success('Added successfully');
                     } else if(data.status == 405){
                         toastr.error(data.mymessage);
                     }
                     else
-                        toastr.error('هناك خطأ ما ..');
-                    $('#addButton').html(`اضافة`).attr('disabled', false);
+                        toastr.error('Something is wrong ..');
+                    $('#addButton').html(`Add`).attr('disabled', false);
                     $('#editOrCreate').modal('hide')
                 },
                 error: function (data) {
                     if (data.status === 500) {
-                        toastr.error('هناك خطأ ما ..');
+                        toastr.error('Something is wrong ..');
                     } else if (data.status === 422) {
                         var errors = $.parseJSON(data.responseText);
                         $.each(errors, function (key, value) {
                             if ($.isPlainObject(value)) {
                                 $.each(value, function (key, value) {
-                                    toastr.error(value, 'خطأ');
+                                    toastr.error(value, 'Error');
                                 });
                             }
                         });
                     } else
-                        toastr.error('هناك خطأ ما ..');
-                    $('#addButton').html(`اضافة`).attr('disabled', false);
+                        toastr.error('Something is wrong ..');
+                    $('#addButton').html(`Add`).attr('disabled', false);
                 },//end error method
 
                 cache: false,
@@ -225,33 +225,33 @@
                 data: formData,
                 beforeSend: function () {
                     $('#updateButton').html('<span class="spinner-border spinner-border-sm mr-2" ' +
-                        ' ></span> <span style="margin-left: 4px;">انتظر ..</span>').attr('disabled', true);
+                        ' ></span> <span style="margin-left: 4px;">Wait ..</span>').attr('disabled', true);
                 },
                 success: function (data) {
-                    $('#updateButton').html(`تعديل`).attr('disabled', false);
+                    $('#updateButton').html(`Edit`).attr('disabled', false);
                     if (data.status == 200) {
                         $('#dataTable').DataTable().ajax.reload();
-                        toastr.success('تم التعديل بنجاح');
+                        toastr.success('Updated successfully');
                     } else
-                        toastr.error('هناك خطأ ما ..');
+                        toastr.error('Something is wrong ..');
 
                     $('#editOrCreate').modal('hide')
                 },
                 error: function (data) {
                     if (data.status === 500) {
-                        toastr.error('هناك خطأ ما ..');
+                        toastr.error('Something is wrong ..');
                     } else if (data.status === 422) {
                         var errors = $.parseJSON(data.responseText);
                         $.each(errors, function (key, value) {
                             if ($.isPlainObject(value)) {
                                 $.each(value, function (key, value) {
-                                    toastr.error(value, 'خطأ');
+                                    toastr.error(value, 'Error');
                                 });
                             }
                         });
                     } else
-                        toastr.error('هناك خطأ ما ..');
-                    $('#updateButton').html(`تعديل`).attr('disabled', false);
+                        toastr.error('Something is wrong ..');
+                    $('#updateButton').html(`Edit`).attr('disabled', false);
                 },//end error method
 
                 cache: false,
