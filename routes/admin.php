@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,6 +26,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function (){
 
     #### Contacts ####
     Route::resource('contacts', ContactController::class);
+
+    #### Gellaries ####
+    Route::resource('gellaries', GellaryController::class);
 
 }); 
 
