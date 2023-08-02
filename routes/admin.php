@@ -1,6 +1,4 @@
 <?php
-
-use App\Http\Controllers\Admin\AboutUsController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,9 +21,12 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function (){
 
 
     #### About Us ####
-    Route::resource('about_us', 'AboutUsController');
+    Route::resource('about_us', AboutUsController::class);
 
-});
+    #### Contacts ####
+    Route::resource('contacts', ContactController::class);
+
+}); 
 
 
 
