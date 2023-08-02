@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Events\NewMessage;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAdmin;
 use App\Models\Admin;
 use App\Traits\PhotoTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 
 class AdminController extends Controller
@@ -33,7 +31,6 @@ class AdminController extends Controller
                         return '
                                 <button type="button" data-id="' . $admins->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                            ';
-
                 })
                 ->editColumn('image', function ($admins) {
                     return '
@@ -52,13 +49,13 @@ class AdminController extends Controller
     {
         $admin = Admin::where('id', $request->id)->first();
         if ($admin == auth()->guard('admin')->user()) {
-            return response(['message'=>"لا يمكن حذف المشرف المسجل به !",'status'=>501],200);
+            return response(['message'=>"The supervisor registered with it cannot be deleted!",'status'=>501],200);
         } else {
             if (file_exists($admin->image)) {
                 unlink($admin->image);
             }
             $admin->delete();
-            return response(['message'=>'تم الحذف بنجاح','status'=>200],200);
+            return response(['message'=>'Deleted successfully','status'=>200],200);
         }
     }
 
@@ -67,8 +64,6 @@ class AdminController extends Controller
         $admin = auth()->guard('admin')->user();
         return view('Admin/admin/profile',compact('admin'));
     }//end fun
-
-
 
     public function create(){
         return view('Admin/admin.parts.create');
