@@ -30,6 +30,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function (){
     #### Gellaries ####
     Route::resource('gellaries', GellaryController::class);
 
+    #### Services ####
+    Route::resource('services', ServiceController::class);
+
 }); 
 
 
