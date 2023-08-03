@@ -17,7 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->longText('image');
             $table->string('title');
-            $table->string('description');
+            $table->text('description');
             $table->bigInteger('view');
             $table->boolean('top')->default(false);
             $table->unsignedBigInteger('service_id');

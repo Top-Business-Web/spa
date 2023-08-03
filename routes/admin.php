@@ -39,6 +39,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function (){
     #### Sliders ####
     Route::resource('sliders', SliderController::class);
 
+    #### Category ####
+    Route::resource('categories', CategoryController::class);
+
 }); 
 
 
