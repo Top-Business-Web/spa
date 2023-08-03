@@ -33,8 +33,11 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function (){
     #### Services ####
     Route::resource('services', ServiceController::class);
 
-    #### Services ####
+    #### Settings ####
     Route::resource('settings', SettingController::class);
+
+    #### Sliders ####
+    Route::resource('sliders', SliderController::class);
 
 }); 
 
