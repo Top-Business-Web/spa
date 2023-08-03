@@ -30,7 +30,7 @@ class GellaryController extends Controller
                 })
                 ->editColumn('image', function ($gellaries) {
                     return '
-                    <img alt="image" onclick="window.open(this.src)" class="avatar avatar-md rounded-circle" src="' . asset('uploads/admins/galleries/' . $gellaries->image) . '">
+                    <img alt="image" onclick="window.open(this.src)" class="avatar avatar-md rounded-circle" src="' . asset('uploads/admins/gellary/' . $gellaries->image) . '">
                     ';
                 })
                 ->escapeColumns([])
@@ -85,21 +85,25 @@ class GellaryController extends Controller
     }
     // end  of edit
 
-    public function update(GalleriesUpdateRequest $request, Gellary $gallery)
+    public function update(GalleriesUpdateRequest $request, Gellary $gellary)
     {
         try {
             $inputs = $request->validated();
 
             if ($request->hasFile('image')) {
-                if ($gallery->image && file_exists(public_path('uploads/admins/galleries/') . $gallery->image)) {
-                    unlink(public_path('uploads/admins/galleries/') . $gallery->image);
+
+                if ($gellary->image && file_exists(public_path('uploads/admins/gellary/') . $gellary->image)) {
+                    unlink(public_path('uploads/admins/gellary/') . $gellary->image);
                 }
-                $inputs['image'] = $this->saveImage($request->file('image'), 'uploads/admins/galleries');
+                $inputs['image'] = $this->saveImage($request->file('image'), 'uploads/admins/gellary');
+
             } else {
                 unset($inputs['image']);
             }
 
+
             $gallery->update($inputs);
+
 
             return response()->json(['status' => 200]);
         } catch (\Exception $e) {

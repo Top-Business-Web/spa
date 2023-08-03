@@ -25,7 +25,7 @@ class GalleriesUpdateRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,gif',
+            'image' => 'required',
         ];
     }
 }
