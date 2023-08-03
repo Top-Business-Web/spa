@@ -45,6 +45,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function (){
     #### Pages ####
     Route::resource('pages', PageController::class);
 
+    #### Reviews ####
+    Route::resource('reviews', ReviewController::class);
+
 }); 
 
 
