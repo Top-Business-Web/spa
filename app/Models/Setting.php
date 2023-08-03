@@ -19,4 +19,8 @@ class Setting extends Model
         'map',
         'social_links',
     ];
+
+    protected $casts = [
+        'social_links' => 'json',
+    ];
 }

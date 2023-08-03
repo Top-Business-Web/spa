@@ -33,6 +33,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function (){
     #### Services ####
     Route::resource('services', ServiceController::class);
 
+    #### Services ####
+    Route::resource('settings', SettingController::class);
+
 }); 
 
 

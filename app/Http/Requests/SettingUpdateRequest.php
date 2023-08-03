@@ -24,7 +24,7 @@ class SettingUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'logo' => 'required|mimes:jpg',
+            'logo' => 'nullable|mimes:jpg',
             'title' => 'required',
             'address' => 'required',
             'phone' => 'required',
