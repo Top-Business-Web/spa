@@ -19,6 +19,6 @@ class AboutUs extends Model
     ];
 
     protected $casts = [
-        'images' => 'array',
+        'images' => 'json',
     ];
 }

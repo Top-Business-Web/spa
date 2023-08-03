@@ -17,5 +17,11 @@ class DatabaseSeeder extends Seeder
         $this->call(AboutUsSeeder::class);
         $this->call(ContactSeeder::class);
         $this->call(GellariesSeeder::class);
+        $this->call(ServiceSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(PageSeeder::class);
+        $this->call(ReviewSeeder::class);
+        $this->call(SettingSeeder::class);
+        $this->call(SliderSeeder::class);
     }
 }

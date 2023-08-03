@@ -23,8 +23,9 @@ class AboutUsUpdateRequest extends FormRequest
      */
     public function rules()
     {
+        
         return [
-            'images' => 'array',
+            'images' => 'required',
             'top_title' => 'required',
             'down_title' => 'required',
             'top_description' => 'required',

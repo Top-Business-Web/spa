@@ -91,15 +91,19 @@ class GellaryController extends Controller
             $inputs = $request->validated();
 
             if ($request->hasFile('image')) {
+
                 if ($gellary->image && file_exists(public_path('uploads/admins/gellary/') . $gellary->image)) {
                     unlink(public_path('uploads/admins/gellary/') . $gellary->image);
                 }
                 $inputs['image'] = $this->saveImage($request->file('image'), 'uploads/admins/gellary');
+
             } else {
                 unset($inputs['image']);
             }
 
-            $gellary->update($inputs);
+
+            $gallery->update($inputs);
+
 
             return response()->json(['status' => 200]);
         } catch (\Exception $e) {
