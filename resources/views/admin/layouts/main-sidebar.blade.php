@@ -69,6 +69,13 @@
         </li>
 
         <li class="slide">
+            <a class="side-menu__item" href="{{ route('categories.index') }}">
+                <i class="fe fe-book side-menu__icon"></i>
+                <span class="side-menu__label">Categories</span>
+            </a>
+        </li>
+
+        <li class="slide">
             <a class="side-menu__item" href="{{route('admin.logout')}}">
                 <i class="icon icon-lock side-menu__icon"></i>
                 <span class="side-menu__label">تسجيل الخروج</span>
