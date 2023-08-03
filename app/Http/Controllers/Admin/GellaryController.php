@@ -100,11 +100,7 @@ class GellaryController extends Controller
             } else {
                 unset($inputs['image']);
             }
-
-
-            $gallery->update($inputs);
-
-
+            $gellary->update($inputs);
             return response()->json(['status' => 200]);
         } catch (\Exception $e) {
             return response()->json(['status' => 405]);
