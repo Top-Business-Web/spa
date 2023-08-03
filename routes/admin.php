@@ -42,6 +42,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function (){
     #### Category ####
     Route::resource('categories', CategoryController::class);
 
+    #### Pages ####
+    Route::resource('pages', PageController::class);
+
 }); 
 
 
