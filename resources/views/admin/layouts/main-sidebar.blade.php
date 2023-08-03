@@ -28,63 +28,63 @@
 
         <li class="slide">
             <a class="side-menu__item" href="{{ route('about_us.index') }}">
-                <i class="fe fe-book side-menu__icon"></i>
+                <i class="fa fa-address-card side-menu__icon"></i>
                 <span class="side-menu__label">About Us</span>
             </a>
         </li>
 
         <li class="slide">
             <a class="side-menu__item" href="{{ route('contacts.index') }}">
-                <i class="fe fe-book side-menu__icon"></i>
+                <i class="fa fa-address-book side-menu__icon"></i>
                 <span class="side-menu__label">Contacts</span>
             </a>
         </li>
 
         <li class="slide">
             <a class="side-menu__item" href="{{ route('gellaries.index') }}">
-                <i class="fe fe-book side-menu__icon"></i>
+                <i class="fa fa-image side-menu__icon"></i>
                 <span class="side-menu__label">Gellaries</span>
             </a>
         </li>
 
         <li class="slide">
             <a class="side-menu__item" href="{{ route('services.index') }}">
-                <i class="fe fe-book side-menu__icon"></i>
+                <i class="fa fa-server side-menu__icon"></i>
                 <span class="side-menu__label">Services</span>
             </a>
         </li>
 
         <li class="slide">
             <a class="side-menu__item" href="{{ route('settings.index') }}">
-                <i class="fe fe-book side-menu__icon"></i>
+                <i class="fa fa-wrench side-menu__icon"></i>
                 <span class="side-menu__label">Settings</span>
             </a>
         </li>
 
         <li class="slide">
             <a class="side-menu__item" href="{{ route('sliders.index') }}">
-                <i class="fe fe-book side-menu__icon"></i>
+                <i class="fa fa-images side-menu__icon"></i>
                 <span class="side-menu__label">Sliders</span>
             </a>
         </li>
 
         <li class="slide">
             <a class="side-menu__item" href="{{ route('categories.index') }}">
-                <i class="fe fe-book side-menu__icon"></i>
+                <i class="fa fa-list side-menu__icon"></i>
                 <span class="side-menu__label">Categories</span>
             </a>
         </li>
 
         <li class="slide">
             <a class="side-menu__item" href="{{ route('pages.index') }}">
-                <i class="fe fe-book side-menu__icon"></i>
+                <i class="fa fa-copy side-menu__icon"></i>
                 <span class="side-menu__label">Pages</span>
             </a>
         </li>
 
         <li class="slide">
             <a class="side-menu__item" href="{{ route('reviews.index') }}">
-                <i class="fe fe-book side-menu__icon"></i>
+                <i class="fa fa-eye side-menu__icon"></i>
                 <span class="side-menu__label">Reviews</span>
             </a>
         </li>
