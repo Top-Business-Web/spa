@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Setting extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'logo',
+        'title',
+        'address',
+        'phone',
+        'email',
+        'work_hours',
+        'map',
+        'social_links',
+    ];
+
+    protected $casts = [
+        'social_links' => 'json',
+    ];
 }

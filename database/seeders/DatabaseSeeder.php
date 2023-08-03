@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ContactSeeder::class);
         $this->call(GellariesSeeder::class);
         $this->call(ServiceSeeder::class);
+        $this->call(SettingSeeder::class);
     }
 }
