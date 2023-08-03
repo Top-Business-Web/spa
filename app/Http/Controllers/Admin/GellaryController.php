@@ -30,7 +30,7 @@ class GellaryController extends Controller
                 })
                 ->editColumn('image', function ($gellaries) {
                     return '
-                    <img alt="image" onclick="window.open(this.src)" class="avatar avatar-md rounded-circle" src="' . asset('uploads/admins/galleries/' . $gellaries->image) . '">
+                    <img alt="image" onclick="window.open(this.src)" class="avatar avatar-md rounded-circle" src="' . asset('uploads/admins/gellary/' . $gellaries->image) . '">
                     ';
                 })
                 ->escapeColumns([])
@@ -85,28 +85,21 @@ class GellaryController extends Controller
     }
     // end  of edit
 
-    public function update(GalleriesUpdateRequest $request, Gellary $gallery)
+    public function update(GalleriesUpdateRequest $request, Gellary $gellary)
     {
         try {
-            // Get the validated data from the request
             $inputs = $request->validated();
 
-            // Check if a new image is provided in the update request
             if ($request->hasFile('image')) {
-                // Delete the existing image if it exists
-                if ($gallery->image && file_exists(public_path('uploads/admins/galleries/') . $gallery->image)) {
-                    unlink(public_path('uploads/admins/galleries/') . $gallery->image);
+                if ($gellary->image && file_exists(public_path('uploads/admins/gellary/') . $gellary->image)) {
+                    unlink(public_path('uploads/admins/gellary/') . $gellary->image);
                 }
-
-                // Save the new image and update the 'image' field in the database
-                $inputs['image'] = $this->saveImage($request->file('image'), 'uploads/admins/galleries');
+                $inputs['image'] = $this->saveImage($request->file('image'), 'uploads/admins/gellary');
             } else {
-                // If no new image is provided, remove the 'image' field from the $inputs array
                 unset($inputs['image']);
             }
 
-            // Update the gallery record in the database
-            $gallery->update($inputs);
+            $gellary->update($inputs);
 
             return response()->json(['status' => 200]);
         } catch (\Exception $e) {
