@@ -16,7 +16,11 @@ class AboutUsSeeder extends Seeder
     {
         $data = [
             [
-                'images' => json_encode(['1.jpg', '2.jpg', '3.jpg']),
+                'images' => json_encode([
+                    '1.jpg',
+                    '2.jpg',
+                    '3.jpg',
+                ]),
                 'top_title' => 'Spa',
                 'top_description' => 'Sint dolore voluptate id minim in qui enim ad incididunt. Sunt officia est laborum qui enim officia. Eu anim ullamco excepteur aute incididunt ut ut. Proident esse magna occaecat veniam magna occaecat commodo nostrud.',
                 'down_title' => 'Spa Down',
