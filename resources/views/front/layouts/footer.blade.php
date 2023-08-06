@@ -49,7 +49,7 @@
                 <div class="tf__footer_link">
                     <h4>Useful Link</h4>
                     <ul>
-                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="{{ route('faqs') }}">FAQs</a></li>
                         <li><a href="privacy_policy.html">privacy policy</a></li>
                         <li><a href="terms_condition.html">terms condition</a></li>
                         <!-- <li><a href="testimonial.html">testimonial</a></li> -->
