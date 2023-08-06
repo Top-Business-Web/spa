@@ -37,7 +37,15 @@ class CategorySeeder extends Seeder
                 'description' => 'Qui laborum dolore voluptate voluptate ad ad duis velit adipisicing. Laborum sint sunt amet ad elit sint consequat pariatur. Enim duis ullamco eiusmod elit non tempor voluptate anim. Proident labore laborum tempor consectetur mollit magna ipsum. Enim minim ex veniam culpa ipsum deserunt voluptate elit irure amet occaecat esse.',
                 'view' => '3',
                 'top' => '1',
-                'service_id' => '3',
+                'service_id' => '2',
+            ],
+            [
+                'image' => '4.jpg',
+                'title' => 'spa4',
+                'description' => 'Qui laborum dolore voluptate voluptate ad ad duis velit adipisicing. Laborum sint sunt amet ad elit sint consequat pariatur. Enim duis ullamco eiusmod elit non tempor voluptate anim. Proident labore laborum tempor consectetur mollit magna ipsum. Enim minim ex veniam culpa ipsum deserunt voluptate elit irure amet occaecat esse.',
+                'view' => '2',
+                'top' => '5',
+                'service_id' => '1',
             ],
         ];
         DB::table('categories')->insert($data);
