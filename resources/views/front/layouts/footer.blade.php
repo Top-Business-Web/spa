@@ -49,11 +49,11 @@
                 <div class="tf__footer_link">
                     <h4>Useful Link</h4>
                     <ul>
-                        <li><a href="faq.html">FAQs</a></li>
-                        <li><a href="privacy_policy.html">privacy policy</a></li>
-                        <li><a href="terms_condition.html">terms condition</a></li>
+                        <li><a href="{{ route('faqs') }}">FAQs</a></li>
+                        <li><a href="{{ route('privacy_policy') }}">privacy policy</a></li>
+                        <li><a href="{{ route('terms_condition') }}">terms condition</a></li>
                         <!-- <li><a href="testimonial.html">testimonial</a></li> -->
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="{{ route('contacts') }}">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -78,3 +78,14 @@
         </div>
     </div>
 </footer>
+
+    <!--=========================
+        SCROLL BUTTON START
+    ===========================-->
+    <div class="tf__scroll_btn">
+        <span><i class="fas fa-arrow-alt-up"></i></span>
+    </div>
+    <!--==========================
+        SCROLL BUTTON END
+    ===========================-->
+

@@ -9,6 +9,8 @@
 
     @include('front.layouts.navbar')
 
+    @include('front.layouts.reservation_modal')
+
     @yield('content')
 
     @include('front.layouts.footer')

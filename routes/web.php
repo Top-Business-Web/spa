@@ -2,15 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\Front\BlogController;
-use App\Http\Controllers\Front\FaqsController;
 use App\Http\Controllers\Front\HomeController;
-use App\Http\Controllers\Front\AboutController;
-use App\Http\Controllers\Front\QuoteController;
-use App\Http\Controllers\Front\CareerController;
+use App\Http\Controllers\Front\AboutUsController;
 use App\Http\Controllers\Front\ContactController;
-use App\Http\Controllers\Front\ProductController;
+use App\Http\Controllers\Front\ContatcController;
+use App\Http\Controllers\Front\FaqController;
+use App\Http\Controllers\Front\GalleryController;
+use App\Http\Controllers\Front\PrivacyPolicyController;
 use App\Http\Controllers\Front\ServiceController;
+use App\Http\Controllers\Front\TermsConditionController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -33,7 +33,30 @@ Route::get('/clear', function () {
     return 'Cache cleared successfully.';
 });
 
-Route::get('/', function() {
-    return view('front.index');
-});
+#### Index Home ####
+Route::get('Home', [HomeController::class, 'index'])->name('home');
+
+#### About Us ####
+Route::get('about_us', [AboutUsController::class, 'index'])->name('about_us');
+
+#### Services ####
+Route::get('services', [ServiceController::class, 'index'])->name('services');
+
+Route::get('services/category/page/{category}', [ServiceController::class, 'getSingleService'])->name('getSingleService');
+
+
+#### Galleries ####
+Route::get('galleries', [GalleryController::class, 'index'])->name('galleries');
+
+#### Contacts ####
+Route::get('contacts', [ContatcController::class, 'index'])->name('contacts');
+
+#### Faqs ####
+Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
+
+#### Privacy Policy ####
+Route::get('privacy_policy', [PrivacyPolicyController::class, 'index'])->name('privacy_policy');
+
+#### Terms Condition ####
+Route::get('terms_condition', [TermsConditionController::class, 'index'])->name('terms_condition');
 
