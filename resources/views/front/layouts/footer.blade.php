@@ -51,9 +51,9 @@
                     <ul>
                         <li><a href="{{ route('faqs') }}">FAQs</a></li>
                         <li><a href="{{ route('privacy_policy') }}">privacy policy</a></li>
-                        <li><a href="terms_condition.html">terms condition</a></li>
+                        <li><a href="{{ route('terms_condition') }}">terms condition</a></li>
                         <!-- <li><a href="testimonial.html">testimonial</a></li> -->
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="{{ route('contacts') }}">Contact</a></li>
                     </ul>
                 </div>
             </div>

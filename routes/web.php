@@ -10,6 +10,7 @@ use App\Http\Controllers\Front\FaqController;
 use App\Http\Controllers\Front\GalleryController;
 use App\Http\Controllers\Front\PrivacyPolicyController;
 use App\Http\Controllers\Front\ServiceController;
+use App\Http\Controllers\Front\TermsConditionController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -53,3 +54,5 @@ Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
 #### Privacy Policy ####
 Route::get('privacy_policy', [PrivacyPolicyController::class, 'index'])->name('privacy_policy');
 
+#### Terms Condition ####
+Route::get('terms_condition', [TermsConditionController::class, 'index'])->name('terms_condition');
