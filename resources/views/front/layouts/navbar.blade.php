@@ -20,7 +20,7 @@
                     <a class="nav-link" href="{{ route('services') }}">services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="gallery.html">gallery</a>
+                    <a class="nav-link" href="{{ route('galleries') }}">gallery</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">contact</a>
