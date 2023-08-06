@@ -6,6 +6,7 @@ use App\Http\Controllers\Front\BlogController;
 use App\Http\Controllers\Front\FaqsController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\AboutController;
+use App\Http\Controllers\Front\AboutUsController;
 use App\Http\Controllers\Front\QuoteController;
 use App\Http\Controllers\Front\CareerController;
 use App\Http\Controllers\Front\ContactController;
@@ -33,7 +34,9 @@ Route::get('/clear', function () {
     return 'Cache cleared successfully.';
 });
 
-Route::get('/', function() {
-    return view('front.index');
-});
+#### Index Home ####
+Route::get('Home', [HomeController::class, 'index'])->name('home');
+
+#### About Us ####
+Route::get('about_us', [AboutUsController::class, 'index'])->name('about_us');
 
