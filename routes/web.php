@@ -40,3 +40,6 @@ Route::get('Home', [HomeController::class, 'index'])->name('home');
 #### About Us ####
 Route::get('about_us', [AboutUsController::class, 'index'])->name('about_us');
 
+#### Services ####
+Route::get('services', [ServiceController::class, 'index'])->name('services');
+
