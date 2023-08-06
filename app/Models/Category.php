@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -27,5 +28,15 @@ class Category extends Model
     public function service(): BelongsTo
     {
         return $this->belongsTo(Service::class, 'service_id', 'id');
+    }
+
+    /**
+     * Get the associated page for this model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function page(): HasOne
+    {
+        return $this->hasOne(Service::class);
     }
 }
