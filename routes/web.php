@@ -33,3 +33,7 @@ Route::get('/clear', function () {
     return 'Cache cleared successfully.';
 });
 
+Route::get('/', function() {
+    return view('front.index');
+});
+
