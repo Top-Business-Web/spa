@@ -8,6 +8,7 @@ use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\ContatcController;
 use App\Http\Controllers\Front\FaqController;
 use App\Http\Controllers\Front\GalleryController;
+use App\Http\Controllers\Front\PrivacyPolicyController;
 use App\Http\Controllers\Front\ServiceController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -48,4 +49,7 @@ Route::get('contacts', [ContatcController::class, 'index'])->name('contacts');
 
 #### Faqs ####
 Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
+
+#### Privacy Policy ####
+Route::get('privacy_policy', [PrivacyPolicyController::class, 'index'])->name('privacy_policy');
 
