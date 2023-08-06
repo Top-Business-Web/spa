@@ -10,6 +10,7 @@ use App\Http\Controllers\Front\AboutUsController;
 use App\Http\Controllers\Front\QuoteController;
 use App\Http\Controllers\Front\CareerController;
 use App\Http\Controllers\Front\ContactController;
+use App\Http\Controllers\Front\GalleryController;
 use App\Http\Controllers\Front\ProductController;
 use App\Http\Controllers\Front\ServiceController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -42,4 +43,7 @@ Route::get('about_us', [AboutUsController::class, 'index'])->name('about_us');
 
 #### Services ####
 Route::get('services', [ServiceController::class, 'index'])->name('services');
+
+#### Galleries ####
+Route::get('galleries', [GalleryController::class, 'index'])->name('galleries');
 
