@@ -78,3 +78,14 @@
         </div>
     </div>
 </footer>
+
+    <!--=========================
+        SCROLL BUTTON START
+    ===========================-->
+    <div class="tf__scroll_btn">
+        <span><i class="fas fa-arrow-alt-up"></i></span>
+    </div>
+    <!--==========================
+        SCROLL BUTTON END
+    ===========================-->
+
