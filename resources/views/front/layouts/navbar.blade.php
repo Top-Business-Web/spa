@@ -23,7 +23,7 @@
                     <a class="nav-link" href="{{ route('galleries') }}">gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.html">contact</a>
+                    <a class="nav-link" href="{{ route('contacts') }}">contact</a>
                 </li>
             </ul>
             <ul class="menu_right d-flex flex-wrap">
