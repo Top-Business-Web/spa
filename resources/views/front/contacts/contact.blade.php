@@ -58,9 +58,10 @@
                         <h3>Working Hours</h3>
                         <p>Satday to Friday :</p>
                         <p>09:00am - 10:00pm</p>
-                    </div>
+                     </div>
                 </div>
             </div>
+            <!-- vendor -->
             <div class="row mt_120 xs_mt_70">
                 <div class="col-xl-5 wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__contact_map">
