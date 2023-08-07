@@ -48,7 +48,7 @@
     <!--=====================================
         BREADCRUMB START
     =====================================-->
-    <section class="tf__breadcrumb" style="background: url('assets/front/images/breadcrumb_bg.jpg');">
+    <section class="tf__breadcrumb" style="background: url('{{ asset($settings->banner) }}');">
         <div class="tf__breadcrumb_overlay">
             <div class="container">
                 <div class="row">
