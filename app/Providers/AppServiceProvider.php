@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\About;
 use App\Models\BgImage;
+use App\Models\Category;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
@@ -28,7 +29,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-       Schema::defaultStringLength(191);
-       View::share('settings',Setting::first());
+        Schema::defaultStringLength(191);
+        View::share('settings', Setting::first());
+        View::share('categories', Category::select('id', 'title')
+            ->where('top', 1)
+            ->latest()
+            ->take(5)
+            ->get());
     }
 }

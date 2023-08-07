@@ -56,7 +56,7 @@
                         <div class="tf__breadcrumb_text">
                             <h1>About Us</h1>
                             <ul>
-                                <li><a href="#"><i class="fas fa-home"></i> home</a></li>
+                                <li><a href="{{ route('home') }}"><i class="fas fa-home"></i> home</a></li>
                                 <li><a href="#">about us</a></li>
                             </ul>
                         </div>
@@ -79,31 +79,13 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 wow fadeInUp" data-wow-duration="1s">
                         <div class="tf__about_page_welcome_img">
-                            <img src="{{ asset('assets/front') }}/images/about_welcome_img.jpg" alt="welcome" class="img-fluid w-100">
+                            <img src="{{ asset($about_us->images[0]) }}" alt="welcome" class="img-fluid w-100">
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 wow fadeInUp" data-wow-duration="1s">
                         <div class="tf__about_page_welcome_text">
-                            <h2>Welcome To alia beauty lounge !!</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt
-                                ut
-                                labore et dolore magna aliqua.Ut enim ad minim veniam quis nostrud exercitation ullamco
-                                laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <p>consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore etdolore Ut enim
-                                ad
-                                minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat.</p>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                nulla
-                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                deserunt
-                                mollit anim id est laborum.</p>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusant doloremque
-                                laudantium
-                                totam rem aperiam eaque ipsa quae ab illo inve veritatis et quasi architecto beatae
-                                vitae
-                                dicta sunt explicabo Nemo eni
-                                mipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                            <h2>{{ $about_us->top_title }}</h2>
+                            <p>{{ $about_us->top_description }}</p>
                         </div>
                     </div>
                 </div>
@@ -116,12 +98,12 @@
                     <div class="col-xl-5 col-lg-6 col-md-10 wow fadeInUp" data-wow-duration="1s">
                         <div class="tf__about_page_about_img">
                             <div class="img_1">
-                                <img src="{{ asset('assets/front') }}/images/about_page_img_1.jpg" alt="about" class="img-fluid w-100">
+                                <img src="{{ asset($about_us->images[1]) }}" alt="about" class="img-fluid w-100">
                             </div>
                             <div class="img_2">
-                                <img src="{{ asset('assets/front') }}/images/about_page_img_2.jpg" alt="about" class="img-fluid w-100">
+                                <img src="{{ asset($about_us->images[2]) }}" alt="about" class="img-fluid w-100">
                             </div>
-                            <p>20+
+                            <p>{{ $about_us->year }}+
                                 <span>Years Of Experience</span>
                             </p>
                         </div>
@@ -130,11 +112,10 @@
                         <div class="tf__about_page_about_text_area">
                             <div class="tf__section_heading tf__heading_left mb_25">
                                 <h5>About Us</h5>
-                                <h3>Best Way To Care Your Skin</h3>
+                                <h3>{{ $about_us->down_title }}</h3>
                             </div>
                             <div class="tf__about_page_about_text">
-                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur autt odit aut fugit sed quia
-                                    consequuntur magni dolores.</p>
+                                <p>{{ $about_us->down_description }}</p>
                                 <ul>
                                     <li>
                                         <h3>Skin & Body Care</h3>
@@ -147,10 +128,6 @@
                                             voluptatem into quia voluptas sit enim into.</p>
                                     </li>
                                 </ul>
-                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur autt odit aut fugit sed quia
-                                    consequuntur magni dolores Nemo enim ipsam voluptatem quia voluptas sit aspernatur
-                                    autt
-                                    odit aut fugit sed quia consequuntur magni dolores.</p>
                             </div>
                         </div>
                     </div>

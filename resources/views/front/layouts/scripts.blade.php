@@ -30,3 +30,5 @@
 
  <!--main/custom js-->
  <script src="{{ asset('assets/front') }}/js/main.js"></script>
+
+ <script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>

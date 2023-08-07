@@ -29,6 +29,7 @@ class SettingSeeder extends Seeder
                     'twitter' => 'https://www.twitter.com/',
                     'pinterest' => 'https://www.pinterest.com/',
                     'instagram' => 'https://www.instagram.com/',
+                    'behance' => 'https://www.behance.com/',
                 ])
             ]
         ];
