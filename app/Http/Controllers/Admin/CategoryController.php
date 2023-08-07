@@ -32,7 +32,7 @@ class CategoryController extends Controller
                 })
                 ->editColumn('image', function ($categories) {
                     return '
-                    <img alt="image" onclick="window.open(this.src)" class="avatar avatar-md rounded-circle" src="' . asset('uploads/admins/categories/' . $categories->image) . '">
+                    <img alt="image" onclick="window.open(this.src)" class="avatar avatar-md rounded-circle" src="' . asset($categories->image) . '">
                     ';
                 })
                 ->escapeColumns([])
@@ -75,8 +75,11 @@ class CategoryController extends Controller
         $imageName = $image->getClientOriginalName();
         $image->move($destination, $imageName);
 
-        return $imageName;
+        $imagePath = $destination . '/' . $imageName; // Concatenate destination with image name to get the full path
+
+        return $imagePath; // Return the full image path
     }
+
     // Save Image
 
     public function edit(Category $category)
