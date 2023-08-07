@@ -24,8 +24,10 @@ class SettingSeeder extends Seeder
                 'work_hours' => 12,
                 'map' => 'egypt',
                 'social_links' => json_encode([
-                    'whatsapp' => 'https://www.whatapp.com/',
                     'facebook' => 'https://www.facebook.com/',
+                    'linkedin' => 'https://www.linkedin.com/',
+                    'twitter' => 'https://www.twitter.com/',
+                    'pinterest' => 'https://www.pinterest.com/',
                     'instagram' => 'https://www.instagram.com/',
                 ])
             ]

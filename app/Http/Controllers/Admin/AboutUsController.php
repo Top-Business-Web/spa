@@ -21,12 +21,14 @@ class AboutUsController extends Controller
     public function update(AboutUsUpdateRequest $request)
     {
         $about_us = AboutUs::findOrFail($request->id);
-        $inputs = $this->prepareInputs($request);
 
-        if ($this->hasNewImages($request)) {
+        // Prepare the inputs directly here
+        $inputs = $request->all();
+
+        if ($request->hasFile('images')) {
             $this->deleteOldImages($about_us);
             $images = $this->uploadNewImages($request);
-            $inputs['images'] = $images;
+            $inputs['images'] = $images; // Save the image paths instead of image names
         }
 
         if ($about_us->update($inputs)) {
@@ -36,32 +38,26 @@ class AboutUsController extends Controller
         }
     }
 
-    protected function prepareInputs(AboutUsUpdateRequest $request): array
-    {
-        return $request->all();
-    }
-
-    protected function hasNewImages(AboutUsUpdateRequest $request): bool
-    {
-        return $request->has('images');
-    }
-
     protected function deleteOldImages(AboutUs $about_us): void
     {
         foreach ($about_us->images as $image) {
-            $imagePath = public_path('assets/uploads/admins/about_us/images') . $image;
+            $imagePath = public_path($image);
             if (file_exists($imagePath)) {
+                // Add a delay before attempting to delete the file
+                sleep(1);
                 unlink($imagePath);
             }
         }
     }
 
+
+
     protected function uploadNewImages(AboutUsUpdateRequest $request): array
     {
         $images = [];
         foreach ($request->file('images') as $image) {
-            $imageName = $this->saveImage($image, 'assets/uploads/admins/about_us/images', 'photo');
-            $images[] = $imageName;
+            $imagePath = $this->saveImage($image, 'uploads/admins/about_us', 'photo');
+            $images[] = $imagePath; // Save the image path instead of image name
         }
         return $images;
     }
@@ -71,6 +67,6 @@ class AboutUsController extends Controller
         $extension = $image->getClientOriginalExtension();
         $imageName = $filename . '_' . time() . '.' . $extension;
         $image->move(public_path($path), $imageName);
-        return $imageName;
+        return $path . '/' . $imageName; // Return the full image path
     }
 } // end class
