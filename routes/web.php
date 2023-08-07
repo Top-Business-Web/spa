@@ -34,7 +34,7 @@ Route::get('/clear', function () {
 });
 
 #### Index Home ####
-Route::get('Home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 #### About Us ####
 Route::get('about_us', [AboutUsController::class, 'index'])->name('about_us');
