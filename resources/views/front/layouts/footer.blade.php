@@ -21,15 +21,19 @@
         <div class="row mt_20 xs_mt_10 pb_80 xs_pb_35 md_padding justify-content-between">
             <div class="col-xl-3 col-md-6 col-lg-4">
                 <div class="tf__footer_logo_area">
-                    <a class="footer_logo" href="index.html">
-                        <img src="{{ asset('assets/front') }}/images/footer_logo.png" alt="alia" class="img-fluid w-100">
+                    <a class="footer_logo" href="{{ route('home') }}">
+                        <img src="{{ asset('assets/front') }}/images/footer_logo.png" alt="alia"
+                            class="img-fluid w-100">
                     </a>
                     <ul class="d-flex flex-wrap mt-4">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                        <li><a href="{{ $settings->social_links['facebook'] }}"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li><a href="{{ $settings->social_links['linkedin'] }}"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li><a href="{{ $settings->social_links['twitter'] }}"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="{{ $settings->social_links['pinterest'] }}"><i class="fab fa-pinterest-p"></i></a>
+                        </li>
+                        <li><a href="{{ $settings->social_links['behance'] }}"><i class="fab fa-behance"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -37,11 +41,9 @@
                 <div class="tf__footer_link">
                     <h4>Our Services</h4>
                     <ul>
-                        <li><a href="#">Facials</a></li>
-                        <li><a href="#">Waxing</a></li>
-                        <li><a href="#">Message</a></li>
-                        <li><a href="#">Mineral Baths</a></li>
-                        <li><a href="#">Body Treatments</a></li>
+                        @foreach ($categories as $category)
+                            <li><a href="{{ route('getSingleService', $category->id) }}">{{ $category->title }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -60,9 +62,9 @@
             <div class="col-xl-3 col-md-6 col-lg-4 order-lg-4">
                 <div class="tf__footer_link">
                     <h4>Contact Us</h4>
-                    <p><i class="fas fa-phone-alt"></i>+201001003394</p>
-                    <p><i class="fas fa-envelope"></i> alia@example.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 314 el horreya road cleopatra,cairo</p>
+                    <p><i class="fas fa-phone-alt"></i>{{ $settings->phone }}</p>
+                    <p><i class="fas fa-envelope"></i> {{ $settings->email }}</p>
+                    <p><i class="fas fa-map-marker-alt"></i> {{ $settings->address }}</p>
                 </div>
             </div>
         </div>
@@ -79,13 +81,12 @@
     </div>
 </footer>
 
-    <!--=========================
+<!--=========================
         SCROLL BUTTON START
     ===========================-->
-    <div class="tf__scroll_btn">
-        <span><i class="fas fa-arrow-alt-up"></i></span>
-    </div>
-    <!--==========================
+<div class="tf__scroll_btn">
+    <span><i class="fas fa-arrow-alt-up"></i></span>
+</div>
+<!--==========================
         SCROLL BUTTON END
     ===========================-->
-
