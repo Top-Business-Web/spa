@@ -35,29 +35,29 @@
                     <div class="tf__contact_info" style="height: 215px;">
                         <span><i class="fas fa-map-marker-alt"></i></span>
                         <h3>Our Location</h3>
-                        <p>314 el horreya road cleopatra,cairo</p>
+                        <p>{{ $settings->address }}</p>
                     </div>
                 </div>
                 <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__contact_info" style="height: 215px;">
                         <span><i class="fas fa-envelope"></i></span>
                         <h3>Email Us</h3>
-                        <a href="mailto:support@yourdomain.com">alia@example.com</a>
+                        <a href="mailto:support@yourdomain.com">{{ $settings->email }}</a>
                     </div>
                 </div>
                 <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__contact_info" style="height: 215px;">
                         <span><i class="fas fa-phone-alt"></i></span>
                         <h3>Call Us</h3>
-                        <a href="callto:+201001003394"> +201001003394</a>
+                        <a href="callto:{{ $settings->phone }}"> {{ $settings->phone }}</a>
                     </div>
                 </div>
                 <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__contact_info" style="height: 215px;">
                         <span><i class="fas fa-clock"></i></span>
                         <h3>Working Hours</h3>
-                        <p>Satday to Friday :</p>
-                        <p>09:00am - 10:00pm</p>
+                        <p>Satrday to Friday :</p>
+                        <p>{{ $settings->work_hours }}</p>
                     </div>
                 </div>
             </div>
