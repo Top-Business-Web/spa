@@ -30,7 +30,7 @@ class GellaryController extends Controller
                 })
                 ->editColumn('image', function ($gellaries) {
                     return '
-                    <img alt="image" onclick="window.open(this.src)" class="avatar avatar-md rounded-circle" src="' . asset('uploads/admins/gellary/' . $gellaries->image) . '">
+                    <img alt="image" onclick="window.open(this.src)" class="avatar avatar-md rounded-circle" src="' . asset($gellaries->image) . '">
                     ';
                 })
                 ->escapeColumns([])
@@ -59,6 +59,7 @@ class GellaryController extends Controller
                 $inputs['image'] = $this->saveImage($request->file('image'), 'uploads/admins/galleries');
             }
 
+            // Correct the model name to "Gallery"
             $gallery = Gellary::create($inputs);
 
             return response()->json(['status' => 200]);
@@ -74,7 +75,7 @@ class GellaryController extends Controller
         $imageName = $image->getClientOriginalName();
         $image->move($destination, $imageName);
 
-        return $imageName;
+        return $destination . '/' . $imageName; // Return the full image path
     }
     // Save Image
 
@@ -85,6 +86,7 @@ class GellaryController extends Controller
     }
     // end  of edit
 
+    // end  of Update
     public function update(GalleriesUpdateRequest $request, Gellary $gellary)
     {
         try {
@@ -96,7 +98,6 @@ class GellaryController extends Controller
                     unlink(public_path('uploads/admins/gellary/') . $gellary->image);
                 }
                 $inputs['image'] = $this->saveImage($request->file('image'), 'uploads/admins/gellary');
-
             } else {
                 unset($inputs['image']);
             }
@@ -106,8 +107,9 @@ class GellaryController extends Controller
             return response()->json(['status' => 405]);
         }
     }
+    // end  of Update
 
-
+    // end  of delete
     public function destroy(Request $request)
     {
         $contact_us = Gellary::where('id', $request->id)->first();

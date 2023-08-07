@@ -16,16 +16,40 @@ class GellariesSeeder extends Seeder
     {
         $data = [
             [
-                'title' => 'Massage',
-                'image' => '1.jpg'
+                'title' => 'Faciale Massage',
+                'image' => 'uploads/admins/galleries/gallery_img_1.jpg'
             ],
             [
-                'title' => 'Massage Oil',
-                'image' => '2.jpg'
+                'title' => 'Faciale Massage',
+                'image' => 'uploads/admins/galleries/gallery_img_2.jpg'
             ],
             [
-                'title' => 'Massage Rock',
-                'image' => '3.jpg'
+                'title' => 'Faciale Massage',
+                'image' => 'uploads/admins/galleries/gallery_img_3.jpg'
+            ],
+            [
+                'title' => 'Faciale Massage',
+                'image' => 'uploads/admins/galleries/gallery_img_4.jpg'
+            ],
+            [
+                'title' => 'Faciale Massage',
+                'image' => 'uploads/admins/galleries/gallery_img_5.jpg'
+            ],
+            [
+                'title' => 'Faciale Massage',
+                'image' => 'uploads/admins/galleries/gallery_img_6.jpg'
+            ],
+            [
+                'title' => 'Faciale Massage',
+                'image' => 'uploads/admins/galleries/gallery_img_7.jpg'
+            ],
+            [
+                'title' => 'Faciale Massage',
+                'image' => 'uploads/admins/galleries/gallery_img_8.jpg'
+            ],
+            [
+                'title' => 'Faciale Massage',
+                'image' => 'uploads/admins/galleries/gallery_img_1.jpg'
             ],
         ];
         DB::table('gellaries')->insert($data);
