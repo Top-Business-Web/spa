@@ -1,7 +1,7 @@
-/* 
+/*
 ***************************************
 Template Name: BonFax || Spa Salon - (22 Page) HTML Template
-Author: ThemeFax 
+Author: ThemeFax
 Author Email: themefaxbd@gmail.com
 website: http://www.themefax.com/
 Version: 1.0
@@ -11,9 +11,9 @@ Description: BonFax is a library for Spa and Beauty with predefined web elements
 
 CSS INDEX
 ===================================
-01. GLOBAL CSS 
+01. GLOBAL CSS
 02. HOME PAGE
-03. HOME PAGE 2 
+03. HOME PAGE 2
 04. ABOUT US PAGE
 05. BLOG DETAILS PAGE
 06. CONTACT US PAGE
@@ -38,6 +38,11 @@ a {
     margin: 0;
     padding: 0;
 }
+
+.gallery-item.hidden {
+    display: none;
+}
+
 
 ul,
 ol,
