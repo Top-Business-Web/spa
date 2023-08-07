@@ -1,3 +1,6 @@
+<?php
+   $categories = \App\Models\Category::get('title');
+?>
 <div class="wsus__reservation">
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -15,11 +18,9 @@
                         <input class="reservation_input" name="address" type="text" placeholder="address">
                         <select class="reservation_input form-control" name="service" id="select_js">
                             <option value="">select service</option>
-                            <option value="Facial Therapy">Facial Therapy</option>
-                            <option value="Candle Message">Candle Message</option>
-                            <option value="Stone Spa">Stone Spa</option>
-                            <option value="Body Treatments">Body Treatments</option>
-                            <option value="Aroma Therapy">Aroma Therapy</option>
+                            @foreach($categories as $category)
+                            <option value="{{ $category->title }}">{{ $category->title }}</option>
+                            @endforeach
                         </select>
                         <input class="reservation_input" name="date" type="date">
                         <select class="reservation_input form-control" name="time" id="select_js2">
