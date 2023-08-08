@@ -56,11 +56,14 @@
                     <div class="tf__contact_info" style="height: 215px;">
                         <span><i class="fas fa-clock"></i></span>
                         <h3>Working Hours</h3>
+
                         <p>Satrday to Friday :</p>
                         <p>{{ $settings->work_hours }}</p>
                     </div>
+
                 </div>
             </div>
+            <!-- vendor -->
             <div class="row mt_120 xs_mt_70">
                 <div class="col-xl-5 wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__contact_map">

@@ -30,7 +30,6 @@
         =====================================-->
     <section class="tf__gallery_page mt_95 xs_mt_45">
         <div class="container">
-            ode
 <div class="row">
     @foreach ($gellaries as $index => $gellary)
         <div class="col-lg-4 col-sm-6 wow fadeInUp gallery-item {{ $index >= 9 ? 'hidden' : '' }}" data-wow-duration="1s">
