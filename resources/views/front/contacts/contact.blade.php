@@ -1,9 +1,10 @@
 @extends('front.layouts.master')
 @section('content')
     <!--=====================================
-            BREADCRUMB START
-        =====================================-->
-    <section class="tf__breadcrumb" style="background: url('assets/front/images/breadcrumb_bg.jpg');">
+                    BREADCRUMB START
+                =====================================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <section class="tf__breadcrumb" style="background: url('{{ asset($settings->banner) }}');">
         <div class="tf__breadcrumb_overlay">
             <div class="container">
                 <div class="row">
@@ -21,13 +22,13 @@
         </div>
     </section>
     <!--=====================================
-            BREADCRUMB END
-        =====================================-->
+                    BREADCRUMB END
+                =====================================-->
 
 
     <!--=====================================
-            CONTACT US START
-        =====================================-->
+                    CONTACT US START
+                =====================================-->
     <section class="tf__contact mt_95 xs_mt_45">
         <div class="container">
             <div class="row">
@@ -35,30 +36,36 @@
                     <div class="tf__contact_info" style="height: 215px;">
                         <span><i class="fas fa-map-marker-alt"></i></span>
                         <h3>Our Location</h3>
-                        <p>314 el horreya road cleopatra,cairo</p>
+                        <p>{{ $settings->address }}</p>
                     </div>
                 </div>
                 <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__contact_info" style="height: 215px;">
                         <span><i class="fas fa-envelope"></i></span>
                         <h3>Email Us</h3>
-                        <a href="mailto:support@yourdomain.com">alia@example.com</a>
+                        <a href="mailto:support@yourdomain.com">{{ $settings->email }}</a>
                     </div>
                 </div>
                 <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__contact_info" style="height: 215px;">
                         <span><i class="fas fa-phone-alt"></i></span>
                         <h3>Call Us</h3>
-                        <a href="callto:+201001003394"> +201001003394</a>
+                        <a href="callto:{{ $settings->phone }}"> {{ $settings->phone }}</a>
                     </div>
                 </div>
                 <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__contact_info" style="height: 215px;">
                         <span><i class="fas fa-clock"></i></span>
                         <h3>Working Hours</h3>
+<<<<<<<<< Temporary merge branch 1
+                        <p>Satrday to Friday :</p>
+                        <p>{{ $settings->work_hours }}</p>
+                    </div>
+=========
                         <p>Satday to Friday :</p>
                         <p>09:00am - 10:00pm</p>
                      </div>
+>>>>>>>>> Temporary merge branch 2
                 </div>
             </div>
             <!-- vendor -->
@@ -72,24 +79,24 @@
                     </div>
                 </div>
                 <div class="col-lg-7 m-auto wow fadeInUp" data-wow-duration="1s">
-                    <form class="tf__contact_form">
+                    <form class="tf__contact_form contactForm" id="contactForm">
                         <h2>Do You have Any Questions?</h2>
                         <div class="row">
                             <div class="col-xl-6">
-                                <input type="text" placeholder="Your Name">
+                                <input type="text" name="name" placeholder="Your Name" required>
                             </div>
                             <div class="col-xl-6">
-                                <input type="email" placeholder="Your Email">
+                                <input type="email" name="email" placeholder="Your Email" required>
                             </div>
                             <div class="col-xl-6">
-                                <input type="text" placeholder="Your Phone">
+                                <input type="text" name="phone" placeholder="Your Phone" required>
                             </div>
                             <div class="col-xl-6">
-                                <input type="text" placeholder="Subject">
+                                <input type="text" name="subject" placeholder="Subject" required>
                             </div>
                             <div class="col-xl-12">
-                                <textarea rows="7" placeholder="Write something Here"></textarea>
-                                <button type="submit" class="common_btn">Send Message</button>
+                                <textarea rows="7" name="description" placeholder="Write something Here" required></textarea>
+                                <button type="button" class="common_btn">Send Message</button>
                             </div>
                         </div>
                     </form>
@@ -98,6 +105,49 @@
         </div>
     </section>
     <!--=====================================
-            CONTACT US END
-        =====================================-->
+                    CONTACT US END
+                =====================================-->
 @endsection
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+    $(document).ready(function(e) {
+        $(document).on('click', '.common_btn', function() {
+            var formData = new FormData(document.getElementById("contactForm"));
+            formData.append('_token', "{{ csrf_token() }}"); // Add CSRF token
+            $.ajax({
+                method: 'POST',
+                data: formData,
+                url: "{{ route('contact.store') }}",
+                beforeSend: function() {
+                    $('.load-contact').html('Loading ... ');
+                },
+                success: function(data) {
+                    if (data.status === 200) {
+                        toastr.success('Message sent successfully');
+                        $('#contactForm input, #contactForm textarea').val('');
+                        $('.load-contact').html('');
+                    }
+                },
+                error: function(data) {
+                    if (data.status === 500) {
+                        toastr.error('Error sending message');
+                    } else if (data.status === 422) {
+                        var errors = $.parseJSON(data.responseText);
+                        $.each(errors, function(key, value) {
+                            if ($.isPlainObject(value)) {
+                                $.each(value, function(key, value) {
+                                    toastr.error('' + value);
+                                });
+                            }
+                        });
+                        $('.load-contact').html('Error');
+                    }
+                },
+                cache: false,
+                processData: false,
+                contentType: false
+            });
+        });
+    });
+</script>

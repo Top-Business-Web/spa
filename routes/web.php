@@ -52,6 +52,8 @@ Route::get('galleries', [GalleryController::class, 'index'])->name('galleries');
 
 #### Contacts ####
 Route::get('contacts', [ContatcController::class, 'index'])->name('contacts');
+Route::post('/contact/store', [ContatcController::class, 'storeContact'])->name('contact.store');
+
 
 #### Faqs ####
 Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
