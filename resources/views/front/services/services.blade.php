@@ -1,12 +1,9 @@
 @extends('front.layouts.master')
 @section('content')
-
-
-
     <!--=====================================
-        BREADCRUMB START
-    =====================================-->
-    <section class="tf__breadcrumb" style="background: url('assets/front/images/breadcrumb_bg.jpg');">
+                                                    BREADCRUMB START
+                                                =====================================-->
+    <section class="tf__breadcrumb" style="background: url('{{ asset($settings->banner) }}');">
         <div class="tf__breadcrumb_overlay">
             <div class="container">
                 <div class="row">
@@ -14,7 +11,7 @@
                         <div class="tf__breadcrumb_text">
                             <h1>our services</h1>
                             <ul>
-                                <li><a href="#"><i class="fas fa-home"></i> home</a></li>
+                                <li><a href="{{ route('home') }}"><i class="fas fa-home"></i> home</a></li>
                                 <li><a href="#">services</a></li>
                             </ul>
                         </div>
@@ -24,13 +21,13 @@
         </div>
     </section>
     <!--=====================================
-        BREADCRUMB END
-    =====================================-->
+                                                    BREADCRUMB END
+                                                =====================================-->
 
 
     <!--=====================================
-        SERVICES PAGE START
-    =====================================-->
+                                                    SERVICES PAGE START
+                                                =====================================-->
     <section class="tf__services_page mt_95 xs_mt_45">
         <div class="container">
             <div class="row">
@@ -42,124 +39,52 @@
                 </div>
             </div>
             <ul class="services-list list-unstyled d-flex justify-content-center mb-3 mt-4">
-                <li data-list=".spa" class="active">SPA</li>
-                <li data-list=".salon">SALON</li>
-              </ul>
-            <div class="row">
-                <div class="col-lg-6 wow fadeInUp salon" data-wow-duration="1s">
-                    <div class="tf__services_item">
-                        <div class="tf__services_img">
-                            <img src="{{ asset('assets/front') }}/images/service_img_1.jpg" alt="services" class="img-fluid w-100">
-                        </div>
-                        <div class="tf__services_text d-flex flex-column justify-content-between">
-                            <div>
-                                <a class="title" href="service_details.html">Massage</a>
-                            <p>Duis aute irure dolor in reprehenderit into volupjl
-                                tate velit esse cillum dolore eu fugiat nulla partr
-                                iatur sunt in culp qui officia deserunt mollit</p>
-                            </div>
-                            <div class="tf__services_btn_area">
-                                <a class="read_btn" href="service_details.html">read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp spa" data-wow-duration="1s">
-                    <div class="tf__services_item">
-                        <div class="tf__services_img">
-                            <img src="{{ asset('assets/front') }}/images/service_img_2.jpg" alt="services" class="img-fluid w-100">
-                        </div>
-                        <div class="tf__services_text d-flex flex-column justify-content-between">
-                            <div>
-                                <a class="title" href="service_details.html">Candle Message </a>
-                            <p>Duis aute irure dolor in reprehenderit into volupjl
-                                tate velit esse cillum dolore eu fugiat nulla partr
-                                iatur sunt in culp qui officia deserunt mollit</p>
-                            </div>
-                            <div class="tf__services_btn_area">
-                                <a class="read_btn" href="service_details.html">read more</a>
+                @foreach ($services as $service)
+                    <li data-service="{{ $service->title }}" class="service-item active">{{ $service->title }}</li>
+                @endforeach
+            </ul>
+            <div id="service-items-container" class="row">
+                @foreach ($services as $service)
+                    @foreach ($service->category as $categ)
+                        <div class="col-lg-6 wow fadeInUp salon service-item {{ $service->title }}-item"
+                            data-service="{{ $service->title }}" data-category="{{ $categ->title }}" data-wow-duration="1s">
+                            <div class="tf__services_item">
+                                <div class="tf__services_img">
+                                    <img src="{{ asset($categ->image) }}" alt="services" class="img-fluid w-100">
+                                </div>
+                                <div class="tf__services_text d-flex flex-column justify-content-between">
+                                    <div>
+                                        <a class="title"
+                                            href="{{ route('getSingleService', $categ->id) }}">{{ $categ->title }}</a>
+                                        <p>{{ $categ->description }}</p>
+                                    </div>
+                                    <div class="tf__services_btn_area">
+                                        <a class="read_btn" href="{{ route('getSingleService', $categ->id) }}">read
+                                            more</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp spa" data-wow-duration="1s">
-                    <div class="tf__services_item">
-                        <div class="tf__services_img">
-                            <img src="{{ asset('assets/front') }}/images/service_img_3.jpg" alt="services" class="img-fluid w-100">
-                        </div>
-                        <div class="tf__services_text d-flex flex-column justify-content-between">
-                            <div>
-                                <a class="title" href="service_details.html">Stone Spa </a>
-                            <p>Duis aute irure dolor in reprehenderit into volupjl
-                                tate velit esse cillum dolore eu fugiat nulla partr
-                                iatur sunt in culp qui officia deserunt mollit</p>
-                            </div>
-                            <div class="tf__services_btn_area">
-                                <a class="read_btn" href="service_details.html">read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp spa" data-wow-duration="1s">
-                    <div class="tf__services_item">
-                        <div class="tf__services_img">
-                            <img src="{{ asset('assets/front') }}/images/service_img_4.jpg" alt="services" class="img-fluid w-100">
-                        </div>
-                        <div class="tf__services_text d-flex flex-column justify-content-between">
-                            <div>
-                                <a class="title" href="service_details.html">Body Treatments</a>
-                            <p>Duis aute irure dolor in reprehenderit into volupjl
-                                tate velit esse cillum dolore eu fugiat nulla partr
-                                iatur sunt in culp qui officia deserunt mollit</p>
-                            </div>
-                            <div class="tf__services_btn_area">
-                                <a class="read_btn" href="service_details.html">read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp salon" data-wow-duration="1s">
-                    <div class="tf__services_item">
-                        <div class="tf__services_img">
-                            <img src="{{ asset('assets/front') }}/images/service_img_5.jpg" alt="services" class="img-fluid w-100">
-                        </div>
-                        <div class="tf__services_text d-flex flex-column justify-content-between">
-                            <div>
-                                <a class="title" href="service_details.html">Aroma Therapy</a>
-                            <p>Duis aute irure dolor in reprehenderit into volupjl
-                                tate velit esse cillum dolore eu fugiat nulla partr
-                                iatur sunt in culp qui officia deserunt mollit</p>
-                            </div>
-                            <div class="tf__services_btn_area">
-                                <a class="read_btn" href="service_details.html">read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp spa" data-wow-duration="1s">
-                    <div class="tf__services_item">
-                        <div class="tf__services_img">
-                            <img src="{{ asset('assets/front') }}/images/service_img_6.jpg" alt="services" class="img-fluid w-100">
-                        </div>
-                        <div class="tf__services_text d-flex flex-column justify-content-between">
-                            <div>
-                                <a class="title" href="service_details.html">Sauna Relax</a>
-                            <p>Duis aute irure dolor in reprehenderit into volupjl
-                                tate velit esse cillum dolore eu fugiat nulla partr
-                                iatur sunt in culp qui officia deserunt mollit</p>
-                            </div>
-                            <div class="tf__services_btn_area">
-                                <a class="read_btn" href="service_details.html">read more</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endforeach
             </div>
         </div>
     </section>
     <!--=====================================
-        SERVICES PAGE END
-    =====================================-->
-
+                                                    SERVICES PAGE END
+                                                =====================================-->
 @endsection
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // jQuery code to handle category filtering based on selected service
+    $(document).ready(function() {
+        $('.service-item').click(function() {
+            $('.service-item').removeClass('active');
+            $(this).addClass('active');
+            var selectedService = $(this).data('service');
+
+            $('.salon').hide();
+            $('.' + selectedService + '-item').show();
+        });
+    });
+</script>

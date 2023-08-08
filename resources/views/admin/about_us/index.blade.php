@@ -23,10 +23,11 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="name" class="form-control-label">Images</label>
-                                <input type="file" class="dropify" name="images[]" multiple
-                                    data-default-file=""
+                                <input type="file" class="dropify" name="images[]" multiple="multiple"
+                                    data-default-file="{{ asset($about_us->images[0]) }}"
                                     accept="image/png,image/webp , image/gif, image/jpeg,image/jpg" />
-                                <span class="form-text text-danger text-center">Only the following formats are allowed: png, gif, jpeg,
+                                <span class="form-text text-danger text-center">Only the following formats are allowed: png,
+                                    gif, jpeg,
                                     jpg,webp</span>
                             </div>
                         </div>
@@ -35,13 +36,15 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="top_title">Top Title :</label>
-                                <input type="text" name="top_title" value="{{ $about_us->top_title }}" class="form-control" />
+                                <input type="text" name="top_title" value="{{ $about_us->top_title }}"
+                                    class="form-control" />
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="down_title">Down Title :</label>
-                                <input type="text" name="down_title" value="{{ $about_us->down_title }}" class="form-control" />
+                                <input type="text" name="down_title" value="{{ $about_us->down_title }}"
+                                    class="form-control" />
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -55,13 +58,13 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="desc_ar">Top Description :</label>
-                                <textarea name="top_description" rows="8" class="form-control">{{ $about_us->top_description }}</textarea>
+                                <textarea name="top_description" rows="8" class="form-control ckeditor">{!! $about_us->top_description !!}</textarea>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="desc_en">Down Description :</label>
-                                <textarea name="down_description" rows="8" class="form-control">{{ $about_us->down_description }}</textarea>
+                                <textarea name="down_description" rows="8" class="form-control ckeditor">{!! $about_us->down_description !!}</textarea>
                             </div>
                         </div>
                     </div>
@@ -77,5 +80,12 @@
 @section('ajaxCalls')
     <script>
         editScript();
+        document.querySelectorAll('.ckeditor').forEach((textarea) => {
+            ClassicEditor
+                .create(textarea)
+                .catch(error => {
+                    console.error(error);
+                });
+        });
     </script>
 @endsection
