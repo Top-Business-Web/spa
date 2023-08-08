@@ -1,9 +1,9 @@
 @extends('front.layouts.master')
 @section('content')
     <!--=====================================
-                                                BREADCRUMB START
-                                            =====================================-->
-    <section class="tf__breadcrumb" style="background: url('assets/front/images/breadcrumb_bg.jpg');">
+                                                    BREADCRUMB START
+                                                =====================================-->
+    <section class="tf__breadcrumb" style="background: url('{{ asset($settings->banner) }}');">
         <div class="tf__breadcrumb_overlay">
             <div class="container">
                 <div class="row">
@@ -21,13 +21,13 @@
         </div>
     </section>
     <!--=====================================
-                                                BREADCRUMB END
-                                            =====================================-->
+                                                    BREADCRUMB END
+                                                =====================================-->
 
 
     <!--=====================================
-                                                SERVICES PAGE START
-                                            =====================================-->
+                                                    SERVICES PAGE START
+                                                =====================================-->
     <section class="tf__services_page mt_95 xs_mt_45">
         <div class="container">
             <div class="row">
@@ -71,23 +71,19 @@
         </div>
     </section>
     <!--=====================================
-                                                SERVICES PAGE END
-                                            =====================================-->
+                                                    SERVICES PAGE END
+                                                =====================================-->
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+    // jQuery code to handle category filtering based on selected service
     $(document).ready(function() {
-        $('.service-item').on('click', function() {
-            // Toggle the 'checked' class for the clicked service item
-            $(this).toggleClass('checked');
-
-            // Get the selected service
+        $('.service-item').click(function() {
+            $('.service-item').removeClass('active');
+            $(this).addClass('active');
             var selectedService = $(this).data('service');
 
-            // Hide all service items except the selected service
-            $('.service-item:not([data-service="' + selectedService + '"])').hide();
-
-            // Show service items related to the selected service
+            $('.salon').hide();
             $('.' + selectedService + '-item').show();
         });
     });
