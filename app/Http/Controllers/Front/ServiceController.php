@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Page;
+use App\Models\Review;
 
 class ServiceController extends Controller
 {
@@ -29,5 +30,16 @@ class ServiceController extends Controller
             ->where('top', 1)
             ->latest()->take(6)->get();
         return view('front.services.service_details', compact('page', 'allCategories', 'relatedCategories'));
+    }
+
+    public function storeReview(Request $request)
+    {
+        $inputs = $request->all();
+
+        if (Review::create($inputs)) {
+            return response()->json(['status' => 200]);
+        } else {
+            return response()->json(['status' => 405]);
+        }
     }
 }

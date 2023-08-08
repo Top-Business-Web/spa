@@ -1,8 +1,10 @@
 @extends('front.layouts.master')
 @section('content')
     <!--=====================================
-                    BREADCRUMB START
-                =====================================-->
+                                                                                    BREADCRUMB START
+                                                                                =====================================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <section class="tf__breadcrumb" style="background: url('{{ asset($settings->banner) }}');">
         <div class="tf__breadcrumb_overlay">
             <div class="container">
@@ -21,13 +23,13 @@
         </div>
     </section>
     <!--=====================================
-                    BREADCRUMB END
-                =====================================-->
+                                                                                    BREADCRUMB END
+                                                                                =====================================-->
 
 
     <!--=====================================
-                    SERVICE DETAILS START
-                =====================================-->
+                                                                                    SERVICE DETAILS START
+                                                                                =====================================-->
     <section class="tf__services_details mt_120 xs_mt_70">
         <div class="container">
             <div class="row">
@@ -166,11 +168,11 @@
                                     <div class="review_text">
                                         <h4>Arlene Mcoy <span>17 dec 2022</span></h4>
                                         <p class="review_star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
                                             <span>(120)</span>
                                         </p>
                                         <p class="description">Duis aute irure dolor in reprehenderitin voluptate velit
@@ -227,27 +229,34 @@
 
                     <div class="tf__service_review_input mt_50">
                         <h3>Leave a review</h3>
-                        <p>Select Your Rating :
-                            <span>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </span>
-                        </p>
-                        <form class="row">
-                            <div class="col-xl-6">
-                                <input type="text" placeholder="Your Name" required>
-                            </div>
-                            <div class="col-xl-6">
-                                <input type="email" placeholder="Your Email" required>
+                        <form class="tf__contact_form reviewForm" id="reviewForm">
+                            @csrf
+                            <input type="hidden" name="page_id" value="{{ $page->id }}" id="">
+                            <input type="hidden" name="rate" value="" id="hiddenRating">
+                            <style>
+
+                            </style>
+                            <p>Select Your Rating :
+                                <span class="star far fa-star" onclick="rate(1)"></span>
+                                <span class="star far fa-star" onclick="rate(2)"></span>
+                                <span class="star far fa-star" onclick="rate(3)"></span>
+                                <span class="star far fa-star" onclick="rate(4)"></span>
+                                <span class="star far fa-star" onclick="rate(5)"></span>
+                            <p id="ratingMessage">Please rate:</p>
+                            </p>
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <input type="text" name="name" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-xl-6">
+                                    <input type="email" name="email" placeholder="Your Email" required>
+                                </div>
                             </div>
                             <div class="col-12">
-                                <textarea rows="7" placeholder="Write Something Here" required></textarea>
+                                <textarea rows="7" name="description" placeholder="Write Something Here" required></textarea>
                             </div>
                             <div class="col-12 mt-3">
-                                <button type="submit" class="common_btn">Submit Now</button>
+                                <button type="button" class="common_btn">Submit Now</button>
                             </div>
                         </form>
                     </div>
@@ -303,11 +312,13 @@
                                 </div>
                                 <div class="tf__services_text d-flex flex-column justify-content-between">
                                     <div>
-                                        <a class="title" href="{{ route('getSingleService', $relatedCategory->id) }}">{{ $relatedCategory->title }}</a>
+                                        <a class="title"
+                                            href="{{ route('getSingleService', $relatedCategory->id) }}">{{ $relatedCategory->title }}</a>
                                         <p>{{ $relatedCategory->description }}</p>
                                     </div>
                                     <div class="tf__services_btn_area">
-                                        <a class="read_btn" href="{{ route('getSingleService', $relatedCategory->id) }}">read more</a>
+                                        <a class="read_btn"
+                                            href="{{ route('getSingleService', $relatedCategory->id) }}">read more</a>
                                     </div>
                                 </div>
                             </div>
@@ -350,32 +361,70 @@
         </div>
     </div>
     <!--=====================================
-                    SERVICE DETAILS END
-                =====================================-->
+                                                                                    SERVICE DETAILS END
+                                                                                =====================================-->
 @endsection
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#searchForm').submit(function(e) {
-            e.preventDefault();
+    $(document).ready(function(e) {
+        $(document).on('click', '.common_btn', function() {
+            var formData = new FormData(document.getElementById("reviewForm"));
+            $.ajax({
+                method: 'POST',
+                data: formData,
+                url: "{{ route('review.store') }}",
+                beforeSend: function() {
+                    $('.load-contact').html('Loading ... ');
+                },
+                success: function(data) {
+                    if (data.status === 200) {
+                        toastr.success('Message sent successfully');
+                        $('#contactForm input, #contactForm textarea').val('');
+                        $('.load-contact').html('');
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000);
+                    }
+                },
 
-            var searchTerm = $('#searchInput').val();
-            searchCategories(searchTerm);
+                error: function(data) {
+                    if (data.status === 500) {
+                        toastr.error('Error sending message');
+                    } else if (data.status === 422) {
+                        var errors = $.parseJSON(data.responseText);
+                        $.each(errors, function(key, value) {
+                            if ($.isPlainObject(value)) {
+                                $.each(value, function(key, value) {
+                                    toastr.error('' + value);
+                                });
+                            }
+                        });
+                        $('.load-contact').html('Error');
+                    }
+                },
+                cache: false,
+                processData: false,
+                contentType: false
+            });
         });
     });
 
-    function searchCategories(searchTerm) {
-        $.ajax({
-            url: '{{ route('searchCategory') }}', // Update this with your route to the controller method
-            method: 'GET',
-            data: {
-                query: searchTerm
-            },
-            success: function(response) {
-                $('#searchResults').html(response);
-            },
-            error: function(error) {
-                console.error('Error:', error);
-            }
-        });
+    let currentRating = 0;
+    const hiddenRatingInput = document.getElementById('hiddenRating');
+
+    function rate(rating) {
+        currentRating = rating;
+        updateRatingMessage();
+        updateHiddenInput();
+    }
+
+    function updateRatingMessage() {
+        const ratingMessage = document.getElementById('ratingMessage');
+        ratingMessage.textContent = `You rated: ${currentRating} stars`;
+    }
+    
+    function updateHiddenInput() {
+        document.getElementById('hiddenRating').setAttribute('value', currentRating)
     }
 </script>
