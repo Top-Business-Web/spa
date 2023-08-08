@@ -57,9 +57,15 @@
                     <div class="tf__contact_info" style="height: 215px;">
                         <span><i class="fas fa-clock"></i></span>
                         <h3>Working Hours</h3>
+<<<<<<<<< Temporary merge branch 1
                         <p>Satrday to Friday :</p>
                         <p>{{ $settings->work_hours }}</p>
                     </div>
+=========
+                        <p>Satday to Friday :</p>
+                        <p>09:00am - 10:00pm</p>
+                     </div>
+>>>>>>>>> Temporary merge branch 2
                 </div>
             </div>
             <!-- vendor -->
