@@ -50,13 +50,11 @@ class AboutUsController extends Controller
         }
     }
 
-
-
     protected function uploadNewImages(AboutUsUpdateRequest $request): array
     {
         $images = [];
-        foreach ($request->file('images') as $image) {
-            $imagePath = $this->saveImage($image, 'uploads/admins/about_us', 'photo');
+        foreach ($request->file('images') as $index => $image) {
+            $imagePath = $this->saveImage($image, 'uploads/admins/about_us', 'photo_' . $index);
             $images[] = $imagePath; // Save the image path instead of image name
         }
         return $images;
@@ -65,7 +63,7 @@ class AboutUsController extends Controller
     protected function saveImage(UploadedFile $image, string $path, string $filename): string
     {
         $extension = $image->getClientOriginalExtension();
-        $imageName = $filename . '_' . time() . '.' . $extension;
+        $imageName = $filename . '.' . $extension;
         $image->move(public_path($path), $imageName);
         return $path . '/' . $imageName; // Return the full image path
     }

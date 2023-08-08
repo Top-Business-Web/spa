@@ -34,13 +34,14 @@ Route::get('/clear', function () {
 });
 
 #### Index Home ####
-Route::get('Home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 #### About Us ####
 Route::get('about_us', [AboutUsController::class, 'index'])->name('about_us');
 
 #### Services ####
 Route::get('services', [ServiceController::class, 'index'])->name('services');
+Route::get('/search', [ServiceController::class, 'search'])->name('searchCategory');
 
 Route::get('services/category/page/{category}', [ServiceController::class, 'getSingleService'])->name('getSingleService');
 
@@ -48,8 +49,11 @@ Route::get('services/category/page/{category}', [ServiceController::class, 'getS
 #### Galleries ####
 Route::get('galleries', [GalleryController::class, 'index'])->name('galleries');
 
+
 #### Contacts ####
 Route::get('contacts', [ContatcController::class, 'index'])->name('contacts');
+Route::post('/contact/store', [ContatcController::class, 'storeContact'])->name('contact.store');
+
 
 #### Faqs ####
 Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
@@ -59,4 +63,5 @@ Route::get('privacy_policy', [PrivacyPolicyController::class, 'index'])->name('p
 
 #### Terms Condition ####
 Route::get('terms_condition', [TermsConditionController::class, 'index'])->name('terms_condition');
+
 

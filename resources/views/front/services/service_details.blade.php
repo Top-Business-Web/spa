@@ -1,11 +1,9 @@
 @extends('front.layouts.master')
 @section('content')
-
-
     <!--=====================================
-        BREADCRUMB START
-    =====================================-->
-    <section class="tf__breadcrumb" style="background: url('assets/front/images/breadcrumb_bg.jpg');">
+            BREADCRUMB START
+        =====================================-->
+    <section class="tf__breadcrumb" style="background: url('{{ asset($settings->banner) }}');">
         <div class="tf__breadcrumb_overlay">
             <div class="container">
                 <div class="row">
@@ -23,13 +21,13 @@
         </div>
     </section>
     <!--=====================================
-        BREADCRUMB END
-    =====================================-->
+            BREADCRUMB END
+        =====================================-->
 
 
     <!--=====================================
-        SERVICE DETAILS START
-    =====================================-->
+            SERVICE DETAILS START
+        =====================================-->
     <section class="tf__services_details mt_120 xs_mt_70">
         <div class="container">
             <div class="row">
@@ -76,7 +74,8 @@
                             <div class="pb-4">
                                 <div class="tf__single_review">
                                     <div class="review_img">
-                                        <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client" class="img-fluid w-100">
+                                        <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client"
+                                            class="img-fluid w-100">
                                     </div>
                                     <div class="review_text">
                                         <h4>Arlene Mcoy <span>17 dec 2022</span></h4>
@@ -89,13 +88,15 @@
                                             <span>(120)</span>
                                         </p>
                                         <p class="description">Duis aute irure dolor in reprehenderitin voluptate velit
-                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat consectetur
+                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat
+                                            consectetur
                                             adipiscing elit.</p>
                                     </div>
                                 </div>
                                 <div class="tf__single_review">
                                     <div class="review_img">
-                                        <img src="{{ asset('assets/front') }}/images/review_img_4.jpg" alt="Client" class="img-fluid w-100">
+                                        <img src="{{ asset('assets/front') }}/images/review_img_4.jpg" alt="Client"
+                                            class="img-fluid w-100">
                                     </div>
                                     <div class="review_text">
                                         <h4>Marjan Janifa <span>17 dec 2022</span></h4>
@@ -108,13 +109,15 @@
                                             <span>(78)</span>
                                         </p>
                                         <p class="description">Duis aute irure dolor in reprehenderitin voluptate velit
-                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat consectetur
+                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat
+                                            consectetur
                                             adipiscing elit.</p>
                                     </div>
                                 </div>
                                 <div class="tf__single_review">
                                     <div class="review_img">
-                                        <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client" class="img-fluid w-100">
+                                        <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client"
+                                            class="img-fluid w-100">
                                     </div>
                                     <div class="review_text">
                                         <h4>Arlene Mcoy <span>17 dec 2022</span></h4>
@@ -127,13 +130,15 @@
                                             <span>(120)</span>
                                         </p>
                                         <p class="description">Duis aute irure dolor in reprehenderitin voluptate velit
-                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat consectetur
+                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat
+                                            consectetur
                                             adipiscing elit.</p>
                                     </div>
                                 </div>
                                 <div class="tf__single_review">
                                     <div class="review_img">
-                                        <img src="{{ asset('assets/front') }}/images/review_img_2.jpg" alt="Client" class="img-fluid w-100">
+                                        <img src="{{ asset('assets/front') }}/images/review_img_2.jpg" alt="Client"
+                                            class="img-fluid w-100">
                                     </div>
                                     <div class="review_text">
                                         <h4>Savannah Nguyen <span>17 dec 2022</span></h4>
@@ -146,7 +151,8 @@
                                             <span>(20)</span>
                                         </p>
                                         <p class="description">Duis aute irure dolor in reprehenderitin voluptate velit
-                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat consectetur
+                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat
+                                            consectetur
                                             adipiscing elit.</p>
                                     </div>
                                 </div>
@@ -154,7 +160,8 @@
                             <div class="pb-4">
                                 <div class="tf__single_review">
                                     <div class="review_img">
-                                        <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client" class="img-fluid w-100">
+                                        <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client"
+                                            class="img-fluid w-100">
                                     </div>
                                     <div class="review_text">
                                         <h4>Arlene Mcoy <span>17 dec 2022</span></h4>
@@ -167,13 +174,15 @@
                                             <span>(120)</span>
                                         </p>
                                         <p class="description">Duis aute irure dolor in reprehenderitin voluptate velit
-                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat consectetur
+                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat
+                                            consectetur
                                             adipiscing elit.</p>
                                     </div>
                                 </div>
                                 <div class="tf__single_review">
                                     <div class="review_img">
-                                        <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client" class="img-fluid w-100">
+                                        <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client"
+                                            class="img-fluid w-100">
                                     </div>
                                     <div class="review_text">
                                         <h4>Arlene Mcoy <span>17 dec 2022</span></h4>
@@ -186,13 +195,15 @@
                                             <span>(120)</span>
                                         </p>
                                         <p class="description">Duis aute irure dolor in reprehenderitin voluptate velit
-                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat consectetur
+                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat
+                                            consectetur
                                             adipiscing elit.</p>
                                     </div>
                                 </div>
                                 <div class="tf__single_review">
                                     <div class="review_img">
-                                        <img src="{{ asset('assets/front') }}/images/review_img_2.jpg" alt="Client" class="img-fluid w-100">
+                                        <img src="{{ asset('assets/front') }}/images/review_img_2.jpg" alt="Client"
+                                            class="img-fluid w-100">
                                     </div>
                                     <div class="review_text">
                                         <h4>Savannah Nguyen <span>17 dec 2022</span></h4>
@@ -205,7 +216,8 @@
                                             <span>(20)</span>
                                         </p>
                                         <p class="description">Duis aute irure dolor in reprehenderitin voluptate velit
-                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat consectetur
+                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat
+                                            consectetur
                                             adipiscing elit.</p>
                                     </div>
                                 </div>
@@ -225,18 +237,18 @@
                             </span>
                         </p>
                         <form class="row">
-                                <div class="col-xl-6">
-                                    <input type="text" placeholder="Your Name" required>
-                                </div>
-                                <div class="col-xl-6">
-                                    <input type="email" placeholder="Your Email" required>
-                                </div>
-                                <div class="col-12">
-                                    <textarea rows="7" placeholder="Write Something Here" required></textarea>
-                                </div>
-                                <div class="col-12 mt-3">
-                                    <button type="submit" class="common_btn">Submit Now</button>
-                                </div>
+                            <div class="col-xl-6">
+                                <input type="text" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-xl-6">
+                                <input type="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="col-12">
+                                <textarea rows="7" placeholder="Write Something Here" required></textarea>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <button type="submit" class="common_btn">Submit Now</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -244,19 +256,19 @@
                     <div class="tf__service_sidebar" id="sticky_sidebar">
                         <div class="tf__sidebar_search sidebar_item mb_25">
                             <h3>Services Searching</h3>
-                            <form>
-                                <input type="text" placeholder="Search">
+                            <form id="searchForm">
+                                <input type="text" id="searchInput" placeholder="Search">
                                 <button type="submit"><i class="far fa-search"></i></button>
                             </form>
                             <div class="result-search">
-                                <ul>
+                                {{-- <ul>
                                     <li><a href="#">Relaxation massage</a></li>
                                     <li><a href="#">Stress relief massage </a></li>
                                     <li><a href="#">Swedish massage</a></li>
                                     <li><a href="#">Stone massage </a></li>
                                     <li><a href="#">Sport massage</a></li>
                                     <li><a href="#">Reflexology massage </a></li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="tf__sidebar_category sidebar_item mb_25">
@@ -286,14 +298,15 @@
                     <div class="col-xl-6">
                         <div class="tf__services_item">
                             <div class="tf__services_img">
-                                <img src="{{ asset('assets/front') }}/images/service_img_4.jpg" alt="services" class="img-fluid w-100">
+                                <img src="{{ asset('assets/front') }}/images/service_img_4.jpg" alt="services"
+                                    class="img-fluid w-100">
                             </div>
                             <div class="tf__services_text d-flex flex-column justify-content-between">
                                 <div>
                                     <a class="title" href="service_details.html">Body Treatments</a>
-                                <p>Duis aute irure dolor in reprehenderit into volupjl
-                                    tate velit esse cillum dolore eu fugiat nulla partr
-                                    iatur sunt in culp qui officia deserunt mollit</p>
+                                    <p>Duis aute irure dolor in reprehenderit into volupjl
+                                        tate velit esse cillum dolore eu fugiat nulla partr
+                                        iatur sunt in culp qui officia deserunt mollit</p>
                                 </div>
                                 <div class="tf__services_btn_area">
                                     <a class="read_btn" href="service_details.html">read more</a>
@@ -304,14 +317,15 @@
                     <div class="col-xl-6">
                         <div class="tf__services_item">
                             <div class="tf__services_img">
-                                <img src="{{ asset('assets/front') }}/images/service_img_5.jpg" alt="services" class="img-fluid w-100">
+                                <img src="{{ asset('assets/front') }}/images/service_img_5.jpg" alt="services"
+                                    class="img-fluid w-100">
                             </div>
                             <div class="tf__services_text d-flex flex-column justify-content-between">
                                 <div>
                                     <a class="title" href="service_details.html">Aroma Therapy</a>
-                                <p>Duis aute irure dolor in reprehenderit into volupjl
-                                    tate velit esse cillum dolore eu fugiat nulla partr
-                                    iatur sunt in culp qui officia deserunt mollit</p>
+                                    <p>Duis aute irure dolor in reprehenderit into volupjl
+                                        tate velit esse cillum dolore eu fugiat nulla partr
+                                        iatur sunt in culp qui officia deserunt mollit</p>
                                 </div>
                                 <div class="tf__services_btn_area">
                                     <a class="read_btn" href="service_details.html">read more</a>
@@ -322,14 +336,15 @@
                     <div class="col-xl-6">
                         <div class="tf__services_item">
                             <div class="tf__services_img">
-                                <img src="{{ asset('assets/front') }}/images/service_img_6.jpg" alt="services" class="img-fluid w-100">
+                                <img src="{{ asset('assets/front') }}/images/service_img_6.jpg" alt="services"
+                                    class="img-fluid w-100">
                             </div>
                             <div class="tf__services_text d-flex flex-column justify-content-between">
                                 <div>
                                     <a class="title" href="service_details.html">Sauna Relax</a>
-                                <p>Duis aute irure dolor in reprehenderit into volupjl
-                                    tate velit esse cillum dolore eu fugiat nulla partr
-                                    iatur sunt in culp qui officia deserunt mollit</p>
+                                    <p>Duis aute irure dolor in reprehenderit into volupjl
+                                        tate velit esse cillum dolore eu fugiat nulla partr
+                                        iatur sunt in culp qui officia deserunt mollit</p>
                                 </div>
                                 <div class="tf__services_btn_area">
                                     <a class="read_btn" href="service_details.html">read more</a>
@@ -374,7 +389,32 @@
         </div>
     </div>
     <!--=====================================
-        SERVICE DETAILS END
-    =====================================-->
-
+            SERVICE DETAILS END
+        =====================================-->
 @endsection
+<script>
+    $(document).ready(function() {
+        $('#searchForm').submit(function(e) {
+            e.preventDefault();
+
+            var searchTerm = $('#searchInput').val();
+            searchCategories(searchTerm);
+        });
+    });
+
+    function searchCategories(searchTerm) {
+        $.ajax({
+            url: '{{ route('searchCategory') }}', // Update this with your route to the controller method
+            method: 'GET',
+            data: {
+                query: searchTerm
+            },
+            success: function(response) {
+                $('#searchResults').html(response);
+            },
+            error: function(error) {
+                console.error('Error:', error);
+            }
+        });
+    }
+</script>

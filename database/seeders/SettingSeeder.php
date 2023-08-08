@@ -16,7 +16,8 @@ class SettingSeeder extends Seeder
     {
         $data = [
             [
-                'logo' => '1.jpg',
+                'logo' => 'uploads/admins/settings/logo.png',
+                'banner' => 'uploads/admins/settings/blog_2_img_3.jpg',
                 'title' => 'SPA',
                 'address' => 'Cairo',
                 'phone' => '123156452321',
