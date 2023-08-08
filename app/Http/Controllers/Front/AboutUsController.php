@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Http\Controllers\Controller;
+use App\Models\AboutUs;
+use App\Models\Category;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AboutUsController extends Controller
 {
-    public function index()
+    public function index(AboutUs $aboutUsModel): View
     {
-        return view('front.about_us.about');
+        $about_us = $aboutUsModel->first();
+        return view('front.about_us.about', compact('about_us'));
     }
 }
