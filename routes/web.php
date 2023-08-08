@@ -49,6 +49,7 @@ Route::get('services/category/page/{category}', [ServiceController::class, 'getS
 #### Galleries ####
 Route::get('galleries', [GalleryController::class, 'index'])->name('galleries');
 
+
 #### Contacts ####
 Route::get('contacts', [ContatcController::class, 'index'])->name('contacts');
 
@@ -60,4 +61,5 @@ Route::get('privacy_policy', [PrivacyPolicyController::class, 'index'])->name('p
 
 #### Terms Condition ####
 Route::get('terms_condition', [TermsConditionController::class, 'index'])->name('terms_condition');
+
 
