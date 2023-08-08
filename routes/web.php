@@ -47,3 +47,4 @@ Route::get('services', [ServiceController::class, 'index'])->name('services');
 #### Galleries ####
 Route::get('galleries', [GalleryController::class, 'index'])->name('galleries');
 
+
