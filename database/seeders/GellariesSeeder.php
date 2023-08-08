@@ -49,7 +49,7 @@ class GellariesSeeder extends Seeder
             ],
             [
                 'title' => 'Faciale Massage',
-                'image' => 'uploads/admins/galleries/gallery_img_9.jpg'
+                'image' => 'uploads/admins/galleries/gallery_img_1.jpg'
             ],
             [
                 'title' => 'Faciale Massage',
