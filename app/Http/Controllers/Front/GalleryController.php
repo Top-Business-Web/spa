@@ -9,9 +9,12 @@ use Illuminate\View\View;
 
 class GalleryController extends Controller
 {
-    public function index(Gellary $gellaryModel) :View
+    public function index($page = 1): View
     {
-        $gellaries = $gellaryModel->get();
-        return view('front.galleries.gallery', compact('gellaries'));
+        $perPage = 9;
+        $offset = ($page - 1) * $perPage;
+        $gellaries = Gellary::skip($offset)->take($perPage)->get();
+        $numPages = ceil(Gellary::count() / $perPage);
+        return view('front.galleries.gallery', compact('gellaries', 'numPages', 'page'));
     }
 }

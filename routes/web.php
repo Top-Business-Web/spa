@@ -47,7 +47,7 @@ Route::get('services/category/page/{category}', [ServiceController::class, 'getS
 
 
 #### Galleries ####
-Route::get('galleries', [GalleryController::class, 'index'])->name('galleries');
+Route::get('galleries/{page?}', [GalleryController::class, 'index'])->name('galleries');
 
 
 #### Contacts ####
