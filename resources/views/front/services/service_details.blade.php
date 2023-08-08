@@ -1,8 +1,8 @@
 @extends('front.layouts.master')
 @section('content')
     <!--=====================================
-            BREADCRUMB START
-        =====================================-->
+                    BREADCRUMB START
+                =====================================-->
     <section class="tf__breadcrumb" style="background: url('{{ asset($settings->banner) }}');">
         <div class="tf__breadcrumb_overlay">
             <div class="container">
@@ -21,13 +21,13 @@
         </div>
     </section>
     <!--=====================================
-            BREADCRUMB END
-        =====================================-->
+                    BREADCRUMB END
+                =====================================-->
 
 
     <!--=====================================
-            SERVICE DETAILS START
-        =====================================-->
+                    SERVICE DETAILS START
+                =====================================-->
     <section class="tf__services_details mt_120 xs_mt_70">
         <div class="container">
             <div class="row">
@@ -274,12 +274,11 @@
                         <div class="tf__sidebar_category sidebar_item mb_25">
                             <h3>Our Service Category</h3>
                             <ul>
-                                <li><a href="#">Relaxation massage</a></li>
-                                <li><a href="#">Stress relief massage </a></li>
-                                <li><a href="#">Swedish massage</a></li>
-                                <li><a href="#">Stone massage </a></li>
-                                <li><a href="#">Sport massage</a></li>
-                                <li><a href="#">Reflexology massage </a></li>
+                                @foreach ($allCategories as $allCategory)
+                                    <li><a
+                                            href="{{ route('getSingleService', $allCategory->id) }}">{{ $allCategory->title }}</a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -295,63 +294,25 @@
                     </div>
                 </div>
                 <div class="row related_service_slider mt_50">
-                    <div class="col-xl-6">
-                        <div class="tf__services_item">
-                            <div class="tf__services_img">
-                                <img src="{{ asset('assets/front') }}/images/service_img_4.jpg" alt="services"
-                                    class="img-fluid w-100">
-                            </div>
-                            <div class="tf__services_text d-flex flex-column justify-content-between">
-                                <div>
-                                    <a class="title" href="service_details.html">Body Treatments</a>
-                                    <p>Duis aute irure dolor in reprehenderit into volupjl
-                                        tate velit esse cillum dolore eu fugiat nulla partr
-                                        iatur sunt in culp qui officia deserunt mollit</p>
+                    @foreach ($relatedCategories as $relatedCategory)
+                        <div class="col-xl-6">
+                            <div class="tf__services_item">
+                                <div class="tf__services_img">
+                                    <img src="{{ asset($relatedCategory->image) }}" alt="services"
+                                        class="img-fluid w-100">
                                 </div>
-                                <div class="tf__services_btn_area">
-                                    <a class="read_btn" href="service_details.html">read more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="tf__services_item">
-                            <div class="tf__services_img">
-                                <img src="{{ asset('assets/front') }}/images/service_img_5.jpg" alt="services"
-                                    class="img-fluid w-100">
-                            </div>
-                            <div class="tf__services_text d-flex flex-column justify-content-between">
-                                <div>
-                                    <a class="title" href="service_details.html">Aroma Therapy</a>
-                                    <p>Duis aute irure dolor in reprehenderit into volupjl
-                                        tate velit esse cillum dolore eu fugiat nulla partr
-                                        iatur sunt in culp qui officia deserunt mollit</p>
-                                </div>
-                                <div class="tf__services_btn_area">
-                                    <a class="read_btn" href="service_details.html">read more</a>
+                                <div class="tf__services_text d-flex flex-column justify-content-between">
+                                    <div>
+                                        <a class="title" href="{{ route('getSingleService', $relatedCategory->id) }}">{{ $relatedCategory->title }}</a>
+                                        <p>{{ $relatedCategory->description }}</p>
+                                    </div>
+                                    <div class="tf__services_btn_area">
+                                        <a class="read_btn" href="{{ route('getSingleService', $relatedCategory->id) }}">read more</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="tf__services_item">
-                            <div class="tf__services_img">
-                                <img src="{{ asset('assets/front') }}/images/service_img_6.jpg" alt="services"
-                                    class="img-fluid w-100">
-                            </div>
-                            <div class="tf__services_text d-flex flex-column justify-content-between">
-                                <div>
-                                    <a class="title" href="service_details.html">Sauna Relax</a>
-                                    <p>Duis aute irure dolor in reprehenderit into volupjl
-                                        tate velit esse cillum dolore eu fugiat nulla partr
-                                        iatur sunt in culp qui officia deserunt mollit</p>
-                                </div>
-                                <div class="tf__services_btn_area">
-                                    <a class="read_btn" href="service_details.html">read more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -389,8 +350,8 @@
         </div>
     </div>
     <!--=====================================
-            SERVICE DETAILS END
-        =====================================-->
+                    SERVICE DETAILS END
+                =====================================-->
 @endsection
 <script>
     $(document).ready(function() {

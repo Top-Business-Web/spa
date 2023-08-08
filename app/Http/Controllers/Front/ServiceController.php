@@ -10,26 +10,24 @@ use App\Models\Page;
 
 class ServiceController extends Controller
 {
-    public function index()
+    public function index(Service $serviceModel)
     {
-        $services = Service::query()->get();
+        $services = $serviceModel->get();
         return view('front.services.services', compact('services'));
     }
 
-    public function getSingleService(Category $category)
+    public function getSingleService(Category $category, Page $pageModel)
     {
-        $page = Page::where('category_id', $category->id)->first();
-        return view('front.services.service_details', compact('page'));
-    }
-
-    public function search(Request $request)
-    {
-        $query = $request->input('query');
-
-        $categories = Category::where('name', 'LIKE', "%$query%")->get();
-
-        // You can return the categories in a view or as JSON, depending on your needs
-        // For example, returning as JSON:
-        return response()->json($categories);
+        $page = $pageModel->where('category_id', $category->id)->first();
+        $relatedCategories = $category->select('id', 'title', 'description', 'image', 'service_id')
+            ->where('service_id', $category->service->id)
+            ->where('id', '!=', $category->id) // Exclude the chosen category's ID
+            ->latest()
+            ->take(3)
+            ->get();
+        $allCategories = $category->select('id', 'title', 'top')
+            ->where('top', 1)
+            ->latest()->take(6)->get();
+        return view('front.services.service_details', compact('page', 'allCategories', 'relatedCategories'));
     }
 }
