@@ -31,11 +31,11 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         // View::share('settings', Setting::first());
-        View::share('categories', Category::select('id', 'title')
-            ->where('top', 1)
-            ->latest()
-            ->take(5)
-            ->get());
+        // View::share('categories', Category::select('id', 'title')
+        //     ->where('top', 1)
+        //     ->latest()
+        //     ->take(5)
+        //     ->get());
 
     }
 }
