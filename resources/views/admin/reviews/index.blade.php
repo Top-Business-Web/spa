@@ -11,13 +11,13 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title"> Reviews {{($setting->title) ?? ''}}</h3>
-                    <div class="">
+                    {{-- <div class="">
                         <button class="btn btn-secondary btn-icon text-white addBtn">
 									<span>
 										<i class="fe fe-plus"></i>
 									</span> Add
                         </button>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -71,7 +71,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">Page data</h5>
+                        <h5 class="modal-title" id="example-Modal3">Review data</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -98,7 +98,7 @@
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
         showData('{{route('reviews.index')}}', columns);
-        
+
         // Add Using Ajax
         showAddModal('{{route('reviews.create')}}');
         addScript();
@@ -107,7 +107,7 @@
         editScript();
         // Delete Using Ajax
         destroyScript('{{route('reviews.destroy', 'id')}}');
-        
+
     </script>
 @endsection
 

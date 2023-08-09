@@ -41,6 +41,7 @@ Route::get('about_us', [AboutUsController::class, 'index'])->name('about_us');
 
 #### Services ####
 Route::get('services', [ServiceController::class, 'index'])->name('services');
+// Route::get('test/{id}', [ServiceController::class, 'test'])->name('test');
 Route::get('/search', [ServiceController::class, 'search'])->name('searchCategory');
 Route::post('/review/store', [ServiceController::class, 'storeReview'])->name('review.store');
 

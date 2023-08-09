@@ -5,12 +5,18 @@ namespace App\Http\Controllers\Front;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ReviewStoreRequest;
 use App\Models\Category;
 use App\Models\Page;
 use App\Models\Review;
 
 class ServiceController extends Controller
 {
+    // public function test($id)
+    // {
+    //     $id = 'test';
+    //     return view('front.services.service2_details', compact('id'));
+    // }
     public function index(Service $serviceModel)
     {
         $services = $serviceModel->get();
@@ -32,7 +38,7 @@ class ServiceController extends Controller
         return view('front.services.service_details', compact('page', 'allCategories', 'relatedCategories'));
     }
 
-    public function storeReview(Request $request)
+    public function storeReview(ReviewStoreRequest $request)
     {
         $inputs = $request->all();
 
@@ -47,8 +53,6 @@ class ServiceController extends Controller
     {
         try {
             $searchTerm = $request->input('q');
-
-            // Perform the search using Eloquent ORM
             $results = Category::where('title', 'like', '%' . $searchTerm . '%')
                 ->select('id', 'title')
                 ->get();
