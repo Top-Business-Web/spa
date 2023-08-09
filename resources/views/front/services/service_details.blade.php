@@ -3,8 +3,7 @@
     <!--=====================================
                                                                                                                 BREADCRUMB START
                                                                                                             =====================================-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <section class="tf__breadcrumb" style="background: url('{{ asset($settings->banner) }}');">
         <div class="tf__breadcrumb_overlay">
             <div class="container">
@@ -38,7 +37,7 @@
                         <div class="tf__services_details_img">
                             <img src="{{ asset($page->category->image) }}" alt="service" class="img-fluid w-100">
                             <a class="reservation" href="#" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop2">make an appointment</a>
+                               data-bs-target="#staticBackdrop2">make an appointment</a>
                         </div>
                         <h2>{{ $page->top_title }}</h2>
                         <p>{{ $page->top_description }}</p>
@@ -77,7 +76,7 @@
                                 <div class="tf__single_review">
                                     <div class="review_img">
                                         <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client"
-                                            class="img-fluid w-100">
+                                             class="img-fluid w-100">
                                     </div>
                                     <div class="review_text">
                                         <h4>Arlene Mcoy <span>17 dec 2022</span></h4>
@@ -98,7 +97,7 @@
                                 <div class="tf__single_review">
                                     <div class="review_img">
                                         <img src="{{ asset('assets/front') }}/images/review_img_4.jpg" alt="Client"
-                                            class="img-fluid w-100">
+                                             class="img-fluid w-100">
                                     </div>
                                     <div class="review_text">
                                         <h4>Marjan Janifa <span>17 dec 2022</span></h4>
@@ -119,7 +118,7 @@
                                 <div class="tf__single_review">
                                     <div class="review_img">
                                         <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client"
-                                            class="img-fluid w-100">
+                                             class="img-fluid w-100">
                                     </div>
                                     <div class="review_text">
                                         <h4>Arlene Mcoy <span>17 dec 2022</span></h4>
@@ -140,7 +139,7 @@
                                 <div class="tf__single_review">
                                     <div class="review_img">
                                         <img src="{{ asset('assets/front') }}/images/review_img_2.jpg" alt="Client"
-                                            class="img-fluid w-100">
+                                             class="img-fluid w-100">
                                     </div>
                                     <div class="review_text">
                                         <h4>Savannah Nguyen <span>17 dec 2022</span></h4>
@@ -163,7 +162,7 @@
                                 <div class="tf__single_review">
                                     <div class="review_img">
                                         <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client"
-                                            class="img-fluid w-100">
+                                             class="img-fluid w-100">
                                     </div>
                                     <div class="review_text">
                                         <h4>Arlene Mcoy <span>17 dec 2022</span></h4>
@@ -184,7 +183,7 @@
                                 <div class="tf__single_review">
                                     <div class="review_img">
                                         <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client"
-                                            class="img-fluid w-100">
+                                             class="img-fluid w-100">
                                     </div>
                                     <div class="review_text">
                                         <h4>Arlene Mcoy <span>17 dec 2022</span></h4>
@@ -205,7 +204,7 @@
                                 <div class="tf__single_review">
                                     <div class="review_img">
                                         <img src="{{ asset('assets/front') }}/images/review_img_2.jpg" alt="Client"
-                                            class="img-fluid w-100">
+                                             class="img-fluid w-100">
                                     </div>
                                     <div class="review_text">
                                         <h4>Savannah Nguyen <span>17 dec 2022</span></h4>
@@ -253,7 +252,8 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <textarea rows="7" name="description" placeholder="Write Something Here" required></textarea>
+                                <textarea rows="7" name="description" placeholder="Write Something Here"
+                                          required></textarea>
                             </div>
                             <div class="col-12 mt-3">
                                 <button type="button" class="common_btn">Submit Now</button>
@@ -269,67 +269,63 @@
                                 <input type="text" id="searchInput" placeholder="Search">
                             </form>
                             <div id="searchResults" class="text-white"></div>
-                            {{-- <ul>
-                                    <li><a href="#">Relaxation massage</a></li>
-                                    <li><a href="#">Stress relief massage </a></li>
-                                    <li><a href="#">Swedish massage</a></li>
-                                    <li><a href="#">Stone massage </a></li>
-                                    <li><a href="#">Sport massage</a></li>
-                                    <li><a href="#">Reflexology massage </a></li>
-                                </ul> --}}
+                        </div>
+                        <div class="tf__sidebar_category sidebar_item mb_25">
+                            <h3>Our Service Category</h3>
+                            <ul>
+                                @foreach ($allCategories as $allCategory)
+                                    <li><a
+                                            href="{{ route('getSingleService', $allCategory->id) }}">{{ $allCategory->title }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
-                    <div class="tf__sidebar_category sidebar_item mb_25">
-                        <h3>Our Service Category</h3>
-                        <ul>
-                            @foreach ($allCategories as $allCategory)
-                                <li><a
-                                        href="{{ route('getSingleService', $allCategory->id) }}">{{ $allCategory->title }}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
+
                 </div>
             </div>
         </div>
-        <div class="tf__related_service mt_115 xs_mt_70">
-            <div class="row">
-                <div class="col-xl-7 col-md-10 m-auto wow fadeInUp" data-wow-duration="1s">
-                    <div class="tf__section_heading">
-                        <h5>related services</h5>
-                        <h3>related services</h3>
+        <div class="container">
+            <div class="tf__related_service mt_115 xs_mt_70">
+                <div class="row">
+                    <div class="col-xl-7 col-md-10 m-auto wow fadeInUp" data-wow-duration="1s">
+                        <div class="tf__section_heading">
+                            <h5>related services</h5>
+                            <h3>related services</h3>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row related_service_slider mt_50">
-                @foreach ($relatedCategories as $relatedCategory)
-                    <div class="col-xl-6">
-                        <div class="tf__services_item">
-                            <div class="tf__services_img">
-                                <img src="{{ asset($relatedCategory->image) }}" alt="services" class="img-fluid w-100">
-                            </div>
-                            <div class="tf__services_text d-flex flex-column justify-content-between">
-                                <div>
-                                    <a class="title"
-                                        href="{{ route('getSingleService', $relatedCategory->id) }}">{{ $relatedCategory->title }}</a>
-                                    <p>{{ $relatedCategory->description }}</p>
+                <div class="row related_service_slider mt_50">
+                    @foreach ($relatedCategories as $relatedCategory)
+                        <div class="col-xl-6">
+                            <div class="tf__services_item">
+                                <div class="tf__services_img">
+                                    <img src="{{ asset($relatedCategory->image) }}" alt="services"
+                                         class="img-fluid w-100">
                                 </div>
-                                <div class="tf__services_btn_area">
-                                    <a class="read_btn" href="{{ route('getSingleService', $relatedCategory->id) }}">read
-                                        more</a>
+                                <div class="tf__services_text d-flex flex-column justify-content-between">
+                                    <div>
+                                        <a class="title"
+                                           href="{{ route('getSingleService', $relatedCategory->id) }}">{{ $relatedCategory->title }}</a>
+                                        <p>{{ $relatedCategory->description }}</p>
+                                    </div>
+                                    <div class="tf__services_btn_area">
+                                        <a class="read_btn"
+                                           href="{{ route('getSingleService', $relatedCategory->id) }}">read
+                                            more</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
-        </div>
         </div>
     </section>
 
     <div class="wsus__reservation">
         <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+             aria-labelledby="staticBackdropLabel2" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -362,109 +358,109 @@
                                                                                                                 SERVICE DETAILS END
                                                                                                             =====================================-->
 @endsection
+@section('js')
+    <script>
+        // Function Send Review Message Start
+        $(document).ready(function (e) {
+            $(document).on('click', '.common_btn', function () {
+                var formData = new FormData(document.getElementById("reviewForm"));
+                $.ajax({
+                    method: 'POST',
+                    data: formData,
+                    url: "{{ route('review.store') }}",
+                    beforeSend: function () {
+                        $('.load-contact').html('Loading ... ');
+                    },
+                    success: function (data) {
+                        if (data.status === 200) {
+                            toastr.success('Message sent successfully');
+                            $('#contactForm input, #contactForm textarea').val('');
+                            $('.load-contact').html('');
+                            setTimeout(function () {
+                                location.reload();
+                            }, 2000);
+                        }
+                    },
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script>
-    // Function Send Review Message Start
-    $(document).ready(function(e) {
-        $(document).on('click', '.common_btn', function() {
-            var formData = new FormData(document.getElementById("reviewForm"));
-            $.ajax({
-                method: 'POST',
-                data: formData,
-                url: "{{ route('review.store') }}",
-                beforeSend: function() {
-                    $('.load-contact').html('Loading ... ');
-                },
-                success: function(data) {
-                    if (data.status === 200) {
-                        toastr.success('Message sent successfully');
-                        $('#contactForm input, #contactForm textarea').val('');
-                        $('.load-contact').html('');
-                        setTimeout(function() {
-                            location.reload();
-                        }, 2000);
-                    }
-                },
-
-                error: function(data) {
-                    if (data.status === 500) {
-                        toastr.error('Error sending message');
-                    } else if (data.status === 422) {
-                        var errors = $.parseJSON(data.responseText);
-                        $.each(errors, function(key, value) {
-                            if ($.isPlainObject(value)) {
-                                $.each(value, function(key, value) {
-                                    toastr.error('' + value);
-                                });
-                            }
-                        });
-                        $('.load-contact').html('Error');
-                    }
-                },
-                cache: false,
-                processData: false,
-                contentType: false
+                    error: function (data) {
+                        if (data.status === 500) {
+                            toastr.error('Error sending message');
+                        } else if (data.status === 422) {
+                            var errors = $.parseJSON(data.responseText);
+                            $.each(errors, function (key, value) {
+                                if ($.isPlainObject(value)) {
+                                    $.each(value, function (key, value) {
+                                        toastr.error('' + value);
+                                    });
+                                }
+                            });
+                            $('.load-contact').html('Error');
+                        }
+                    },
+                    cache: false,
+                    processData: false,
+                    contentType: false
+                });
             });
         });
-    });
-    // Function Send Review Message Start
+        // Function Send Review Message Start
 
-    // Function To rate Start
-    let currentRating = 0;
-    const hiddenRatingInput = document.getElementById('hiddenRating');
+        // Function To rate Start
+        let currentRating = 0;
+        const hiddenRatingInput = document.getElementById('hiddenRating');
 
-    function rate(rating) {
-        currentRating = rating;
-        updateRatingMessage();
-        updateHiddenInput();
-    }
+        function rate(rating) {
+            currentRating = rating;
+            updateRatingMessage();
+            updateHiddenInput();
+        }
 
-    function updateRatingMessage() {
-        const ratingMessage = document.getElementById('ratingMessage');
-        ratingMessage.textContent = `You rated: ${currentRating} stars`;
-    }
+        function updateRatingMessage() {
+            const ratingMessage = document.getElementById('ratingMessage');
+            ratingMessage.textContent = `You rated: ${currentRating} stars`;
+        }
 
-    function updateHiddenInput() {
-        document.getElementById('hiddenRating').setAttribute('value', currentRating)
-    }
-    // Function To rate Start
+        function updateHiddenInput() {
+            document.getElementById('hiddenRating').setAttribute('value', currentRating)
+        }
 
-    // Function Search Start
-    $(document).ready(function() {
-        $('#searchInput').on('input', function() {
-            var searchTerm = $(this).val();
+        // Function To rate Start
 
-            $.ajax({
-                url: '{{ route('searchCategory') }}',
-                type: 'GET',
-                data: {
-                    q: searchTerm
-                },
-                dataType: 'json',
-                success: function(data) {
-                    var resultsContainer = $('#searchResults');
-                    resultsContainer.empty();
+        // Function Search Start
+        $(document).ready(function () {
+            $('#searchInput').on('input', function () {
+                var searchTerm = $(this).val();
 
-                    if (data.length > 0) {
-                        $.each(data, function(index, category) {
-                            var categoryLink =
-                                '<p><a class="custom-link" href="/services/category/page/' +
-                                category
-                                .id + '">' + category.title + '</a></p>';
-                            resultsContainer.append(categoryLink);
-                        });
-                    } else {
-                        resultsContainer.append(
-                            '<p><a class="custom-link">No Results Found</a></p>');
+                $.ajax({
+                    url: '{{ route('searchCategory') }}',
+                    type: 'GET',
+                    data: {
+                        q: searchTerm
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        var resultsContainer = $('#searchResults');
+                        resultsContainer.empty();
+
+                        if (data.length > 0) {
+                            $.each(data, function (index, category) {
+                                var categoryLink =
+                                    '<p><a class="custom-link" href="/services/category/page/' +
+                                    category
+                                        .id + '">' + category.title + '</a></p>';
+                                resultsContainer.append(categoryLink);
+                            });
+                        } else {
+                            resultsContainer.append(
+                                '<p><a class="custom-link">No Results Found</a></p>');
+                        }
+                    },
+                    error: function () {
+                        $('#searchResults').html('<p>An error occurred.</p>');
                     }
-                },
-                error: function() {
-                    $('#searchResults').html('<p>An error occurred.</p>');
-                }
+                });
             });
         });
-    });
-    // Function Search End
-</script>
+        // Function Search End
+    </script>
+@endsection
