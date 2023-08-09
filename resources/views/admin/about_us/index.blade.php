@@ -24,11 +24,12 @@
                             <div class="form-group">
                                 <label for="name" class="form-control-label">Images</label>
                                 <input type="file" class="dropify" name="images[]" multiple="multiple"
-                                    data-default-file="{{ asset($about_us->images[0]) }}"
+                                    data-default-file="{{ asset($about_us->images[3]) }}"
                                     accept="image/png,image/webp , image/gif, image/jpeg,image/jpg" />
-                                <span class="form-text text-danger text-center">Only the following formats are allowed: png,
-                                    gif, jpeg,
-                                    jpg,webp</span>
+                                <span class="form-text text-danger text-center">
+                                    You are required to include a minimum of Six images in any of the following formats. The
+                                    first three images you add will be displayed on the home page, while the remaining three
+                                    images will be shown on the "About Us" page, all in JPG format.</span>
                             </div>
                         </div>
                     </div>
