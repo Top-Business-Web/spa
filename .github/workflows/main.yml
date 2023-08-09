@@ -21,26 +21,28 @@ jobs:
           key: composer-${{ hashFiles('composer.json') }}
           restore-keys: |
             composer-
+
+      # Install PHP dependencies
       - name: Install PHP dependencies
         run: composer install --ignore-platform-reqs --no-interaction
 
-      # Parallelize initial setup steps
-      - name: Copy .env
-        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-      - name: Generate key
-        run: php artisan key:generate
-      - name: Generate storage link
-        run: php artisan storage:link
+      # Generate key and storage link in parallel
+      - name: Generate key and storage link
+        run: |
+          php artisan key:generate &
+          php artisan storage:link
+        # ...
 
-      # Optimize directory permissions and deploy via FTP using appleboy/ftp-action
+      # Set directory permissions
       - name: Set directory permissions
         run: chmod -R 777 storage bootstrap/cache
+
+      # Deploy via FTP using sebastianpopp/ftp-action@releases/v2
       - name: Deploy via FTP
-        uses: appleboy/ftp-action@v0.2.0
+        uses: sebastianpopp/ftp-action@releases/v2
         with:
-          host: ${{ secrets.FTP_SERVER }}
+          server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          localDir: ./ # This specifies the directory to upload
-          remoteDir: /topbusiness/public_html/spa/public/  # Update this path to your desired directory
-          parallel: 10 # Adjust the number of parallel connections for faster uploads
+          local-dir: ./ # This specifies the directory to upload
+          server-dir: /topbusiness/public_html/spa/public/  # Update this path to your desired directory
