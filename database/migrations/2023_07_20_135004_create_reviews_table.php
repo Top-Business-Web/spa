@@ -19,8 +19,8 @@ class CreateReviewsTable extends Migration
             $table->text('email')->nullable();
             $table->longText('description');
             $table->longText('rate');
+            $table->enum('status',[1, 0])->default(0);
             $table->unsignedBigInteger('page_id');
-
             $table->foreign('page_id')
                 ->on('pages')->references('id')
                 ->cascadeOnDelete()->cascadeOnUpdate();
