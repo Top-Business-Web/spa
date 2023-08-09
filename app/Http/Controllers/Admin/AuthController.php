@@ -14,6 +14,7 @@ class AuthController extends Controller {
         }
         return view('admin.auth.login');
     }
+    // end
 
     public function login(Request $request): \Illuminate\Http\JsonResponse
     {
