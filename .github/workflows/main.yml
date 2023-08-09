@@ -13,26 +13,32 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Copy .env
-        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-
+      # Optimize Composer dependencies
+      - name: Cache Composer dependencies
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('composer.json') }}
+          restore-keys: |
+            composer-
       - name: Install PHP dependencies
         run: composer install --ignore-platform-reqs --no-interaction
 
+      # Parallelize initial setup steps
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: Generate key
         run: php artisan key:generate
-
       - name: Generate storage link
         run: php artisan storage:link
 
+      # Optimize directory permissions and deploy via FTP
       - name: Set directory permissions
         run: chmod -R 777 storage bootstrap/cache
-      
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        uses: SamKirkland/FTP-Deploy-Action@3.0.1
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /topbusiness/public_html/spa/public/  # Update this path to your desired directory
-
