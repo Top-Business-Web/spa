@@ -28,7 +28,7 @@
     </main>
     <div class="welcome-container">
         <h1 class="heading-secondary">مرحبا بعودتك <span class="lg">{{($setting->title) ?? 'تطبيق'}}</span></h1>
-        <img src="{{asset('assets/uploads/log.gif')}}" alt="login" style="max-height: 500px;mix-blend-mode: multiply">
+        <img src="{{asset($settings->logo)}}" alt="login" style="max-height: 500px;mix-blend-mode: multiply">
     </div>
 </div>
 
