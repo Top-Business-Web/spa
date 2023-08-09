@@ -79,7 +79,7 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 wow fadeInUp" data-wow-duration="1s">
                         <div class="tf__about_page_welcome_img">
-                            <img src="{{ asset($about_us->images[0]) }}" alt="welcome" class="img-fluid w-100">
+                            <img src="{{ asset(@$about_us->images[3]) }}" alt="welcome" class="img-fluid w-100">
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 wow fadeInUp" data-wow-duration="1s">
@@ -98,10 +98,10 @@
                     <div class="col-xl-5 col-lg-6 col-md-10 wow fadeInUp" data-wow-duration="1s">
                         <div class="tf__about_page_about_img">
                             <div class="img_1">
-                                <img src="{{ asset($about_us->images[1]) }}" alt="about" class="img-fluid w-100">
+                                <img src="{{ asset(@$about_us->images[4]) }}" alt="about" class="img-fluid w-100">
                             </div>
                             <div class="img_2">
-                                <img src="{{ asset($about_us->images[2]) }}" alt="about" class="img-fluid w-100">
+                                <img src="{{ asset(@$about_us->images[5]) }}" alt="about" class="img-fluid w-100">
                             </div>
                             <p>{{ $about_us->year }}+
                                 <span>Years Of Experience</span>
