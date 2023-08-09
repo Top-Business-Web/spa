@@ -1,4 +1,7 @@
 <?php
+
+use App\Models\Admin;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -49,6 +52,20 @@ if (!function_exists('trans_model')) {
     }
 
 }
+
+if (!function_exists('getRecordCount')) {
+    /**
+     * Get the count of records for a given model.
+     *
+     * @param string $modelClassName
+     * @return int
+     */
+    function getRecordCount(string $modelClassName): int
+    {
+        return $modelClassName::query()->count();
+    }
+}
+
 
 
 function get_font_icons(){

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -9,9 +10,7 @@ Route::group(['prefix'=>'admin'],function (){
 });
 
 Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function (){
-    Route::get('/', function () {
-        return view('Admin/index');
-    })->name('adminHome');
+    Route::get('/', [HomeController::class, 'index'])->name('adminHome');
 
     #### Admins ####
     Route::resource('admins','AdminController');
@@ -48,7 +47,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function (){
     #### Reviews ####
     Route::resource('reviews', ReviewController::class);
 
-}); 
+});
 
 
 

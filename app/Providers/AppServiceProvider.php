@@ -36,5 +36,6 @@ class AppServiceProvider extends ServiceProvider
             ->latest()
             ->take(5)
             ->get());
+            
     }
 }

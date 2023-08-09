@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Front\ContactStoreRequest;
 
 class ContatcController extends Controller
 {
@@ -13,7 +14,7 @@ class ContatcController extends Controller
         return view('front.contacts.contact');
     }
 
-    public function storeContact(Request $request)
+    public function storeContact(ContactStoreRequest $request)
     {
         $inputs = $request->all();
 
