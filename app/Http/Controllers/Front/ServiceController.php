@@ -62,4 +62,18 @@ class ServiceController extends Controller
             return response()->json(['error' => $e->getMessage()]);
         }
     }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $review = Review::find($id);
+
+        if ($review) {
+            $status = $request->input('status');
+            $review->status = $status;
+            $review->save();
+
+            return response()->json(['status' => 200]);
+        }
+        return response()->json(['status' => 405]);
+    }
 }

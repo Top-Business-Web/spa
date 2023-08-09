@@ -27,6 +27,10 @@ class ReviewController extends Controller
                                 </button>
                            ';
                 })
+                ->editColumn('status', function ($reviews) {
+                    $checked = $reviews->status == 1 ? 'checked' : '';
+                    return '<td><input type="checkbox" data-review-id="' . $reviews->id . '" class="form-check-input status-checkbox" style="transform: scale(1.5); ' . $checked . '"></td>';
+                })
                 ->editColumn('description', function ($reviews) {
                     return '<td>' . Str::limit($reviews->description, 50) . '</td>';
                 })
