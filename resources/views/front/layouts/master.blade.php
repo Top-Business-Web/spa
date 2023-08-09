@@ -16,6 +16,7 @@
     @include('front.layouts.footer')
 
     @include('front.layouts.scripts')
+    @yield('js')
 
 </body>
 

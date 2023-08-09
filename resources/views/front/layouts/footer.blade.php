@@ -1,23 +1,6 @@
-<footer class="tf__footer mt_180 xs_mt_130" style="background: url('assets/front/images/footer_bg.jpg');">
+<footer class="tf__footer mt_180 xs_mt_130" style="padding-top:20px;background: url({{ asset('assets/front/images/footer_bg.jpg') }});">
     <div class="container">
-        <div class="tf__footer_subscribe">
-            <div class="row justify-content-between">
-                <div class="col-lg-5">
-                    <div class="tf__footer_subscribe_text">
-                        <h4>Subscribe For Our Newslette</h4>
-                        <p>Lorem ipsum dolor sit amet nibh saperet te pri at nam.</p>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="tf__footer_subscribe_form">
-                        <form>
-                            <input type="text" placeholder="Subscribe">
-                            <button type="submit" class="read_btn">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="row mt_20 xs_mt_10 pb_80 xs_pb_35 md_padding justify-content-between">
             <div class="col-xl-3 col-md-6 col-lg-4">
                 <div class="tf__footer_logo_area">

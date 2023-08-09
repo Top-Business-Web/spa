@@ -1,8 +1,6 @@
 @extends('front.layouts.master')
 @section('content')
-    <!--=====================================
-                                                    BREADCRUMB START
-                                                =====================================-->
+    <!--=====================================BREADCRUMB START=====================================-->
     <section class="tf__breadcrumb" style="background: url('{{ asset($settings->banner) }}');">
         <div class="tf__breadcrumb_overlay">
             <div class="container">
@@ -20,14 +18,10 @@
             </div>
         </div>
     </section>
-    <!--=====================================
-                                                    BREADCRUMB END
-                                                =====================================-->
+    <!--=====================================BREADCRUMB END=====================================-->
 
 
-    <!--=====================================
-                                                    SERVICES PAGE START
-                                                =====================================-->
+    <!--=====================================SERVICES PAGE START=====================================-->
     <section class="tf__services_page mt_95 xs_mt_45">
         <div class="container">
             <div class="row">
@@ -47,7 +41,8 @@
                 @foreach ($services as $service)
                     @foreach ($service->category as $categ)
                         <div class="col-lg-6 wow fadeInUp salon service-item {{ $service->title }}-item"
-                            data-service="{{ $service->title }}" data-category="{{ $categ->title }}" data-wow-duration="1s">
+                             data-service="{{ $service->title }}" data-category="{{ $categ->title }}"
+                             data-wow-duration="1s">
                             <div class="tf__services_item">
                                 <div class="tf__services_img">
                                     <img src="{{ asset($categ->image) }}" alt="services" class="img-fluid w-100">
@@ -55,7 +50,7 @@
                                 <div class="tf__services_text d-flex flex-column justify-content-between">
                                     <div>
                                         <a class="title"
-                                            href="{{ route('getSingleService', $categ->id) }}">{{ $categ->title }}</a>
+                                           href="{{ route('getSingleService', $categ->id) }}">{{ $categ->title }}</a>
                                         <p>{{ $categ->description }}</p>
                                     </div>
                                     <div class="tf__services_btn_area">
@@ -70,15 +65,13 @@
             </div>
         </div>
     </section>
-    <!--=====================================
-                                                    SERVICES PAGE END
-                                                =====================================-->
+    <!--=====================================SERVICES PAGE END=====================================-->
 @endsection
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@section('js')
 <script>
     // jQuery code to handle category filtering based on selected service
-    $(document).ready(function() {
-        $('.service-item').click(function() {
+    $(document).ready(function () {
+        $('.service-item').click(function () {
             $('.service-item').removeClass('active');
             $(this).addClass('active');
             var selectedService = $(this).data('service');
@@ -88,3 +81,4 @@
         });
     });
 </script>
+@endsection
