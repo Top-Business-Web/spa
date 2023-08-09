@@ -1,8 +1,8 @@
 @extends('front.layouts.master')
 @section('content')
     <!--=====================================
-                                                                                                                BREADCRUMB START
-                                                                                                            =====================================-->
+                                                                                                                    BREADCRUMB START
+                                                                                                                =====================================-->
 
     <section class="tf__breadcrumb" style="background: url('{{ asset($settings->banner) }}');">
         <div class="tf__breadcrumb_overlay">
@@ -22,13 +22,13 @@
         </div>
     </section>
     <!--=====================================
-                                                                                                                BREADCRUMB END
-                                                                                                            =====================================-->
+                                                                                                                    BREADCRUMB END
+                                                                                                                =====================================-->
 
 
     <!--=====================================
-                                                                                                                SERVICE DETAILS START
-                                                                                                            =====================================-->
+                                                                                                                    SERVICE DETAILS START
+                                                                                                                =====================================-->
     <section class="tf__services_details mt_120 xs_mt_70">
         <div class="container">
             <div class="row">
@@ -37,7 +37,7 @@
                         <div class="tf__services_details_img">
                             <img src="{{ asset($page->category->image) }}" alt="service" class="img-fluid w-100">
                             <a class="reservation" href="#" data-bs-toggle="modal"
-                               data-bs-target="#staticBackdrop2">make an appointment</a>
+                                data-bs-target="#staticBackdrop2">make an appointment</a>
                         </div>
                         <h2>{{ $page->top_title }}</h2>
                         <p>{{ $page->top_description }}</p>
@@ -73,96 +73,32 @@
                         <h3>07 review</h3>
                         <div class="owl-carousel owl-theme">
                             <div class="pb-4">
-                                <div class="tf__single_review">
-                                    <div class="review_img">
-                                        <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client"
-                                             class="img-fluid w-100">
+                                @foreach ($reviews as $review)
+                                    <div class="tf__single_review">
+                                        <div class="review_img">
+                                            <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client"
+                                                class="img-fluid w-100">
+                                        </div>
+                                        <div class="review_text">
+                                            <h4>{{ $review->name }} <span>{{ date('Y-m-d', strtotime($review->created_at)); }}</span></h4>
+                                            <p class="review_star">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <span>(120)</span>
+                                            </p>
+                                            <p class="description">{{ $review->description }}</p>
+                                        </div>
                                     </div>
-                                    <div class="review_text">
-                                        <h4>Arlene Mcoy <span>17 dec 2022</span></h4>
-                                        <p class="review_star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(120)</span>
-                                        </p>
-                                        <p class="description">Duis aute irure dolor in reprehenderitin voluptate velit
-                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat
-                                            consectetur
-                                            adipiscing elit.</p>
-                                    </div>
-                                </div>
-                                <div class="tf__single_review">
-                                    <div class="review_img">
-                                        <img src="{{ asset('assets/front') }}/images/review_img_4.jpg" alt="Client"
-                                             class="img-fluid w-100">
-                                    </div>
-                                    <div class="review_text">
-                                        <h4>Marjan Janifa <span>17 dec 2022</span></h4>
-                                        <p class="review_star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(78)</span>
-                                        </p>
-                                        <p class="description">Duis aute irure dolor in reprehenderitin voluptate velit
-                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat
-                                            consectetur
-                                            adipiscing elit.</p>
-                                    </div>
-                                </div>
-                                <div class="tf__single_review">
-                                    <div class="review_img">
-                                        <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client"
-                                             class="img-fluid w-100">
-                                    </div>
-                                    <div class="review_text">
-                                        <h4>Arlene Mcoy <span>17 dec 2022</span></h4>
-                                        <p class="review_star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(120)</span>
-                                        </p>
-                                        <p class="description">Duis aute irure dolor in reprehenderitin voluptate velit
-                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat
-                                            consectetur
-                                            adipiscing elit.</p>
-                                    </div>
-                                </div>
-                                <div class="tf__single_review">
-                                    <div class="review_img">
-                                        <img src="{{ asset('assets/front') }}/images/review_img_2.jpg" alt="Client"
-                                             class="img-fluid w-100">
-                                    </div>
-                                    <div class="review_text">
-                                        <h4>Savannah Nguyen <span>17 dec 2022</span></h4>
-                                        <p class="review_star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(20)</span>
-                                        </p>
-                                        <p class="description">Duis aute irure dolor in reprehenderitin voluptate velit
-                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat
-                                            consectetur
-                                            adipiscing elit.</p>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                             <div class="pb-4">
                                 <div class="tf__single_review">
                                     <div class="review_img">
                                         <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client"
-                                             class="img-fluid w-100">
+                                            class="img-fluid w-100">
                                     </div>
                                     <div class="review_text">
                                         <h4>Arlene Mcoy <span>17 dec 2022</span></h4>
@@ -173,48 +109,6 @@
                                             <i class="far fa-star"></i>
                                             <i class="far fa-star"></i>
                                             <span>(120)</span>
-                                        </p>
-                                        <p class="description">Duis aute irure dolor in reprehenderitin voluptate velit
-                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat
-                                            consectetur
-                                            adipiscing elit.</p>
-                                    </div>
-                                </div>
-                                <div class="tf__single_review">
-                                    <div class="review_img">
-                                        <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client"
-                                             class="img-fluid w-100">
-                                    </div>
-                                    <div class="review_text">
-                                        <h4>Arlene Mcoy <span>17 dec 2022</span></h4>
-                                        <p class="review_star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(120)</span>
-                                        </p>
-                                        <p class="description">Duis aute irure dolor in reprehenderitin voluptate velit
-                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat
-                                            consectetur
-                                            adipiscing elit.</p>
-                                    </div>
-                                </div>
-                                <div class="tf__single_review">
-                                    <div class="review_img">
-                                        <img src="{{ asset('assets/front') }}/images/review_img_2.jpg" alt="Client"
-                                             class="img-fluid w-100">
-                                    </div>
-                                    <div class="review_text">
-                                        <h4>Savannah Nguyen <span>17 dec 2022</span></h4>
-                                        <p class="review_star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(20)</span>
                                         </p>
                                         <p class="description">Duis aute irure dolor in reprehenderitin voluptate velit
                                             essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat
@@ -252,8 +146,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <textarea rows="7" name="description" placeholder="Write Something Here"
-                                          required></textarea>
+                                <textarea rows="7" name="description" placeholder="Write Something Here" required></textarea>
                             </div>
                             <div class="col-12 mt-3">
                                 <button type="button" class="common_btn">Submit Now</button>
@@ -301,17 +194,17 @@
                             <div class="tf__services_item">
                                 <div class="tf__services_img">
                                     <img src="{{ asset($relatedCategory->image) }}" alt="services"
-                                         class="img-fluid w-100">
+                                        class="img-fluid w-100">
                                 </div>
                                 <div class="tf__services_text d-flex flex-column justify-content-between">
                                     <div>
                                         <a class="title"
-                                           href="{{ route('getSingleService', $relatedCategory->id) }}">{{ $relatedCategory->title }}</a>
+                                            href="{{ route('getSingleService', $relatedCategory->id) }}">{{ $relatedCategory->title }}</a>
                                         <p>{{ $relatedCategory->description }}</p>
                                     </div>
                                     <div class="tf__services_btn_area">
                                         <a class="read_btn"
-                                           href="{{ route('getSingleService', $relatedCategory->id) }}">read
+                                            href="{{ route('getSingleService', $relatedCategory->id) }}">read
                                             more</a>
                                     </div>
                                 </div>
@@ -325,7 +218,7 @@
 
     <div class="wsus__reservation">
         <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-             aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+            aria-labelledby="staticBackdropLabel2" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -355,41 +248,41 @@
         </div>
     </div>
     <!--=====================================
-                                                                                                                SERVICE DETAILS END
-                                                                                                            =====================================-->
+                                                                                                                    SERVICE DETAILS END
+                                                                                                                =====================================-->
 @endsection
 @section('js')
     <script>
         // Function Send Review Message Start
-        $(document).ready(function (e) {
-            $(document).on('click', '.common_btn', function () {
+        $(document).ready(function(e) {
+            $(document).on('click', '.common_btn', function() {
                 var formData = new FormData(document.getElementById("reviewForm"));
                 $.ajax({
                     method: 'POST',
                     data: formData,
                     url: "{{ route('review.store') }}",
-                    beforeSend: function () {
+                    beforeSend: function() {
                         $('.load-contact').html('Loading ... ');
                     },
-                    success: function (data) {
+                    success: function(data) {
                         if (data.status === 200) {
                             toastr.success('Message sent successfully');
                             $('#contactForm input, #contactForm textarea').val('');
                             $('.load-contact').html('');
-                            setTimeout(function () {
+                            setTimeout(function() {
                                 location.reload();
                             }, 2000);
                         }
                     },
 
-                    error: function (data) {
+                    error: function(data) {
                         if (data.status === 500) {
                             toastr.error('Error sending message');
                         } else if (data.status === 422) {
                             var errors = $.parseJSON(data.responseText);
-                            $.each(errors, function (key, value) {
+                            $.each(errors, function(key, value) {
                                 if ($.isPlainObject(value)) {
-                                    $.each(value, function (key, value) {
+                                    $.each(value, function(key, value) {
                                         toastr.error('' + value);
                                     });
                                 }
@@ -427,8 +320,8 @@
         // Function To rate Start
 
         // Function Search Start
-        $(document).ready(function () {
-            $('#searchInput').on('input', function () {
+        $(document).ready(function() {
+            $('#searchInput').on('input', function() {
                 var searchTerm = $(this).val();
 
                 $.ajax({
@@ -438,16 +331,16 @@
                         q: searchTerm
                     },
                     dataType: 'json',
-                    success: function (data) {
+                    success: function(data) {
                         var resultsContainer = $('#searchResults');
                         resultsContainer.empty();
 
                         if (data.length > 0) {
-                            $.each(data, function (index, category) {
+                            $.each(data, function(index, category) {
                                 var categoryLink =
                                     '<p><a class="custom-link" href="/services/category/page/' +
                                     category
-                                        .id + '">' + category.title + '</a></p>';
+                                    .id + '">' + category.title + '</a></p>';
                                 resultsContainer.append(categoryLink);
                             });
                         } else {
@@ -455,7 +348,7 @@
                                 '<p><a class="custom-link">No Results Found</a></p>');
                         }
                     },
-                    error: function () {
+                    error: function() {
                         $('#searchResults').html('<p>An error occurred.</p>');
                     }
                 });

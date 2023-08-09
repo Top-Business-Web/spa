@@ -23,7 +23,7 @@ class ServiceController extends Controller
         return view('front.services.services', compact('services'));
     }
 
-    public function getSingleService(Category $category, Page $pageModel)
+    public function getSingleService(Category $category, Page $pageModel, Review $reviewModel)
     {
         $page = $pageModel->where('category_id', $category->id)->first();
         $relatedCategories = $category->select('id', 'title', 'description', 'image', 'service_id')
@@ -35,7 +35,11 @@ class ServiceController extends Controller
         $allCategories = $category->select('id', 'title', 'top')
             ->where('top', 1)
             ->latest()->take(6)->get();
-        return view('front.services.service_details', compact('page', 'allCategories', 'relatedCategories'));
+        $reviews = $reviewModel::select('name', 'rate', 'description', 'created_at')
+            ->where('page_id', $page->id)
+            ->where('status', 1)
+            ->get();
+        return view('front.services.service_details', compact('page', 'allCategories', 'relatedCategories', 'reviews'));
     }
 
     public function storeReview(ReviewStoreRequest $request)
