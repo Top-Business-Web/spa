@@ -34,5 +34,5 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /path/to/remote/directory  # Update this path to your desired directory
+          server-dir: /topbusiness/public_html/spa/public/  # Update this path to your desired directory
 
