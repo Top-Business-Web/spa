@@ -1,0 +1,38 @@
+name: Deploy Laravel Project on push
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+
+      - name: Install PHP dependencies
+        run: composer install --ignore-platform-reqs --no-interaction
+
+      - name: Generate key
+        run: php artisan key:generate
+
+      - name: Generate storage link
+        run: php artisan storage:link
+
+      - name: Set directory permissions
+        run: chmod -R 777 storage bootstrap/cache
+      
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /path/to/remote/directory  # Update this path to your desired directory
+
