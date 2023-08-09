@@ -1,8 +1,8 @@
 @extends('front.layouts.master')
 @section('content')
     <!--=====================================
-                                                                                                        BREADCRUMB START
-                                                                                                    =====================================-->
+                                                                                                                BREADCRUMB START
+                                                                                                            =====================================-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <section class="tf__breadcrumb" style="background: url('{{ asset($settings->banner) }}');">
@@ -23,13 +23,13 @@
         </div>
     </section>
     <!--=====================================
-                                                                                                        BREADCRUMB END
-                                                                                                    =====================================-->
+                                                                                                                BREADCRUMB END
+                                                                                                            =====================================-->
 
 
     <!--=====================================
-                                                                                                        SERVICE DETAILS START
-                                                                                                    =====================================-->
+                                                                                                                SERVICE DETAILS START
+                                                                                                            =====================================-->
     <section class="tf__services_details mt_120 xs_mt_70">
         <div class="container">
             <div class="row">
@@ -359,12 +359,14 @@
         </div>
     </div>
     <!--=====================================
-                                                                                                        SERVICE DETAILS END
-                                                                                                    =====================================-->
+                                                                                                                SERVICE DETAILS END
+                                                                                                            =====================================-->
 @endsection
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
+    // Function Send Review Message Start
     $(document).ready(function(e) {
         $(document).on('click', '.common_btn', function() {
             var formData = new FormData(document.getElementById("reviewForm"));
@@ -407,7 +409,9 @@
             });
         });
     });
+    // Function Send Review Message Start
 
+    // Function To rate Start
     let currentRating = 0;
     const hiddenRatingInput = document.getElementById('hiddenRating');
 
@@ -425,7 +429,9 @@
     function updateHiddenInput() {
         document.getElementById('hiddenRating').setAttribute('value', currentRating)
     }
+    // Function To rate Start
 
+    // Function Search Start
     $(document).ready(function() {
         $('#searchInput').on('input', function() {
             var searchTerm = $(this).val();
@@ -444,12 +450,14 @@
                     if (data.length > 0) {
                         $.each(data, function(index, category) {
                             var categoryLink =
-                                '<p><a class="custom-link" href="/services/category/page/' + category
+                                '<p><a class="custom-link" href="/services/category/page/' +
+                                category
                                 .id + '">' + category.title + '</a></p>';
                             resultsContainer.append(categoryLink);
                         });
                     } else {
-                        resultsContainer.append('<p>No results found.</p>');
+                        resultsContainer.append(
+                            '<p><a class="custom-link">No Results Found</a></p>');
                     }
                 },
                 error: function() {
@@ -458,4 +466,5 @@
             });
         });
     });
+    // Function Search End
 </script>
