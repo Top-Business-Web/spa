@@ -42,4 +42,20 @@ class ServiceController extends Controller
             return response()->json(['status' => 405]);
         }
     }
+
+    public function search(Request $request)
+    {
+        try {
+            $searchTerm = $request->input('q');
+
+            // Perform the search using Eloquent ORM
+            $results = Category::where('title', 'like', '%' . $searchTerm . '%')
+                ->select('id', 'title')
+                ->get();
+
+            return response()->json($results);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()]);
+        }
+    }
 }

@@ -1,8 +1,8 @@
 @extends('front.layouts.master')
 @section('content')
     <!--=====================================
-                                                                                    BREADCRUMB START
-                                                                                =====================================-->
+                                                                                                        BREADCRUMB START
+                                                                                                    =====================================-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <section class="tf__breadcrumb" style="background: url('{{ asset($settings->banner) }}');">
@@ -23,13 +23,13 @@
         </div>
     </section>
     <!--=====================================
-                                                                                    BREADCRUMB END
-                                                                                =====================================-->
+                                                                                                        BREADCRUMB END
+                                                                                                    =====================================-->
 
 
     <!--=====================================
-                                                                                    SERVICE DETAILS START
-                                                                                =====================================-->
+                                                                                                        SERVICE DETAILS START
+                                                                                                    =====================================-->
     <section class="tf__services_details mt_120 xs_mt_70">
         <div class="container">
             <div class="row">
@@ -267,10 +267,9 @@
                             <h3>Services Searching</h3>
                             <form id="searchForm">
                                 <input type="text" id="searchInput" placeholder="Search">
-                                <button type="submit"><i class="far fa-search"></i></button>
                             </form>
-                            <div class="result-search">
-                                {{-- <ul>
+                            <div id="searchResults" class="text-white"></div>
+                            {{-- <ul>
                                     <li><a href="#">Relaxation massage</a></li>
                                     <li><a href="#">Stress relief massage </a></li>
                                     <li><a href="#">Swedish massage</a></li>
@@ -278,54 +277,53 @@
                                     <li><a href="#">Sport massage</a></li>
                                     <li><a href="#">Reflexology massage </a></li>
                                 </ul> --}}
-                            </div>
                         </div>
-                        <div class="tf__sidebar_category sidebar_item mb_25">
-                            <h3>Our Service Category</h3>
-                            <ul>
-                                @foreach ($allCategories as $allCategory)
-                                    <li><a
-                                            href="{{ route('getSingleService', $allCategory->id) }}">{{ $allCategory->title }}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
+                    </div>
+                    <div class="tf__sidebar_category sidebar_item mb_25">
+                        <h3>Our Service Category</h3>
+                        <ul>
+                            @foreach ($allCategories as $allCategory)
+                                <li><a
+                                        href="{{ route('getSingleService', $allCategory->id) }}">{{ $allCategory->title }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="tf__related_service mt_115 xs_mt_70">
-                <div class="row">
-                    <div class="col-xl-7 col-md-10 m-auto wow fadeInUp" data-wow-duration="1s">
-                        <div class="tf__section_heading">
-                            <h5>related services</h5>
-                            <h3>related services</h3>
-                        </div>
+        </div>
+        <div class="tf__related_service mt_115 xs_mt_70">
+            <div class="row">
+                <div class="col-xl-7 col-md-10 m-auto wow fadeInUp" data-wow-duration="1s">
+                    <div class="tf__section_heading">
+                        <h5>related services</h5>
+                        <h3>related services</h3>
                     </div>
                 </div>
-                <div class="row related_service_slider mt_50">
-                    @foreach ($relatedCategories as $relatedCategory)
-                        <div class="col-xl-6">
-                            <div class="tf__services_item">
-                                <div class="tf__services_img">
-                                    <img src="{{ asset($relatedCategory->image) }}" alt="services"
-                                        class="img-fluid w-100">
+            </div>
+            <div class="row related_service_slider mt_50">
+                @foreach ($relatedCategories as $relatedCategory)
+                    <div class="col-xl-6">
+                        <div class="tf__services_item">
+                            <div class="tf__services_img">
+                                <img src="{{ asset($relatedCategory->image) }}" alt="services" class="img-fluid w-100">
+                            </div>
+                            <div class="tf__services_text d-flex flex-column justify-content-between">
+                                <div>
+                                    <a class="title"
+                                        href="{{ route('getSingleService', $relatedCategory->id) }}">{{ $relatedCategory->title }}</a>
+                                    <p>{{ $relatedCategory->description }}</p>
                                 </div>
-                                <div class="tf__services_text d-flex flex-column justify-content-between">
-                                    <div>
-                                        <a class="title"
-                                            href="{{ route('getSingleService', $relatedCategory->id) }}">{{ $relatedCategory->title }}</a>
-                                        <p>{{ $relatedCategory->description }}</p>
-                                    </div>
-                                    <div class="tf__services_btn_area">
-                                        <a class="read_btn"
-                                            href="{{ route('getSingleService', $relatedCategory->id) }}">read more</a>
-                                    </div>
+                                <div class="tf__services_btn_area">
+                                    <a class="read_btn" href="{{ route('getSingleService', $relatedCategory->id) }}">read
+                                        more</a>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
             </div>
+        </div>
         </div>
     </section>
 
@@ -361,8 +359,8 @@
         </div>
     </div>
     <!--=====================================
-                                                                                    SERVICE DETAILS END
-                                                                                =====================================-->
+                                                                                                        SERVICE DETAILS END
+                                                                                                    =====================================-->
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
@@ -423,8 +421,41 @@
         const ratingMessage = document.getElementById('ratingMessage');
         ratingMessage.textContent = `You rated: ${currentRating} stars`;
     }
-    
+
     function updateHiddenInput() {
         document.getElementById('hiddenRating').setAttribute('value', currentRating)
     }
+
+    $(document).ready(function() {
+        $('#searchInput').on('input', function() {
+            var searchTerm = $(this).val();
+
+            $.ajax({
+                url: '{{ route('searchCategory') }}',
+                type: 'GET',
+                data: {
+                    q: searchTerm
+                },
+                dataType: 'json',
+                success: function(data) {
+                    var resultsContainer = $('#searchResults');
+                    resultsContainer.empty();
+
+                    if (data.length > 0) {
+                        $.each(data, function(index, category) {
+                            var categoryLink =
+                                '<p><a class="custom-link" href="/services/category/page/' + category
+                                .id + '">' + category.title + '</a></p>';
+                            resultsContainer.append(categoryLink);
+                        });
+                    } else {
+                        resultsContainer.append('<p>No results found.</p>');
+                    }
+                },
+                error: function() {
+                    $('#searchResults').html('<p>An error occurred.</p>');
+                }
+            });
+        });
+    });
 </script>
