@@ -41,8 +41,8 @@ jobs:
       - name: Deploy via FTP
         uses: sebastianpopp/ftp-action@releases/v2
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          server: ${{ secrets.INPUT_SERVER }}
+          username: ${{ secrets.INPUT_USERNAME }}
+          password: ${{ secrets.INPUT_PASSWORD }}
           local-dir: ./ # This specifies the directory to upload
           server-dir: /topbusiness/public_html/spa/public/  # Update this path to your desired directory
