@@ -13,16 +13,11 @@ jobs:
       - name: Check out the latest code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14 # Use a specific Node.js version
-
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
       - name: Install Dependencies
-        run: composer install --no-interaction --no-ansi --no-progress --no-scripts --prefer-dist
+        run: composer update --no-interaction --no-ansi --no-progress --no-scripts --prefer-dist
 
       - name: Generate key
         run: php artisan key:generate
