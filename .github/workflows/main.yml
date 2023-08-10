@@ -1,48 +1,30 @@
 name: Deploy Laravel Project on push
-
 on:
   push:
     branches:
-      - master
-
+      - main
 jobs:
   web-deploy:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      # Optimize Composer dependencies
-      - name: Cache Composer dependencies
-        uses: actions/cache@v2
-        with:
-          path: vendor
-          key: composer-${{ hashFiles('composer.json') }}
-          restore-keys: |
-            composer-
-
-      # Install PHP dependencies
-      - name: Install PHP dependencies
-        run: composer install --ignore-platform-reqs --no-interaction
-
-      # Generate key and storage link in parallel
-      - name: Generate key and storage link
-        run: |
-          php artisan key:generate &
-          php artisan storage:link
-        # ...
-
-      # Set directory permissions
-      - name: Set directory permissions
+      - name: Get the latest code
+        uses: actions/checkout@v2.3.2
+      - uses: actions/setup-node@master
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      - name: Install Dependencies
+        run: composer update --ignore-platform-reqs
+      - name: Generate key
+        run: php artisan key:generate
+      - name: Generate storage link
+        run: php artisan storage:link
+      - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
-
-      # Deploy via FTP using sebastianpopp/ftp-action@releases/v2
-      - name: Deploy via FTP
-        uses: sebastianpopp/ftp-action@releases/v2
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          host: ${{ secrets.INPUT_SERVER }}
-          user: ${{ secrets.INPUT_USERNAME }}
-          password: ${{ secrets.INPUT_PASSWORD }}
-          localDir: ./ # This specifies the directory to upload
-          remoteDir: /topbusiness/public_html/spa/public/ # Update this path to your desired directory
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /topbusiness/public_html/spa/public/
