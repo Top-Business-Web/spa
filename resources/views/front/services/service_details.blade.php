@@ -1,8 +1,8 @@
 @extends('front.layouts.master')
 @section('content')
     <!--=====================================
-                                                                                                                    BREADCRUMB START
-                                                                                                                =====================================-->
+                                                                                                                                                BREADCRUMB START
+                                                                                                                                            =====================================-->
 
     <section class="tf__breadcrumb" style="background: url('{{ asset($settings->banner) }}');">
         <div class="tf__breadcrumb_overlay">
@@ -22,13 +22,13 @@
         </div>
     </section>
     <!--=====================================
-                                                                                                                    BREADCRUMB END
-                                                                                                                =====================================-->
+                                                                                                                                                BREADCRUMB END
+                                                                                                                                            =====================================-->
 
 
     <!--=====================================
-                                                                                                                    SERVICE DETAILS START
-                                                                                                                =====================================-->
+                                                                                                                                                SERVICE DETAILS START
+                                                                                                                                            =====================================-->
     <section class="tf__services_details mt_120 xs_mt_70">
         <div class="container">
             <div class="row">
@@ -70,53 +70,72 @@
                         </ul>
                     </div>
                     <div class="tf__service_review_list mt_50">
-                        <h3>07 review</h3>
+                        @if ($reviewCount >= 1 && $reviewCount <= 9)
+                            <h3>{{ str_pad($reviewCount, 2, '0', STR_PAD_LEFT) }} review</h3>
+                        @else
+                            <h3>{{ $reviewCount }} reviews</h3>
+                        @endif
                         <div class="owl-carousel owl-theme">
                             <div class="pb-4">
-                                @foreach ($reviews as $review)
-                                    <div class="tf__single_review">
-                                        <div class="review_img">
-                                            <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client"
-                                                class="img-fluid w-100">
+                                @foreach ($reviews as $index => $review)
+                                    @if ($index < 4)
+                                        <div class="tf__single_review">
+                                            <div class="review_img">
+                                                <img src="{{ asset('assets/front') }}/images/review_img_1.jpg"
+                                                    alt="Client" class="img-fluid w-100">
+                                            </div>
+                                            <div class="review_text">
+                                                <h4>{{ $review->name }}
+                                                    <span>{{ date('Y-m-d', strtotime($review->created_at)) }}</span>
+                                                </h4>
+                                                <p class="review_star">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <span>(120)</span>
+                                                </p>
+                                                <p class="description">{{ $review->description }}</p>
+                                            </div>
                                         </div>
-                                        <div class="review_text">
-                                            <h4>{{ $review->name }} <span>{{ date('Y-m-d', strtotime($review->created_at)); }}</span></h4>
-                                            <p class="review_star">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <span>(120)</span>
-                                            </p>
-                                            <p class="description">{{ $review->description }}</p>
-                                        </div>
-                                    </div>
+                                    @endif
                                 @endforeach
                             </div>
-                            <div class="pb-4">
-                                <div class="tf__single_review">
-                                    <div class="review_img">
-                                        <img src="{{ asset('assets/front') }}/images/review_img_1.jpg" alt="Client"
-                                            class="img-fluid w-100">
-                                    </div>
-                                    <div class="review_text">
-                                        <h4>Arlene Mcoy <span>17 dec 2022</span></h4>
-                                        <p class="review_star">
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <span>(120)</span>
-                                        </p>
-                                        <p class="description">Duis aute irure dolor in reprehenderitin voluptate velit
-                                            essecillum int dolore eu fugiatnullail pariatur cepteur sint occaecat
-                                            consectetur
-                                            adipiscing elit.</p>
-                                    </div>
+                            @if (count($reviews) > 4)
+                                <div class="pb-4">
+                                    @foreach ($reviews as $index => $review)
+                                        @if ($index >= 4 && $index < 8)
+                                            <div class="tf__single_review">
+                                                <div class="review_img">
+                                                    <img src="{{ asset('assets/front') }}/images/review_img_1.jpg"
+                                                        alt="Client" class="img-fluid w-100">
+                                                </div>
+                                                <div class="review_text">
+                                                    <h4>{{ $review->name }}
+                                                        <span>{{ date('Y-m-d', strtotime($review->created_at)) }}</span>
+                                                    </h4>
+                                                    <p class="review_star">
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                        <span>(120)</span>
+                                                    </p>
+                                                    <p class="description">Duis aute irure dolor in reprehenderitin
+                                                        voluptate
+                                                        velit
+                                                        essecillum int dolore eu fugiatnullail pariatur cepteur sint
+                                                        occaecat
+                                                        consectetur
+                                                        adipiscing elit.</p>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endforeach
                                 </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
 
@@ -248,8 +267,8 @@
         </div>
     </div>
     <!--=====================================
-                                                                                                                    SERVICE DETAILS END
-                                                                                                                =====================================-->
+                                                                                                                                                SERVICE DETAILS END
+                                                                                                                                            =====================================-->
 @endsection
 @section('js')
     <script>
