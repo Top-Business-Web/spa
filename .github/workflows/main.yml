@@ -1,4 +1,5 @@
 name: Deploy Laravel Project on push
+
 on:
   push:
     branches:
@@ -17,13 +18,15 @@ jobs:
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
       - name: Install Dependencies
-        run: composer update --no-interaction --no-ansi --no-progress --no-scripts --prefer-dist
+        run: composer install --no-interaction --no-ansi --no-progress --no-scripts --prefer-dist
+        env:
+          COMPOSER_HOME: /path-to-project/.composer
 
-      - name: Generate key
-        run: php artisan key:generate
-
-      - name: Generate storage link
-        run: php artisan storage:link
+      - name: Generate key and storage link
+        run: |
+          php artisan key:generate &
+          php artisan storage:link &
+          wait # Wait for both background processes to finish
 
       - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
