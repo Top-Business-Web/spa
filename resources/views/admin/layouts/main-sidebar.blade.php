@@ -60,6 +60,7 @@
                 <span class="side-menu__label">Settings</span>
             </a>
         </li>
+        <!-- Deploy -->
 
         <li class="slide">
             <a class="side-menu__item" href="{{ route('sliders.index') }}">
