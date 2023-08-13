@@ -27,7 +27,7 @@ class ReviewStoreRequest extends FormRequest
             'name' => 'required',
             'email' => 'required|email',
             'description' => 'required',
-            'rate' => 'required',
+            'rate' => 'nullable',
             'page_id' => 'required',
         ];
     }

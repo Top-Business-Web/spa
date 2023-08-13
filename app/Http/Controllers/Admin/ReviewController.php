@@ -20,12 +20,16 @@ class ReviewController extends Controller
             return Datatables::of($reviews)
                 ->addColumn('action', function ($reviews) {
                     return '
-                                <button type="button" data-id="' . $reviews->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+                                <button type="button" data-id="' . $reviews->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-eye"></i></button>
                                 <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
                                         data-id="' . $reviews->id . '" data-title="' . $reviews->name . '">
                                         <i class="fas fa-trash"></i>
                                 </button>
                            ';
+                })
+                ->editColumn('status', function ($reviews) {
+                    $checked = $reviews->status == 1 ? 'checked' : '';
+                    return '<td><input type="checkbox" data-review-id="' . $reviews->id . '" class="form-check-input status-checkbox" style="transform: scale(1.5); ' . $checked . '"></td>';
                 })
                 ->editColumn('description', function ($reviews) {
                     return '<td>' . Str::limit($reviews->description, 50) . '</td>';
@@ -41,26 +45,26 @@ class ReviewController extends Controller
     }
 
 
-    public function create()
-    {
-        $pages = Page::query()->select('id', 'top_title')->get();
-        return view('admin.reviews.parts.create', compact('pages'));
-    }
+    // public function create()
+    // {
+    //     $pages = Page::query()->select('id', 'top_title')->get();
+    //     return view('admin.reviews.parts.create', compact('pages'));
+    // }
     // end  of create
 
     // Store Start
-    public function store(ReviewStoreRequest $request)
-    {
-        try {
-            $inputs = $request->validated();
+    // public function store(ReviewStoreRequest $request)
+    // {
+    //     try {
+    //         $inputs = $request->validated();
 
-            $review = Review::create($inputs);
+    //         $review = Review::create($inputs);
 
-            return response()->json(['status' => 200]);
-        } catch (\Exception $e) {
-            return response()->json(['status' => 405]);
-        }
-    }
+    //         return response()->json(['status' => 200]);
+    //     } catch (\Exception $e) {
+    //         return response()->json(['status' => 405]);
+    //     }
+    // }
     // Store End
 
 
@@ -71,18 +75,18 @@ class ReviewController extends Controller
     }
     // end  of edit
 
-    public function update(ReviewUpdateRequest $request, Review $review)
-    {
-        try {
-            $inputs = $request->validated();
+    // public function update(ReviewUpdateRequest $request, Review $review)
+    // {
+    //     try {
+    //         $inputs = $request->validated();
 
-            $review->update($inputs);
+    //         $review->update($inputs);
 
-            return response()->json(['status' => 200]);
-        } catch (\Exception $e) {
-            return response()->json(['status' => 405]);
-        }
-    }
+    //         return response()->json(['status' => 200]);
+    //     } catch (\Exception $e) {
+    //         return response()->json(['status' => 405]);
+    //     }
+    // }
 
     public function destroy(Request $request)
     {

@@ -1,4 +1,7 @@
 <?php
+
+use App\Models\Admin;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -6,53 +9,74 @@ use Illuminate\Support\Facades\Storage;
 if (!function_exists('get_file')) {
     function getFile($image): string
     {
-        if ($image!= null){
-            if (!file_exists($image)){
+        if ($image != null) {
+            if (!file_exists($image)) {
                 return asset('uploads/noImage.png');
-            }else{
+            } else {
                 return asset($image);
             }
-        }else{
+        } else {
             return asset('uploads/noImage.png');
         }
     }
 }
 
 if (!function_exists('admin')) {
-    function admin(){
+    function admin()
+    {
         return auth()->guard('admin');
     }
 }
 if (!function_exists('setting')) {
-    function setting(){
+    function setting()
+    {
         return \App\Models\Setting::first();
     }
 }
 
 if (!function_exists('loggedAdmin')) {
-    function loggedAdmin($field = null){
+    function loggedAdmin($field = null)
+    {
         return auth()->guard('admin')->user()->$field;
     }
 }
 
 if (!function_exists('user')) {
-    function user() {
+    function user()
+    {
         return auth()->guard('user');
     }
 }
 
 if (!function_exists('trans_model')) {
 
-    function trans_model($model,$word){
+    function trans_model($model, $word)
+    {
 
-        return $model->{$word.'_'. app()->getlocale()};
+        return $model->{$word . '_' . app()->getlocale()};
     }
+}
 
+if (!function_exists('getRecordCount')) {
+    /**
+     * Get the count of records for a given model with optional conditions.
+     *
+     * @param string $modelClassName
+     * @param array $conditions
+     * @return int
+     */
+    function getRecordCount(string $modelClassName, array $conditions = []): int
+    {
+        return $modelClassName::query()->where($conditions)->count();
+    }
 }
 
 
-function get_font_icons(){
-    $icons = array (
+
+
+function get_font_icons()
+{
+    $icons = array(
         0 => 'fab fa-500px',
         1 => 'fas fa-address-book',
         2 => 'fab fa-address-book-o',
@@ -826,14 +850,15 @@ function get_font_icons(){
 
 
 if (!function_exists('get_user_file')) {
-    function get_user_file($image) {
-        if ($image!= null){
-            if (!file_exists($image)){
+    function get_user_file($image)
+    {
+        if ($image != null) {
+            if (!file_exists($image)) {
                 return asset('assets/uploads/avatar.png');
-            }else{
+            } else {
                 return asset($image);
             }
-        }else{
+        } else {
             return asset('assets/uploads/avatar.png');
         }
     }
@@ -841,29 +866,32 @@ if (!function_exists('get_user_file')) {
 
 
 if (!function_exists('get_file')) {
-    function get_file($image) {
+    function get_file($image)
+    {
 
-        if ($image!= null){
-            if (!file_exists($image)){
+        if ($image != null) {
+            if (!file_exists($image)) {
                 return asset('assets/uploads/empty.png');
-            }else{
+            } else {
                 return asset($image);
             }
-        }else{
+        } else {
             return asset('assets/uploads/empty.png');
         }
     }
 }
 
 if (!function_exists('api')) {
-    function api() {
+    function api()
+    {
         return auth()->guard('api');
     }
 }
 
 if (!function_exists('helperJson')) {
-    function helperJson($data=null,$message='',$code=200,$status=200) {
-        $json = response()->json(['data'=>$data,'message'=>$message,'code'=>$code],$status);
+    function helperJson($data = null, $message = '', $code = 200, $status = 200)
+    {
+        $json = response()->json(['data' => $data, 'message' => $message, 'code' => $code], $status);
         return $json;
     }
 }
