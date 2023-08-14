@@ -1,4 +1,4 @@
-@extends('Admin/layouts/master')
+@extends('admin/layouts/master')
 
 @section('title')
     {{ $setting->title ?? '' }} | About Us
@@ -76,7 +76,7 @@
             </div>
         </div>
     </form>
-    @include('Admin/layouts/myAjaxHelper')
+    @include('admin/layouts/myAjaxHelper')
 @endsection
 @section('ajaxCalls')
     <script>
