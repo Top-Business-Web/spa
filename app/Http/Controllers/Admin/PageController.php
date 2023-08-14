@@ -39,7 +39,7 @@ class PageController extends Controller
                 ->escapeColumns([])
                 ->make(true);
         } else {
-            return view('Admin/pages/index');
+            return view('admin/pages/index');
         }
     }
 

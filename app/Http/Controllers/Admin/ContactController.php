@@ -31,7 +31,7 @@ class ContactController extends Controller
                 ->escapeColumns([])
                 ->make(true);
         } else {
-            return view('Admin/contacts/index');
+            return view('admin/contacts/index');
         }
     }
 

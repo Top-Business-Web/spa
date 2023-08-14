@@ -36,7 +36,7 @@ class GellaryController extends Controller
                 ->escapeColumns([])
                 ->make(true);
         } else {
-            return view('Admin/gellaries/index');
+            return view('admin/gellaries/index');
         }
     }
     // Index End

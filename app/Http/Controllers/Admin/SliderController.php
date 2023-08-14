@@ -37,7 +37,7 @@ class SliderController extends Controller
                 ->escapeColumns([])
                 ->make(true);
         } else {
-            return view('Admin/sliders/index');
+            return view('admin/sliders/index');
         }
     }
 

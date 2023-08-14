@@ -38,7 +38,7 @@ class CategoryController extends Controller
                 ->escapeColumns([])
                 ->make(true);
         } else {
-            return view('Admin/categories/index');
+            return view('admin/categories/index');
         }
     }
 

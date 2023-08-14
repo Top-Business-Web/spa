@@ -40,7 +40,7 @@ class AdminController extends Controller
                 ->escapeColumns([])
                 ->make(true);
         }else{
-            return view('Admin/admin/index');
+            return view('admin/admin/index');
         }
     }
 
@@ -62,11 +62,11 @@ class AdminController extends Controller
     public function myProfile()
     {
         $admin = auth()->guard('admin')->user();
-        return view('Admin/admin/profile',compact('admin'));
+        return view('admin/admin/profile',compact('admin'));
     }//end fun
 
     public function create(){
-        return view('Admin/admin.parts.create');
+        return view('admin/admin.parts.create');
     }
 
     public function store(StoreAdmin $request)
@@ -83,7 +83,7 @@ class AdminController extends Controller
     }
 
     public function edit(Admin $admin){
-        return view('Admin/admin.parts.edit',compact('admin'));
+        return view('admin/admin.parts.edit',compact('admin'));
     }
 
     public function update(StoreAdmin $request,$id)

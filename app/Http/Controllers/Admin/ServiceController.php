@@ -30,7 +30,7 @@ class ServiceController extends Controller
                 ->escapeColumns([])
                 ->make(true);
         } else {
-            return view('Admin/services/index');
+            return view('admin/services/index');
         }
     }
     // Index End
