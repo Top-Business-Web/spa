@@ -1,17 +1,17 @@
 @extends('front.layouts.master')
 @section('content')
     <!--=====================================
-                                                TOPBAR START
-                                            =====================================-->
+                                                    TOPBAR START
+                                                =====================================-->
     @include('front.layouts.top_bar')
     <!--=====================================
-                                                TOPBAR END
-                                            =====================================-->
+                                                    TOPBAR END
+                                                =====================================-->
 
 
     <!--=====================================
-                                                MENU START
-                                            =====================================-->
+                                                    MENU START
+                                                =====================================-->
     @include('front.layouts.navbar')
 
     <div class="wsus__reservation">
@@ -54,13 +54,13 @@
         </div>
     </div>
     <!--=====================================
-                                                MENU END
-                                            =====================================-->
+                                                    MENU END
+                                                =====================================-->
 
 
     <!--=====================================
-                                                BANNER START
-                                            =====================================-->
+                                                    BANNER START
+                                                =====================================-->
     <section class="tf__banner">
         <div class="row banner_slider">
             @foreach ($sliders as $slider)
@@ -92,13 +92,13 @@
         </div>
     </section>
     <!--=====================================
-                                                BANNER END
-                                            =====================================-->
+                                                    BANNER END
+                                                =====================================-->
 
 
     <!--=====================================
-                                                FUTURED SERVICES START
-                                            =====================================-->
+                                                    FUTURED SERVICES START
+                                                =====================================-->
     <section class="tf__futured_services mt_115 xs_mt_70">
         <div class="container">
             <div class="row">
@@ -110,52 +110,32 @@
                 </div>
             </div>
             <div class="row futured_slider wow fadeInUp" data-wow-duration="1s">
-                <div class="col-xl-3">
-                    <div class="tf__featured_service_single">
-                        <span><i class="fas fa-user-shield"></i></span>
-                        <h3>Spa Membership</h3>
-                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia .</p>
+                @if ($offers->isEmpty())
+                    <div class="col-xl-12">
+                        <h1 style="text-align: center; border: 2px solid">NO Offers</h1>
                     </div>
-                </div>
-                <div class="col-xl-3">
-                    <div class="tf__featured_service_single">
-                        <span><i class="fas fa-restroom"></i></span>
-                        <h3>Referal Program</h3>
-                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia .</p>
-                    </div>
-                </div>
-                <div class="col-xl-3">
-                    <div class="tf__featured_service_single">
-                        <span><i class="fas fa-gift"></i></span>
-                        <h3>Gifts Certificates</h3>
-                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia .</p>
-                    </div>
-                </div>
-                <div class="col-xl-3">
-                    <div class="tf__featured_service_single">
-                        <span><i class="fas fa-comment-dots"></i></span>
-                        <h3>Give Us a Feed Back</h3>
-                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia .</p>
-                    </div>
-                </div>
-                <div class="col-xl-3">
-                    <div class="tf__featured_service_single">
-                        <span><i class="fas fa-restroom"></i></span>
-                        <h3>Referal Program</h3>
-                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia .</p>
-                    </div>
-                </div>
+                @else
+                    @foreach ($offers as $offer)
+                        <div class="col-xl-3">
+                            <div class="tf__featured_service_single">
+                                <span><i class="fas fa-gift"></i></span>
+                                <h3>{{ $offer->title }}</h3>
+                                <p>{{ $offer->description }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>
     <!--=====================================
-                                                FUTURED SERVICES END
-                                            =====================================-->
+                                                    FUTURED SERVICES END
+                                                =====================================-->
 
 
     <!--=====================================
-                                                ABOUT START
-                                            =====================================-->
+                                                    ABOUT START
+                                                =====================================-->
     <section class="tf__about mt_120 xs_mt_70">
         <div class="container">
             <div class="row">
@@ -191,13 +171,13 @@
         </div>
     </section>
     <!--=====================================
-                                                ABOUT END
-                                            =====================================-->
+                                                    ABOUT END
+                                                =====================================-->
 
 
     <!--=====================================
-                                                CATEGORIES START
-                                            =====================================-->
+                                                    CATEGORIES START
+                                                =====================================-->
     <section class="tf__categories mt_115 xs_mt_70">
         <div class="container">
             <div class="row">
@@ -229,13 +209,13 @@
         </div>
     </section>
     <!--=====================================
-                                                CATEGORIES END
-                                            =====================================-->
+                                                    CATEGORIES END
+                                                =====================================-->
 
 
     <!--=====================================
-                                                SERVICES START
-                                            =====================================-->
+                                                    SERVICES START
+                                                =====================================-->
     <section class="tf__services mt_115 xs_mt_70" style="background: url('assets/front/images/background_shapes.jpg');">
         <div class="container">
             <div class="row">
@@ -272,13 +252,13 @@
         </div>
     </section>
     <!--=====================================
-                                                SERVICES END
-                                            =====================================-->
+                                                    SERVICES END
+                                                =====================================-->
 
 
     <!--=====================================
-                                                WHY CHOOSE START
-                                            =====================================-->
+                                                    WHY CHOOSE START
+                                                =====================================-->
     <section class="tf__why_choose mt_115 xs_mt_70">
         <div class="container">
             <div class="row justify-content-between">
@@ -326,13 +306,13 @@
         </div>
     </section>
     <!--=====================================
-                                                WHY CHOOSE END
-                                            =====================================-->
+                                                    WHY CHOOSE END
+                                                =====================================-->
 
 
     <!--=====================================
-                                                WORK START
-                                            =====================================-->
+                                                    WORK START
+                                                =====================================-->
     <section class="tf__work mt_115 xs_mt_70">
         <div class="container">
             <div class="row">
@@ -368,12 +348,12 @@
         </div>
     </section>
     <!--=====================================
-                                                WORK END
-                                            =====================================-->
+                                                    WORK END
+                                                =====================================-->
 
     <!--=====================================
-                                                TESTIMONIAL START
-                                            =====================================-->
+                                                    TESTIMONIAL START
+                                                =====================================-->
 
     <section class="tf__testimonial mt_115 xs_mt_70">
         <div class="container">
@@ -483,16 +463,16 @@
     </section>
 
     <!--=====================================
-                                                TESTIMONIAL END
-                                            =====================================-->
+                                                    TESTIMONIAL END
+                                                =====================================-->
 
     <!--=========================
-                                                SCROLL BUTTON START
-                                            ===========================-->
+                                                    SCROLL BUTTON START
+                                                ===========================-->
     <div class="tf__scroll_btn">
         <span><i class="fas fa-arrow-alt-up"></i></span>
     </div>
     <!--==========================
-                                                SCROLL BUTTON END
-                                            ===========================-->
+                                                    SCROLL BUTTON END
+                                                ===========================-->
 @endsection
