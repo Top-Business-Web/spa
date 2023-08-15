@@ -47,6 +47,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function (){
     #### Reviews ####
     Route::resource('reviews', ReviewController::class);
 
+    #### Offers ####
+    Route::resource('offers', OfferController::class);
+
 });
 
 

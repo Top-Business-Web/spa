@@ -41,6 +41,13 @@
         </li>
 
         <li class="slide">
+            <a class="side-menu__item" href="{{ route('offers.index') }}">
+                <i class="fa fa-gift side-menu__icon"></i>
+                <span class="side-menu__label">Offers</span>
+            </a>
+        </li>
+
+        <li class="slide">
             <a class="side-menu__item" href="{{ route('gellaries.index') }}">
                 <i class="fa fa-image side-menu__icon"></i>
                 <span class="side-menu__label">Gellaries</span>
