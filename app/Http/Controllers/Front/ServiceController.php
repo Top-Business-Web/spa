@@ -24,13 +24,13 @@ class ServiceController extends Controller
     {
         $page = $this->getPageForCategory($category, $pageModel);
         $relatedCategories = $this->getRelatedCategories($category);
-        $allCategories = $this->getTopCategories();
+        $pagesRelatedWithCategory = $this->getPagesRelatedCategory($category->id);
         $reviews = $this->getApprovedReviews($page, $reviewModel);
         $reviewCount = $this->getReviewCount($page);
 
         return view('front.services.service_details', compact(
             'page',
-            'allCategories',
+            'pagesRelatedWithCategory',
             'relatedCategories',
             'reviews',
             'reviewCount'
@@ -52,10 +52,10 @@ class ServiceController extends Controller
             ->get();
     }
 
-    private function getTopCategories()
+    private function getPagesRelatedCategory($id)
     {
-        return Category::select('id', 'title', 'top')
-            ->where('top', 1)
+        return Page::select('id', 'top_title')
+            ->where('category_id', '=', $id)
             ->latest()
             ->take(6)
             ->get();

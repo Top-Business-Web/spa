@@ -185,9 +185,9 @@
                         <div class="tf__sidebar_category sidebar_item mb_25">
                             <h3>Our Service Category</h3>
                             <ul>
-                                @foreach ($allCategories as $allCategory)
+                                @foreach ($pagesRelatedWithCategory as $pages)
                                     <li><a
-                                            href="{{ route('getSingleService', $allCategory->id) }}">{{ $allCategory->title }}</a>
+                                            href="{{ route('getSingleService', $pages->id) }}">{{ $pages->top_title }}</a>
                                     </li>
                                 @endforeach
                             </ul>
