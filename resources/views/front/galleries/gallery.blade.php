@@ -9,10 +9,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="tf__breadcrumb_text">
-                            <h1>photo gallery</h1>
+                            <h1>{{trans('website.gallery')}}</h1>
                             <ul>
-                                <li><a href="{{ route('home') }}"><i class="fas fa-home"></i> home</a></li>
-                                <li><a href="#">gallery</a></li>
+                                <li><a href="{{ route('home') }}"><i class="fas fa-home"></i>{{trans('website.Home')}}</a></li>
+                                <li><a href="#">{{trans('website.gallery')}}</a></li>
                             </ul>
                         </div>
                     </div>
