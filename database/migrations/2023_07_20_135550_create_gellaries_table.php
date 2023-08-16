@@ -16,6 +16,7 @@ class CreateGellariesTable extends Migration
         Schema::create('gellaries', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('title_ar');
             $table->longText('image');
             $table->timestamps();
         });
