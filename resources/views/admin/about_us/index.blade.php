@@ -34,21 +34,39 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="top_title_ar">Top Title AR :</label>
+                                <input type="text" name="top_title_ar" value="{{ $about_us->top_title_ar }}"
+                                    class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="top_title">Top Title :</label>
                                 <input type="text" name="top_title" value="{{ $about_us->top_title }}"
                                     class="form-control" />
                             </div>
                         </div>
-                        <div class="col-md-4">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="down_title">Down Title AR :</label>
+                                <input type="text" name="down_title_ar" value="{{ $about_us->down_title_ar }}"
+                                    class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="down_title">Down Title :</label>
                                 <input type="text" name="down_title" value="{{ $about_us->down_title }}"
                                     class="form-control" />
                             </div>
                         </div>
-                        <div class="col-md-4">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="year">Year :</label>
                                 <input type="text" name="year" value="{{ $about_us->year }}" class="form-control" />
@@ -64,8 +82,22 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
+                                <label for="desc_ar">Top Description AR:</label>
+                                <textarea name="top_description_ar" rows="8" class="form-control ckeditor">{!! $about_us->top_description_ar !!}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
                                 <label for="desc_en">Down Description :</label>
                                 <textarea name="down_description" rows="8" class="form-control ckeditor">{!! $about_us->down_description !!}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="desc_en">Down Description AR :</label>
+                                <textarea name="down_description_ar" rows="8" class="form-control ckeditor">{!! $about_us->down_description_ar !!}</textarea>
                             </div>
                         </div>
                     </div>

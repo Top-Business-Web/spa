@@ -17,19 +17,27 @@ class OfferSeeder extends Seeder
         $data = [
             [
                 'title' => 'spa massage',
-                'description' => 'spa message offer in 70%'
+                'title_ar' => 'تدليك سبا',
+                'description' => 'spa message offer in 70%',
+                'description_ar' => 'عرض مساج سبا في 70٪'
             ],
             [
                 'title' => 'spa massage 2',
-                'description' => 'spa message offer in 30%'
+                'title_ar' => 'تدليك سبا',
+                'description' => 'spa message offer in 30%',
+                'description_ar' => 'عرض مساج سبا في 70٪',
             ],
             [
                 'title' => 'spa massage 3',
-                'description' => 'spa message offer in 50%'
+                'title_ar' => 'تدليك سبا',
+                'description' => 'spa message offer in 50%',
+                'description_ar' => 'عرض مساج سبا في 70٪',
             ],
             [
                 'title' => 'spa massage 4',
-                'description' => 'spa message offer in 90%'
+                'title_ar' => 'تدليك سبا',
+                'description' => 'spa message offer in 90%',
+                'description_ar' => 'عرض مساج سبا في 70٪',
             ],
         ];
 
