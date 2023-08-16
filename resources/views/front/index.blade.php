@@ -20,16 +20,16 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">make an appointment</h1>
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">{{trans('website.make an appointment')}}</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form class="wsus__reservation_form">
-                            <input class="reservation_input" type="text" placeholder="Name">
-                            <input class="reservation_input" type="text" placeholder="Phone">
-                            <input class="reservation_input" type="text" placeholder="address">
+                            <input class="reservation_input" type="text" placeholder="{{trans('website.name')}}">
+                            <input class="reservation_input" type="text" placeholder="{{trans('website.phone')}}">
+                            <input class="reservation_input" type="text" placeholder="{{trans('website.address')}}">
                             <select class="reservation_input" id="select_js">
-                                <option value="">select service</option>
+                                <option value="">{{trans('website.select service')}}</option>
                                 <option value="">Facial Therapy</option>
                                 <option value="">Candle Message</option>
                                 <option value="">Stone Spa</option>
@@ -38,15 +38,15 @@
                             </select>
                             <input class="reservation_input" type="date">
                             <select class="reservation_input" id="select_js2">
-                                <option value="">select time</option>
+                                <option value="">{{trans('website.select time')}}</option>
                                 <option value="">08.00 am to 09.00 am</option>
                                 <option value="">10.00 am to 11.00 am</option>
                                 <option value="">12.00 pm to 01.00 pm</option>
                                 <option value="">02.00 pm to 03.00 pm</option>
                                 <option value="">04.00 pm to 05.00 pm</option>
                             </select>
-                            <textarea rows="5" placeholder="Message"></textarea>
-                            <button class="common_btn" type="submit">submit now</button>
+                            <textarea rows="5" placeholder="{{trans('website.message')}}"></textarea>
+                            <button class="common_btn" type="submit">{{trans('website.submit now')}}</button>
                         </form>
                     </div>
                 </div>
@@ -60,6 +60,10 @@
 
     <!--=====================================
                                                     BANNER START
+     "welcome To alia beauty lounge" => "welcome To alia beauty lounge",
+    "Intro Video" => "Intro Video",
+    "Service!!" => "Service!!ه",
+
                                                 =====================================-->
     <section class="tf__banner">
         <div class="row banner_slider">
@@ -70,8 +74,8 @@
                             <div class="row">
                                 <div class="col-xl-6 col-md-8">
                                     <div class="tf__single_slider_text wow fadeInUp" data-wow-duration="1s">
-                                        <h5>welcome To alia beauty lounge</h5>
-                                        <h1>{{ $slider->title }} <span>Service!!</span></h1>
+                                        <h5>{{trans('website.welcome To alia beauty lounge')}}</h5>
+                                        <h1>{{ $slider->title }} <span>{{trans('website.Service!!')}}</span></h1>
                                         <p>{{ $slider->description }}</p>
                                         <ul class="d-flex flex-wrap">
                                             <li>
@@ -79,7 +83,7 @@
                                                     href="{{ $slider->url }}">
                                                     <i class="fas fa-play"></i>
                                                 </a>
-                                                <span>Intro Video</span>
+                                                <span>{{trans('website.Intro Video')}}</span>
                                             </li>
                                         </ul>
                                     </div>
@@ -96,6 +100,7 @@
                                                 =====================================-->
 
 
+
     <!--=====================================
                                                     FUTURED SERVICES START
                                                 =====================================-->
@@ -104,15 +109,15 @@
             <div class="row">
                 <div class="col-xl-7 col-md-10 m-auto wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__section_heading mb_50 xs_mb_55">
-                        <h5>What We're Offering</h5>
-                        <h3>For Your Future Services</h3>
+                        <h5>{{trans('website.What We are Offering')}}</h5>
+                        <h3>{{trans('website.For Your Future Services')}}</h3>
                     </div>
                 </div>
             </div>
             <div class="row futured_slider wow fadeInUp" data-wow-duration="1s">
                 @if ($offers->isEmpty())
                     <div class="col-xl-12">
-                        <h1 style="text-align: center; border: 2px solid">NO Offers</h1>
+                        <h1 style="text-align: center; border: 2px solid">{{trans('website.NO Offers')}}</h1>
                     </div>
                 @else
                     @foreach ($offers as $offer)
@@ -143,7 +148,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="tf__section_heading tf__heading_left mb_25">
-                                <h5>About Us</h5>
+                                <h5>{{trans('website.about us')}}</h5>
                                 <h3>{{ $about_us->top_title }}</h3>
                             </div>
                         </div>
@@ -152,7 +157,7 @@
                                 <div class="tf_about_text_center">
                                     <p>{{ $about_us->top_description }}</p>
                                 </div>
-                                <a class="common_btn mt_25" href="{{ route('about_us') }}">Read More</a>
+                                <a class="common_btn mt_25" href="{{ route('about_us') }}">{{trans('website.read more')}}</a>
                             </div>
                         </div>
                     </div>
@@ -183,8 +188,8 @@
             <div class="row">
                 <div class="col-xl-7 col-lg-8 col-md-10 m-auto wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__section_heading mb_35">
-                        <h5>Top Categories</h5>
-                        <h3>Explore Categories</h3>
+                        <h5>{{trans('website.Top Categories')}}</h5>
+                        <h3>{{trans('website.Explore Categories')}}</h3>
                     </div>
                 </div>
             </div>
@@ -221,8 +226,8 @@
             <div class="row">
                 <div class="col-xl-7 col-lg-8 col-md-10 wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__section_heading tf__heading_left mb_35">
-                        <h5>Our Services</h5>
-                        <h3>Explore Popular Services</h3>
+                        <h5>{{trans('website.Our Services')}}</h5>
+                        <h3>{{trans('website.Explore Popular Services')}}</h3>
                     </div>
                 </div>
             </div>
@@ -240,15 +245,14 @@
                                     <p>{{ $categoryTop->description }}</p>
                                 </div>
                                 <div class="tf__services_btn_area">
-                                    <a class="read_btn" href="{{ route('getSingleService', $categoryTop->id) }}">read
-                                        more</a>
+                                    <a class="read_btn" href="{{ route('getSingleService', $categoryTop->id) }}">{{trans('website.read more')}}</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
-            <a class="common_btn" href="{{ route('services') }}">All Services</a>
+            <a class="common_btn" href="{{ route('services') }}">{{trans('website.Our Services')}}</a>
         </div>
     </section>
     <!--=====================================
@@ -264,27 +268,26 @@
             <div class="row justify-content-between">
                 <div class="col-xl-5 col-lg-6 col-md-10 wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__section_heading tf__heading_left mb_25">
-                        <h5>Why Choose Us</h5>
-                        <h3>Why You Choose alia beauty lounge</h3>
+                        <h5>{{trans('website.hy Choose Us')}}</h5>
+                        <h3>{{trans('website.Why You Choose alia beauty lounge')}}</h3>
                     </div>
                     <div class="tf__why_choose_text">
-                        <p>Excepteur sint occaecat cupidatat non proident,sunt inculpk qui officia deserunt mollit anim
-                            id est laborum.sed do eiusmod.</p>
+                        <p>{{trans('website.p_one')}}</p>
                         <ul>
                             <li>
-                                <h4>Qualified Staff</h4>
+                                <h4>{{trans('website.h4_1')}}</h4>
                             </li>
                             <li>
-                                <h4>Relax Zones</h4>
+                                <h4>{{trans('website.h4_2')}}</h4>
                             </li>
                             <li>
-                                <h4>Variety Of Care</h4>
+                                <h4>{{trans('website.h4_3')}}</h4>
                             </li>
                             <li>
-                                <h4>Herbal Product</h4>
+                                <h4>{{trans('website.h4_4')}}</h4>
                             </li>
                         </ul>
-                        <a class="common_btn mt_25" href="{{ route('services') }}">read more</a>
+                        <a class="common_btn mt_25" href="{{ route('services') }}">{{trans('website.read more')}}</a>
                     </div>
                 </div>
                 <div class="col-xl-7 col-lg-6 col-sm-8 col-md-8 col-xxl-6 wow fadeInUp" data-wow-duration="1s">
@@ -311,15 +314,16 @@
 
 
     <!--=====================================
-                                                    WORK START
+
+                          WORK START
                                                 =====================================-->
     <section class="tf__work mt_115 xs_mt_70">
         <div class="container">
             <div class="row">
                 <div class="col-xl-7 col-lg-8 col-md-10 m-auto wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__section_heading mb_85 xs_mb_30">
-                        <h5>3 Easy Step</h5>
-                        <h3>How It works?</h3>
+                        <h5>{{trans('website.work_start_h5')}}</h5>
+                        <h3>{{trans('website.work_start_h3')}}</h3>
                     </div>
                 </div>
             </div>
@@ -327,20 +331,20 @@
                 <div class="row">
                     <div class="col-xl-4 col-md-4 col-lg-4 wow fadeInUp" data-wow-duration="1s">
                         <div class="tf__work_single first">
-                            <h4>Meeting</h4>
-                            <p>Quis autem vel eum iure reprehenderit qui in ea voluptate</p>
+                            <h4>{{trans('website.work_start_h4_1')}}</h4>
+                            <p>{{trans('website.work_start_p_1')}}</p>
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-4 col-lg-4 wow fadeInUp" data-wow-duration="1s">
                         <div class="tf__work_single second">
-                            <h4>Treatment</h4>
-                            <p>Quis autem vel eum iure reprehenderit qui in ea voluptate</p>
+                            <h4>{{trans('website.work_start_h4_2')}}</h4>
+                            <p>{{trans('website.work_start_p_2')}}</p>
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-4 col-lg-4 wow fadeInUp" data-wow-duration="1s">
                         <div class="tf__work_single third">
-                            <h4>Finalizing</h4>
-                            <p>Quis autem vel eum iure reprehenderit qui in ea voluptate</p>
+                            <h4>{{trans('website.work_start_h4_3')}}</h4>
+                            <p>{{trans('website.work_start_p_3')}}</p>
                         </div>
                     </div>
                 </div>
@@ -360,11 +364,12 @@
             <div class="row">
                 <div class="col-xl-7 col-md-10 m-auto wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__section_heading mb_35">
-                        <h5>our testimonial</h5>
-                        <h3>What Our Clients Says</h3>
+                        <h5>{{trans('website.our testimonial')}}</h5>
+                        <h3> {{trans('website.What Our Clients Says')}}</h3>
                     </div>
                 </div>
             </div>
+
             <div class="row testi_slider wow fadeInUp" data-wow-duration="1s">
                 <div class="col-xl-4">
                     <div class="tf__single_testimonial">
@@ -381,14 +386,13 @@
                                 <i class="fas fa-star"></i>
                             </p>
                             <p class="cliect_comment">
-                                Duis aute irure dolor in reprehenderit into volupjl
-                                tate velit esse cillum dolore eu fugiat nulla partr
-                                iatur sunt in culp qui officia deserunt mollit
+                                {{trans('website.our_testimonial_p_1')}}
                             </p>
-                            <h3 class="title">Courtney Henry</h3>
+                            <h3 class="title"> {{trans('website.Courtney Henry')}}</h3>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-xl-4">
                     <div class="tf__single_testimonial">
                         <div class="tf__single_testimonial_img">
@@ -404,11 +408,9 @@
                                 <i class="fas fa-star"></i>
                             </p>
                             <p class="cliect_comment">
-                                Duis aute irure dolor in reprehenderit into volupjl
-                                tate velit esse cillum dolore eu fugiat nulla partr
-                                iatur sunt in culp qui officia deserunt mollit
+                                {{trans('website.our_testimonial_p_2')}}
                             </p>
-                            <h3 class="title">Rishmika Lane</h3>
+                            <h3 class="title">{{trans('website.Rishmika Lane')}}</h3>
                         </div>
                     </div>
                 </div>
@@ -427,11 +429,10 @@
                                 <i class="fas fa-star"></i>
                             </p>
                             <p class="cliect_comment">
-                                Duis aute irure dolor in reprehenderit into volupjl
-                                tate velit esse cillum dolore eu fugiat nulla partr
-                                iatur sunt in culp qui officia deserunt mollit
+
+                                {{trans('website.our_testimonial_p_3')}}
                             </p>
-                            <h3 class="title">Letitia Shelton</h3>
+                            <h3 class="title">{{trans('website.Letitia Shelton')}}</h3>
                         </div>
                     </div>
                 </div>
@@ -450,17 +451,16 @@
                                 <i class="fas fa-star"></i>
                             </p>
                             <p class="cliect_comment">
-                                Duis aute irure dolor in reprehenderit into volupjl
-                                tate velit esse cillum dolore eu fugiat nulla partr
-                                iatur sunt in culp qui officia deserunt mollit
+                                {{trans('website.our_testimonial_p_4')}}
                             </p>
-                            <h3 class="title">Rishmika Lane</h3>
+                            <h3 class="title">{{trans('website.Rishmika Lane')}}</h3>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!--=====================================
                                                     TESTIMONIAL END

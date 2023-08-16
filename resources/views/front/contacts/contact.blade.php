@@ -10,10 +10,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="tf__breadcrumb_text">
-                            <h1>contact us</h1>
+                            <h1>{{trans('website.contact')}}</h1>
                             <ul>
-                                <li><a href="#"><i class="fas fa-home"></i> home</a></li>
-                                <li><a href="#">contact us</a></li>
+                                <li><a href="#"><i class="fas fa-home"></i> {{trans('website.Home')}}</a></li>
+                                <li><a href="#">{{trans('website.contact')}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -35,29 +35,31 @@
                 <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__contact_info" style="height: 215px;">
                         <span><i class="fas fa-map-marker-alt"></i></span>
-                        <h3>Our Location</h3>
+                        <h3>{{trans('website.Our Location')}}</h3>
                         <p>{{ $settings->address }}</p>
                     </div>
                 </div>
+
                 <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__contact_info" style="height: 215px;">
                         <span><i class="fas fa-envelope"></i></span>
-                        <h3>Email Us</h3>
+                        <h3>{{trans('website.Email Us')}}</h3>
                         <a href="mailto:support@yourdomain.com">{{ $settings->email }}</a>
                     </div>
                 </div>
+
                 <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__contact_info" style="height: 215px;">
                         <span><i class="fas fa-phone-alt"></i></span>
-                        <h3>Call Us</h3>
+                        <h3>{{trans('website.Call Us')}}</h3>
                         <a href="callto:{{ $settings->phone }}"> {{ $settings->phone }}</a>
                     </div>
                 </div>
                 <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__contact_info" style="height: 215px;">
                         <span><i class="fas fa-clock"></i></span>
-                        <h3>Working Hours</h3>
-                        <p>Satrday to Friday :</p>
+                        <h3>{{trans('website.Working Hours')}}</h3>
+                        <p>{{trans('website.Satrday to Friday')}} :</p>
                         <p>{{ $settings->work_hours }}</p>
                 </div>
             </div>
@@ -73,23 +75,23 @@
                 </div>
                 <div class="col-lg-7 m-auto wow fadeInUp" data-wow-duration="1s">
                     <form class="tf__contact_form contactForm" id="contactForm">
-                        <h2>Do You have Any Questions?</h2>
+                        <h2>{{trans('website.Do You have Any Questions?')}}</h2>
                         <div class="row">
                             <div class="col-xl-6">
-                                <input type="text" name="name" placeholder="Your Name" required>
+                                <input type="text" name="name" placeholder="{{trans('website.name')}}" required>
                             </div>
                             <div class="col-xl-6">
-                                <input type="email" name="email" placeholder="Your Email" required>
+                                <input type="email" name="email" placeholder="{{trans('website.email')}}" required>
                             </div>
                             <div class="col-xl-6">
-                                <input type="text" name="phone" placeholder="Your Phone" required>
+                                <input type="text" name="phone" placeholder="{{trans('website.phone')}}" required>
                             </div>
                             <div class="col-xl-6">
-                                <input type="text" name="subject" placeholder="Subject" required>
+                                <input type="text" name="subject" placeholder="{{trans('website.subject')}}" required>
                             </div>
                             <div class="col-xl-12">
-                                <textarea rows="7" name="description" placeholder="Write something Here" required></textarea>
-                                <button type="button" class="common_btn">Send Message</button>
+                                <textarea rows="7" name="description" placeholder="{{trans('website.description')}}" required></textarea>
+                                <button type="button" class="common_btn">{{trans('website.Send Message')}}</button>
                             </div>
                         </div>
                     </form>

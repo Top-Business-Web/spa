@@ -12,29 +12,29 @@
             <ul class="navbar-nav m-auto">
                 <li class="nav-item">
                     <a class="nav-link {{ Request::routeIs('home') ? 'active' : '' }}"
-                        href="{{ route('home') }}">Home</a>
+                        href="{{ route('home') }}">{{trans('website.Home')}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::routeIs('about_us') ? 'active' : '' }}"
-                        href="{{ route('about_us') }}">about us</a>
+                        href="{{ route('about_us') }}">{{trans('website.about us')}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::routeIs('services') ? 'active' : '' }}"
-                        href="{{ route('services') }}">services</a>
+                        href="{{ route('services') }}">{{trans('website.services')}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::routeIs('galleries') ? 'active' : '' }}"
-                        href="{{ route('galleries') }}">gallery</a>
+                        href="{{ route('galleries') }}">{{trans('website.gallery')}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::routeIs('contacts') ? 'active' : '' }}"
-                        href="{{ route('contacts') }}">contact</a>
+                        href="{{ route('contacts') }}">{{trans('website.contact')}}</a>
                 </li>
             </ul>
 
             <ul class="menu_right d-flex flex-wrap">
                 <li><a class="reservation" href="#" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop">reservation</a></li>
+                        data-bs-target="#staticBackdrop">{{trans('website.reservation')}}</a></li>
             </ul>
         </div>
     </div>

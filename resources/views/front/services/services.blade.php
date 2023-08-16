@@ -7,10 +7,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="tf__breadcrumb_text">
-                            <h1>our services</h1>
+                            <h1>{{trans('website.Our Services')}}</h1>
                             <ul>
-                                <li><a href="{{ route('home') }}"><i class="fas fa-home"></i> home</a></li>
-                                <li><a href="#">services</a></li>
+                                <li><a href="{{ route('home') }}"><i class="fas fa-home"></i>{{trans('website.Home')}}</a></li>
+                                <li><a href="#">{{trans('website.services')}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -27,8 +27,8 @@
             <div class="row">
                 <div class="col-12 wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__section_heading tf__heading_left mb_35 text-center">
-                        <h5>Our Services</h5>
-                        <h3 class="text-center">Explore Popular Services</h3>
+                        <h5>{{trans('website.Our Services')}}</h5>
+                        <h3 class="text-center">{{trans('website.Explore Popular Services')}}</h3>
                     </div>
                 </div>
             </div>
@@ -54,8 +54,7 @@
                                         <p>{{ $categ->description }}</p>
                                     </div>
                                     <div class="tf__services_btn_area">
-                                        <a class="read_btn" href="{{ route('getSingleService', $categ->id) }}">read
-                                            more</a>
+                                        <a class="read_btn" href="{{ route('getSingleService', $categ->id) }}">{{trans('website.read more')}}</a>
                                     </div>
                                 </div>
                             </div>
