@@ -10,6 +10,12 @@
                     <input type="text" class="form-control" value="{{ $service->title }}" name="title" />
                 </div>
             </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="title">Tilte AR :</label>
+                    <input type="text" class="form-control" value="{{ $service->title_ar }}" name="title_ar" />
+                </div>
+            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary" id="addButton">Update</button>

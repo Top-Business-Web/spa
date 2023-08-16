@@ -12,9 +12,13 @@ class Page extends Model
 
     protected $fillable = [
         'top_title',
+        'top_title_ar',
         'top_description',
+        'top_description_ar',
         'down_title',
+        'down_title_ar',
         'down_description',
+        'down_description_ar',
         'category_id',
     ];
 

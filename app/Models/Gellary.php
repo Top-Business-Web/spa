@@ -11,6 +11,7 @@ class Gellary extends Model
 
     protected $fillable = [
         'title',
+        'title_ar',
         'image',
     ];
 }

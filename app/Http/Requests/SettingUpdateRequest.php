@@ -26,7 +26,9 @@ class SettingUpdateRequest extends FormRequest
         return [
             'logo' => 'nullable|mimes:jpg',
             'title' => 'required',
+            'title_ar' => 'required',
             'address' => 'required',
+            'address_ar' => 'required',
             'phone' => 'required',
             'email' => 'required',
             'work_hours' => 'required',

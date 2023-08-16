@@ -11,10 +11,16 @@
                         data-default-file="{{ asset('uploads/admins/galleries/' . $gellary->image) }}" />
                 </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="form-group">
                     <label for="title">Tilte :</label>
-                    <input type="text" class="form-control" value="{{ $gellary->title }}" name="title" />
+                    <input type="text" value="{{ $gellary->title }}" class="form-control" name="title" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="title">Tilte AR:</label>
+                    <input type="text" value="{{ $gellary->title_ar }}" class="form-control" name="title_ar" />
                 </div>
             </div>
             <div class="modal-footer">

@@ -22,16 +22,30 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="title">Url :</label>
-                    <input type="text" class="form-control" name="url" />
+                    <label for="title">Tilte AR :</label>
+                    <input type="text" class="form-control" name="title_ar" />
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
+                    <label for="title">Url :</label>
+                    <input type="text" class="form-control" name="url" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
                     <label for="title">Description :</label>
                     <textarea name="description" rows="8" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="title">Description AR :</label>
+                    <textarea name="description_ar" rows="8" class="form-control"></textarea>
                 </div>
             </div>
         </div>

@@ -25,9 +25,13 @@ class PageUpdateRequest extends FormRequest
     {
         return [
             'top_title' => 'required',
+            'top_title_ar' => 'required',
             'top_description' => 'required',
+            'top_description_ar' => 'required',
             'down_title' => 'required',
+            'down_title_ar' => 'required',
             'down_description' => 'required',
+            'down_description_ar' => 'required',
             'category_id' => 'required'
         ];
     }

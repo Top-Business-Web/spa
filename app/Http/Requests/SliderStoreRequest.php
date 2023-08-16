@@ -25,7 +25,9 @@ class SliderStoreRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'title_ar' => 'required',
             'description' => 'required',
+            'description_ar' => 'required',
             'image' => 'required|mimes:jpg',
             'url' => 'required',
         ];
