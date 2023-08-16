@@ -25,7 +25,9 @@ class OfferStoreRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'title_ar' => 'required',
             'description' => 'required',
+            'description_ar' => 'required',
         ];
     }
 }

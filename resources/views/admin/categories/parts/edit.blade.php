@@ -25,10 +25,18 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
+                    <label for="title">Tilte AR :</label>
+                    <input type="text" value="{{ $category->title_ar }}" class="form-control" name="title_ar" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
                     <label for="title">Service :</label>
                     <select name="service_id" class="form-control">
                         @foreach ($services as $service)
-                            <option value="{{ $service->id }}"
+                            <option style="text-align: center" value="{{ $service->id }}"
                                 {{ $category->service_id == $service->id ? 'selected' : '' }}>{{ $service->title }}
                             </option>
                         @endforeach
@@ -51,10 +59,16 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="form-group">
                     <label for="title">Description :</label>
                     <textarea name="description" rows="8" class="form-control">{{ $category->description }}</textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="title">Description AR :</label>
+                    <textarea name="description_ar" rows="8" class="form-control">{{ $category->description_ar }}</textarea>
                 </div>
             </div>
         </div>

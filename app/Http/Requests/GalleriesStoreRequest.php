@@ -25,6 +25,7 @@ class GalleriesStoreRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'title_ar' => 'required',
             'image' => 'required|mimes:jpg'
         ];
     }

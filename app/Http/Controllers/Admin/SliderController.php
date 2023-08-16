@@ -51,7 +51,7 @@ class SliderController extends Controller
     // Store Start
     public function store(SliderStoreRequest $request)
     {
-        try {
+        // try {
             $inputs = $request->validated();
 
             if ($request->hasFile('image')) {
@@ -61,9 +61,9 @@ class SliderController extends Controller
             $slider = Slider::create($inputs);
 
             return response()->json(['status' => 200]);
-        } catch (\Exception $e) {
+        // } catch (\Exception $e) {
             return response()->json(['status' => 405]);
-        }
+        // }
     }
     // Store End
 
@@ -72,7 +72,6 @@ class SliderController extends Controller
     {
         $imageName = $image->getClientOriginalName();
         $image->move($destination, $imageName);
-
         return $imageName;
     }
     // Save Image

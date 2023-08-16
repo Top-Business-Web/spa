@@ -25,6 +25,7 @@ class ServiceUpdateRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'title_ar' => 'required',
         ];
     }
 }

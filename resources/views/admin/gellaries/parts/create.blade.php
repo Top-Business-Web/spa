@@ -12,16 +12,22 @@
                         jpeg, jpg,webp</span>
                 </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="form-group">
                     <label for="title">Tilte :</label>
                     <input type="text" class="form-control" name="title" />
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" id="addButton">Add</button>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="title">Tilte AR:</label>
+                    <input type="text" class="form-control" name="title_ar" />
+                </div>
             </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" id="addButton">Add</button>
         </div>
     </form>
 </div>

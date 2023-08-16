@@ -66,8 +66,8 @@
         <!-- MODAL CLOSED -->
 
         <!-- Create Or Edit Modal -->
-        <div class="modal fade" id="editOrCreate" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+        <div class="modal fade bd-example-modal-lg" id="editOrCreate" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="example-Modal3">Slider data</h5>
@@ -96,7 +96,7 @@
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
         showData('{{route('sliders.index')}}', columns);
-        
+
         // Add Using Ajax
         showAddModal('{{route('sliders.create')}}');
         addScript();
@@ -105,7 +105,7 @@
         editScript();
         // Delete Using Ajax
         destroyScript('{{route('sliders.destroy', 'id')}}');
-        
+
     </script>
 @endsection
 

@@ -25,7 +25,9 @@ class SliderUpdateRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'title_ar' => 'required',
             'description' => 'required',
+            'description_ar' => 'required',
             'image' => 'nullable|mimes:jpg,png',
             'url' => 'required',
         ];

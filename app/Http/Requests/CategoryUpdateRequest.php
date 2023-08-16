@@ -26,7 +26,9 @@ class CategoryUpdateRequest extends FormRequest
         return [
             'image' => 'sometimes|mimes:png,jpg',
             'title' => 'required',
+            'title_ar' => 'required',
             'description' => 'required',
+            'description_ar' => 'required',
             'view' => 'required',
             'top' => 'required',
             'service_id' => 'required',
