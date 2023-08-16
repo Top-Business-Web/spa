@@ -15,8 +15,14 @@ class ServiceSeeder extends Seeder
     public function run()
     {
         $data = [
-            ['title' => 'Spa'],
-            ['title' => 'Salon'],
+            [
+                'title' => 'Spa',
+                'title_ar' => 'سبا',
+            ],
+            [
+                'title' => 'Salon',
+                'title_ar' => 'صالون'
+            ],
         ];
         DB::table('services')->insert($data);
     }
