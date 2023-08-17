@@ -14,6 +14,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
+        // spa service categories
         $data = [
             [
                 'image' => 'uploads/admins/categories/service_img_5.jpg',
@@ -39,7 +40,8 @@ class CategorySeeder extends Seeder
                 'top' => '1',
                 'service_id' => '1',
             ],
-            // spa service
+
+           // Salon service categories
             [
                 'image' => 'uploads/admins/categories/service_2_img_4.jpg',
                 'title' => 'Hairdressing',
