@@ -3,6 +3,7 @@
 use App\Models\Admin;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -893,5 +894,13 @@ if (!function_exists('helperJson')) {
     {
         $json = response()->json(['data' => $data, 'message' => $message, 'code' => $code], $status);
         return $json;
+    }
+}
+
+
+if (!function_exists('lang')) {
+
+    function lang(){
+        return Config::get('app.locale');
     }
 }
