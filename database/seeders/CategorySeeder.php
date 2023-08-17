@@ -80,8 +80,8 @@ class CategorySeeder extends Seeder
             ],
             [
                 'image' => 'uploads/admins/categories/service_img_6.jpg',
-                'title' => 'Sauna Relax Double',
-                'title_ar' => 'استرخاء ساونا مزدوجة',
+                'title' => 'Waxing services',
+                'title_ar' => ' خدمات الواكس',
                 'description' => 'Qui laborum dolore voluptate voluptate',
                 'description_ar' => 'Qui laborum dolore voluptate voluptate',
                 'view' => '2',
@@ -90,14 +90,34 @@ class CategorySeeder extends Seeder
             ],
             [
                 'image' => 'uploads/admins/categories/service_img_6.jpg',
-                'title' => 'Therapy alone',
-                'title_ar' => 'العلاج وحده',
+                'title' => 'p.m',
+                'title_ar' => 'خدمات العناية بالأظافر',
                 'description' => 'Qui laborum dolore voluptate voluptate',
                 'description_ar' => 'Qui laborum dolore voluptate voluptate',
                 'view' => '2',
                 'top' => '1',
                 'service_id' => '2',
             ],
+            [
+                'image' => 'uploads/admins/categories/service_img_6.jpg',
+                'title' => 'Gel & Acrylic services',
+                'title_ar' => 'خدمات الجل والاكريليك',
+                'description' => 'Qui laborum dolore voluptate voluptate',
+                'description_ar' => 'Qui laborum dolore voluptate voluptate',
+                'view' => '2',
+                'top' => '0',
+                'service_id' => '2',
+            ],
+            [
+                'image' => 'uploads/admins/categories/service_img_6.jpg',
+                'title' => 'Threading',
+                'title_ar' => 'تقنية إزالة الشعر باستخدام الخيوط الملتوية',
+                'description' => 'Qui laborum dolore voluptate voluptate',
+                'description_ar' => 'Qui laborum dolore voluptate voluptate',
+                'view' => '2',
+                'top' => '0',
+                'service_id' => '2',
+            ]
         ];
         DB::table('categories')->insert($data);
     }
