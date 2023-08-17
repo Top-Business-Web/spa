@@ -75,8 +75,8 @@
                                 <div class="col-xl-6 col-md-8">
                                     <div class="tf__single_slider_text wow fadeInUp" data-wow-duration="1s">
                                         <h5>{{trans('website.welcome To alia beauty lounge')}}</h5>
-                                        <h1>{{ $slider->title }} <span>{{trans('website.Service!!')}}</span></h1>
-                                        <p>{{ $slider->description }}</p>
+                                        <h1>{{ lang() == 'ar' ? $slider->title_ar : $slider->title }} <span>{{trans('website.Service!!')}}</span></h1>
+                                        <p>{{ lang() == 'ar' ? $slider->description_ar : $slider->description }}</p>
                                         <ul class="d-flex flex-wrap">
                                             <li>
                                                 <a class="venobox play_btn" data-autoplay="true" data-vbtype="video"
@@ -124,8 +124,8 @@
                         <div class="col-xl-3">
                             <div class="tf__featured_service_single">
                                 <span><i class="fas fa-gift"></i></span>
-                                <h3>{{ $offer->title }}</h3>
-                                <p>{{ $offer->description }}</p>
+                                <h3>{{ lang() == 'ar' ? $offer->title_ar : $offer->title }}</h3>
+                                <p>{{  lang() == 'ar' ? $offer->description_ar : $offer->description }}</p>
                             </div>
                         </div>
                     @endforeach
@@ -149,13 +149,13 @@
                         <div class="col-12">
                             <div class="tf__section_heading tf__heading_left mb_25">
                                 <h5>{{trans('website.about us')}}</h5>
-                                <h3>{{ $about_us->top_title }}</h3>
+                                <h3>{{ lang() == 'ar' ? $about_us->top_title_ar : $about_us->top_title }}</h3>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="tf__about_text">
                                 <div class="tf_about_text_center">
-                                    <p>{{ $about_us->top_description }}</p>
+                                    <p>{{ lang() == 'ar' ? $about_us->top_description_ar :  $about_us->top_description }}</p>
                                 </div>
                                 <a class="common_btn mt_25" href="{{ route('about_us') }}">{{trans('website.read more')}}</a>
                             </div>
@@ -205,8 +205,8 @@
                                         alt="category" class="img-fluid w-100">
                                 @endif
                             </span>
-                            <h4>{{ $category->title }}</h4>
-                            <p>{{ $category->description }}</p>
+                            <h4>{{ lang() == 'ar' ? $category->title_ar : $category->title }}</h4>
+                            <p>{{  lang() == 'ar' ? $category->description_ar : $category->description }}</p>
                         </div>
                     </div>
                 @endforeach
@@ -241,8 +241,8 @@
                             <div class="tf__services_text d-flex flex-column justify-content-between">
                                 <div>
                                     <a class="title"
-                                        href="{{ route('getSingleService', $categoryTop->id) }}">{{ $categoryTop->title }}</a>
-                                    <p>{{ $categoryTop->description }}</p>
+                                        href="{{ route('getSingleService', $categoryTop->id) }}">{{ lang() == 'ar' ?$categoryTop->title_ar :$categoryTop->title }}</a>
+                                    <p>{{ lang() == 'ar' ? $categoryTop->description_ar :  $categoryTop->description }}</p>
                                 </div>
                                 <div class="tf__services_btn_area">
                                     <a class="read_btn" href="{{ route('getSingleService', $categoryTop->id) }}">{{trans('website.read more')}}</a>
