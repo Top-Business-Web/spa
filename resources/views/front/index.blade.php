@@ -16,11 +16,12 @@
 
     <div class="wsus__reservation">
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">{{trans('website.make an appointment')}}</h1>
+                        <h1 class="modal-title fs-5"
+                            id="staticBackdropLabel">{{trans('website.make an appointment')}}</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -75,12 +76,13 @@
                                 <div class="col-xl-6 col-md-8">
                                     <div class="tf__single_slider_text wow fadeInUp" data-wow-duration="1s">
                                         <h5>{{trans('website.welcome To alia beauty lounge')}}</h5>
-                                        <h1>{{ lang() == 'ar' ? $slider->title_ar : $slider->title }} <span>{{trans('website.Service!!')}}</span></h1>
+                                        <h1>{{ lang() == 'ar' ? $slider->title_ar : $slider->title }}
+                                            <span>{{trans('website.Service!!')}}</span></h1>
                                         <p>{{ lang() == 'ar' ? $slider->description_ar : $slider->description }}</p>
                                         <ul class="d-flex flex-wrap">
                                             <li>
                                                 <a class="venobox play_btn" data-autoplay="true" data-vbtype="video"
-                                                    href="{{ $slider->url }}">
+                                                   href="{{ $slider->url }}">
                                                     <i class="fas fa-play"></i>
                                                 </a>
                                                 <span>{{trans('website.Intro Video')}}</span>
@@ -157,7 +159,8 @@
                                 <div class="tf_about_text_center">
                                     <p>{{ lang() == 'ar' ? $about_us->top_description_ar :  $about_us->top_description }}</p>
                                 </div>
-                                <a class="common_btn mt_25" href="{{ route('about_us') }}">{{trans('website.read more')}}</a>
+                                <a class="common_btn mt_25"
+                                   href="{{ route('about_us') }}">{{trans('website.read more')}}</a>
                             </div>
                         </div>
                     </div>
@@ -198,12 +201,8 @@
                     <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp" data-wow-duration="1s">
                         <div class="tf__single_categories">
                             <span>
-                                @if ($index === 1)
-                                    <img src="{{ asset($category) }}" alt="category" class="img-fluid w-100">
-                                @else
                                     <img src="{{ asset('assets/front/images/category_icon_' . ($index + 1) . '.png') }}"
-                                        alt="category" class="img-fluid w-100">
-                                @endif
+                                         alt="category" class="img-fluid w-100">
                             </span>
                             <h4>{{ lang() == 'ar' ? $category->title_ar : $category->title }}</h4>
                             <p>{{  lang() == 'ar' ? $category->description_ar : $category->description }}</p>
@@ -241,11 +240,12 @@
                             <div class="tf__services_text d-flex flex-column justify-content-between">
                                 <div>
                                     <a class="title"
-                                        href="{{ route('getSingleService', $categoryTop->id) }}">{{ lang() == 'ar' ?$categoryTop->title_ar :$categoryTop->title }}</a>
+                                       href="{{ route('getSingleService', $categoryTop->id) }}">{{ lang() == 'ar' ?$categoryTop->title_ar :$categoryTop->title }}</a>
                                     <p>{{ lang() == 'ar' ? $categoryTop->description_ar :  $categoryTop->description }}</p>
                                 </div>
                                 <div class="tf__services_btn_area">
-                                    <a class="read_btn" href="{{ route('getSingleService', $categoryTop->id) }}">{{trans('website.read more')}}</a>
+                                    <a class="read_btn"
+                                       href="{{ route('getSingleService', $categoryTop->id) }}">{{trans('website.read more')}}</a>
                                 </div>
                             </div>
                         </div>
@@ -294,11 +294,11 @@
                     <div class="tf__why_choose_img">
                         <div class="large_img">
                             <img src="{{ asset('assets/front') }}/images/why_choose_img_1.jpg" alt="why choose"
-                                class="img-fluid w-100">
+                                 class="img-fluid w-100">
                         </div>
                         <div class="small_img">
                             <img src="{{ asset('assets/front') }}/images/why_choose_img_2.jpg" alt="why choose"
-                                class="img-fluid w-100">
+                                 class="img-fluid w-100">
                         </div>
                         <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/xsnCYCEbdr4">
                             <i class="fas fa-play"></i>
@@ -364,7 +364,7 @@
             <div class="row">
                 <div class="col-xl-7 col-md-10 m-auto wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__section_heading mb_35">
-                        <h5>{{trans('website.our testimonial')}}</h5>
+                        <h5>{{trans('website.our_testimonial')}}</h5>
                         <h3> {{trans('website.What Our Clients Says')}}</h3>
                     </div>
                 </div>
@@ -375,7 +375,7 @@
                     <div class="tf__single_testimonial">
                         <div class="tf__single_testimonial_img">
                             <img src="{{ asset('assets/front') }}/images/client_1.jpg" alt="client"
-                                class="img-fluid w-100">
+                                 class="img-fluid w-100">
                         </div>
                         <div class="tf__single_testimonial_text">
                             <p class="rating">
@@ -397,7 +397,7 @@
                     <div class="tf__single_testimonial">
                         <div class="tf__single_testimonial_img">
                             <img src="{{ asset('assets/front') }}/images/client_2.jpg" alt="client"
-                                class="img-fluid w-100">
+                                 class="img-fluid w-100">
                         </div>
                         <div class="tf__single_testimonial_text">
                             <p class="rating">
@@ -418,7 +418,7 @@
                     <div class="tf__single_testimonial">
                         <div class="tf__single_testimonial_img">
                             <img src="{{ asset('assets/front') }}/images/client_3.jpg" alt="client"
-                                class="img-fluid w-100">
+                                 class="img-fluid w-100">
                         </div>
                         <div class="tf__single_testimonial_text">
                             <p class="rating">
@@ -440,7 +440,7 @@
                     <div class="tf__single_testimonial">
                         <div class="tf__single_testimonial_img">
                             <img src="{{ asset('assets/front') }}/images/client_2.jpg" alt="client"
-                                class="img-fluid w-100">
+                                 class="img-fluid w-100">
                         </div>
                         <div class="tf__single_testimonial_text">
                             <p class="rating">

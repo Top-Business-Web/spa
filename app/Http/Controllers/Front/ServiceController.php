@@ -14,19 +14,30 @@ use App\Http\Requests\ReviewStoreRequest;
 class ServiceController extends Controller
 {
 
-    public function index(Service $serviceModel) : View
+    public function index(Service $serviceModel)
     {
-        $services = $serviceModel->get();
+        $services = $serviceModel->with('category', 'category.page')->get();
+
         return view('front.services.services', compact('services'));
     }
 
-    public function getSingleService(Category $category, Page $pageModel, Review $reviewModel) : View
+    public function getSingleService($page, Review $reviewModel): View
     {
-        $page = $this->getPageForCategory($category, $pageModel);
+        $page = Page::find($page);
+        $category = Category::find($page->category_id);
         $relatedCategories = $this->getRelatedCategories($category);
         $pagesRelatedWithCategory = $this->getPagesRelatedCategory($category->id);
         $reviews = $this->getApprovedReviews($page, $reviewModel);
         $reviewCount = $this->getReviewCount($page);
+
+//        $data = ['page' =>$page,
+//            'category' =>$category,
+//            'relatedCategories' =>$relatedCategories,
+//            'pagesRelatedWithCategory' =>$pagesRelatedWithCategory,
+//            'reviews' =>$reviews,
+//            'reviewCount' =>$reviewCount];
+//
+//        dd($data);
 
         return view('front.services.service_details', compact(
             'page',
@@ -37,14 +48,9 @@ class ServiceController extends Controller
         ));
     }
 
-    private function getPageForCategory(Category $category, Page $pageModel)
-    {
-        return $pageModel->where('category_id', $category->id)->first();
-    }
-
     private function getRelatedCategories(Category $category)
     {
-        return $category->select('id', 'title', 'description', 'image', 'service_id')
+        return $category->select('*')
             ->where('service_id', $category->service->id)
             ->where('id', '!=', $category->id)
             ->latest()
@@ -54,7 +60,7 @@ class ServiceController extends Controller
 
     private function getPagesRelatedCategory($id)
     {
-        return Page::select('id', 'top_title')
+        return Page::select('*')
             ->where('category_id', '=', $id)
             ->latest()
             ->take(6)

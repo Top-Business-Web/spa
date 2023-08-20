@@ -1,7 +1,7 @@
-/*
+/* 
 ***************************************
 Template Name: BonFax || Spa Salon - (22 Page) HTML Template
-Author: ThemeFax
+Author: ThemeFax 
 Author Email: themefaxbd@gmail.com
 website: http://www.themefax.com/
 Version: 1.0
@@ -11,9 +11,9 @@ Description: BonFax is a library for Spa and Beauty with predefined web elements
 
 CSS INDEX
 ===================================
-01. GLOBAL CSS
+01. GLOBAL CSS 
 02. HOME PAGE
-03. HOME PAGE 2
+03. HOME PAGE 2 
 04. ABOUT US PAGE
 05. BLOG DETAILS PAGE
 06. CONTACT US PAGE
@@ -38,27 +38,6 @@ a {
     margin: 0;
     padding: 0;
 }
-
-.gallery-item.hidden {
-    display: none;
-}
-
-.custom-link {
-    display: block;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-    color: #333; /* Text color (dark gray) */
-    text-decoration: none; /* Remove underline */
-    transition: background-color 0.3s, color 0.3s; /* Smooth color and background transition */
-    background-color: white; /* Background color */
-}
-
-.custom-link:hover {
-    background-color: var(--colorPrimary);
-    color: #555; /* Darken the text color on hover */
-}
-
 
 ul,
 ol,
@@ -1472,7 +1451,7 @@ button {
 }
 
 .tf__services_item {
-    height: 277px;
+    /* height: 277px; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -1567,9 +1546,9 @@ button {
 }
 
 .tf__services_text p {
-    margin: 15px 0px 20px 0px;
+    margin: 15px 0px 0px 0px;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -7464,3 +7443,52 @@ button {
 .result-search ul li:hover{
     background-color: rgba(228, 214, 183, 0.4);
 }
+
+/* edit 16/8/2023*/
+
+.list-services{
+    display: block !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    margin-bottom: 0px !important;
+}
+.list-services li{
+    margin-bottom: 7px;
+    margin-left: 20px !important;
+}
+.list-services li a{
+    color: var(--colorBlack);
+    transition: all 0.5s ease;
+    position: relative;
+}
+.list-services li a:hover{
+    color: var(--colorPrimary);
+}
+.list-services li a::after{
+    position: absolute;
+    content: "";
+    width: 7px;
+    height: 7px;
+    background: var(--colorBlack);
+    top: 8px;
+    left: -15px;
+    transition: all 0.5s ease;
+}
+.list-services li a:hover:after{
+    background-color: var(--colorPrimary);
+}
+.icon-toggle{
+    color: var(--colorBlack);
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+.btn-toggle:hover .icon-toggle{
+    color: var(--colorPrimary);
+}
+.active .icon-toggle{
+    transform: rotate(180deg);
+    transition: 0.5 ease;
+    justify-content: flex-start;
+}
+   
