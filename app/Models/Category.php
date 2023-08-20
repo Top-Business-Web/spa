@@ -40,6 +40,6 @@ class Category extends Model
      */
     public function page(): HasMany
     {
-        return $this->hasMany(Service::class);
+        return $this->hasMany(Page::class);
     }
 }

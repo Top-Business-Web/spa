@@ -25,7 +25,7 @@
                     <h4>{{trans('website.Our Services')}}</h4>
                     <ul>
                         @foreach ($categories as $category)
-                            <li><a href="{{ route('getSingleService', $category->id) }}">{{ $category->title }}</a></li>
+                            <li><a href="{{ route('getSingleService', $category->id) }}">{{ lang() == 'ar' ? $category->title_ar : $category->title  }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -57,7 +57,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="tf__footer_copyright">
-                    <p>{{trans('website.Copyright')}} © <a href="index.html">Top business</a> 2023. {{trans('website.All Rights Reserved')}}</p>
+                    <p>{{trans('website.Copyright')}} © <a href="https://topbusiness.io">Top business</a> 2023. {{trans('website.All Rights Reserved')}}</p>
                 </div>
             </div>
         </div>

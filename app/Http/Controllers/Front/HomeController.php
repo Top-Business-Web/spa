@@ -27,12 +27,12 @@ class HomeController extends Controller
         $sliders = $sliderModel->all();
         $about_us = $aboutUsModel->first();
         $categoriesTop = Category::orderBy('view', 'desc')->take(6)->get();
-        $categories = $categoryModel->select('id', 'title', 'description')
+        $categories = $categoryModel->select('*')
             ->where('top', 1)
             ->latest()
             ->take(8)
             ->get();
-        $offers = $offerModel->select('title', 'description')->get();
+        $offers = $offerModel->select('*')->get();
         return view('front.index', compact('sliders', 'about_us', 'categories', 'categoriesTop', 'offers'));
     }
 }

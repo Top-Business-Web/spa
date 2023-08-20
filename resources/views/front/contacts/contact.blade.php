@@ -103,7 +103,7 @@
                     CONTACT US END
                 =====================================-->
 @endsection
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@section('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
     $(document).ready(function(e) {
@@ -146,3 +146,4 @@
         });
     });
 </script>
+@endsection

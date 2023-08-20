@@ -37,13 +37,13 @@
                         <div class="tf__services_details_img">
                             <img src="{{ asset($page->category->image) }}" alt="service" class="img-fluid w-100">
                             <a class="reservation" href="#" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop2"> {{trans('website.make an appointment')}}</a>
+                               data-bs-target="#staticBackdrop2"> {{trans('website.make an appointment')}}</a>
                         </div>
-                        <h2>{{ $page->top_title }}</h2>
-                        <p>{{ $page->top_description }}</p>
+                        <h2>{{ lang() == 'en' ? $page->top_title : $page->top_title_ar }}</h2>
+                        <p>{{ lang() == 'en' ? $page->top_description : $page->top_description_ar }}</p>
 
-                        <h3>{{ $page->down_title }}</h3>
-                        <p>{{ $page->down_description }}</p>
+                        <h3>{{ lang() == 'en' ? $page->down_title : $page->down_title_ar }}</h3>
+                        <p>{{ lang() == 'en' ? $page->down_description : $page->down_description_ar }}</p>
 
                         <h3> {{trans('website.Our Benefits')}}</h3>
                         <ul>
@@ -82,7 +82,7 @@
                                         <div class="tf__single_review">
                                             <div class="review_img">
                                                 <img src="{{ asset('assets/front') }}/images/review_img_1.jpg"
-                                                    alt="Client" class="img-fluid w-100">
+                                                     alt="Client" class="img-fluid w-100">
                                             </div>
                                             <div class="review_text">
                                                 <h4>{{ $review->name }}
@@ -109,7 +109,7 @@
                                             <div class="tf__single_review">
                                                 <div class="review_img">
                                                     <img src="{{ asset('assets/front') }}/images/review_img_1.jpg"
-                                                        alt="Client" class="img-fluid w-100">
+                                                         alt="Client" class="img-fluid w-100">
                                                 </div>
                                                 <div class="review_text">
                                                     <h4>{{ $review->name }}
@@ -165,7 +165,8 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <textarea rows="7" name="description" placeholder="{{trans('website.description')}}" required></textarea>
+                                <textarea rows="7" name="description" placeholder="{{trans('website.description')}}"
+                                          required></textarea>
                             </div>
                             <div class="col-12 mt-3">
                                 <button type="button" class="common_btn">{{trans('website.Submit Now')}}</button>
@@ -187,7 +188,7 @@
                             <ul>
                                 @foreach ($pagesRelatedWithCategory as $pages)
                                     <li><a
-                                            href="{{ route('getSingleService', $pages->id) }}">{{ $pages->top_title }}</a>
+                                            href="{{ route('getSingleService', $pages->id) }}">{{ lang() =='en' ? $pages->top_title : $pages->top_title_ar }}</a>
                                     </li>
                                 @endforeach
                             </ul>
@@ -213,17 +214,17 @@
                             <div class="tf__services_item">
                                 <div class="tf__services_img">
                                     <img src="{{ asset($relatedCategory->image) }}" alt="services"
-                                        class="img-fluid w-100">
+                                         class="img-fluid w-100">
                                 </div>
                                 <div class="tf__services_text d-flex flex-column justify-content-between">
                                     <div>
                                         <a class="title"
-                                            href="{{ route('getSingleService', $relatedCategory->id) }}">{{ $relatedCategory->title }}</a>
-                                        <p>{{ $relatedCategory->description }}</p>
+                                           href="{{ route('getSingleService', $relatedCategory->id) }}">{{ lang() == 'ar' ? $relatedCategory->title_ar : $relatedCategory->title}}</a>
+                                        <p>{{ lang() == 'ar' ? $relatedCategory->description_ar : $relatedCategory->description}}</p>
                                     </div>
                                     <div class="tf__services_btn_area">
                                         <a class="read_btn"
-                                            href="{{ route('getSingleService', $relatedCategory->id) }}">{{trans('website.read more')}}</a>
+                                           href="{{ route('getSingleService', $relatedCategory->id) }}">{{trans('website.read more')}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -236,11 +237,12 @@
 
     <div class="wsus__reservation">
         <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+             aria-labelledby="staticBackdropLabel2" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel2">{{trans('website.make an appointment')}}</h1>
+                        <h1 class="modal-title fs-5"
+                            id="staticBackdropLabel2">{{trans('website.make an appointment')}}</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -272,35 +274,35 @@
 @section('js')
     <script>
         // Function Send Review Message Start
-        $(document).ready(function(e) {
-            $(document).on('click', '.common_btn', function() {
+        $(document).ready(function (e) {
+            $(document).on('click', '.common_btn', function () {
                 var formData = new FormData(document.getElementById("reviewForm"));
                 $.ajax({
                     method: 'POST',
                     data: formData,
                     url: "{{ route('review.store') }}",
-                    beforeSend: function() {
+                    beforeSend: function () {
                         $('.load-contact').html('Loading ... ');
                     },
-                    success: function(data) {
+                    success: function (data) {
                         if (data.status === 200) {
                             toastr.success('Message sent successfully');
                             $('#contactForm input, #contactForm textarea').val('');
                             $('.load-contact').html('');
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 location.reload();
                             }, 2000);
                         }
                     },
 
-                    error: function(data) {
+                    error: function (data) {
                         if (data.status === 500) {
                             toastr.error('Error sending message');
                         } else if (data.status === 422) {
                             var errors = $.parseJSON(data.responseText);
-                            $.each(errors, function(key, value) {
+                            $.each(errors, function (key, value) {
                                 if ($.isPlainObject(value)) {
-                                    $.each(value, function(key, value) {
+                                    $.each(value, function (key, value) {
                                         toastr.error('' + value);
                                     });
                                 }
@@ -338,8 +340,8 @@
         // Function To rate Start
 
         // Function Search Start
-        $(document).ready(function() {
-            $('#searchInput').on('input', function() {
+        $(document).ready(function () {
+            $('#searchInput').on('input', function () {
                 var searchTerm = $(this).val();
 
                 $.ajax({

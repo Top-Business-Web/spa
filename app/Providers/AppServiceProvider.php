@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         View::share('settings', Setting::first());
-        View::share('categories', Category::select('id', 'title')
+        View::share('categories', Category::select('*')
             ->where('top', 1)
             ->latest()
             ->take(5)
