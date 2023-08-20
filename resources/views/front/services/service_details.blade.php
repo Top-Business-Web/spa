@@ -175,13 +175,13 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="tf__service_sidebar" id="sticky_sidebar">
-                        <div class="tf__sidebar_search sidebar_item mb_25">
+                        {{-- <div class="tf__sidebar_search sidebar_item mb_25">
                             <h3>{{trans('website.Services Searching')}}</h3>
                             <form id="searchForm">
                                 <input type="text" id="searchInput" placeholder="Search">
                             </form>
                             <div id="searchResults" class="text-white"></div>
-                        </div>
+                        </div> --}}
                         <div class="tf__sidebar_category sidebar_item mb_25">
                             <h3>{{trans('website.Our Service Category')}}</h3>
                             <ul>
