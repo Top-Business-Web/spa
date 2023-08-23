@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::group([ 'middleware' => 'api','namespace' => 'Api'], function () {
 
     Route::post('reservation-store',[ReservationController::class,'store'])->name('reservationStore');
+
 });
 
 

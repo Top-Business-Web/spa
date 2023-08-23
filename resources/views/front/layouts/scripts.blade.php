@@ -34,3 +34,22 @@
  <script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
+<script>
+    $(document).on('click','#reservationBtn',function(){
+        let url = "{{ route('getService') }}";
+        $.ajax({
+            url : url,
+            method : 'GET',
+            success : function(data){
+                $('select[name="service"]').empty();
+                $.each(data, function(index,item) {
+                    $('select[name="service"]').append($('<option>', {
+                        value: item.id,
+                        text: item.name
+                    }));
+                });
+                console.log(data);
+            },
+        })
+    })
+</script>
