@@ -35,15 +35,15 @@
             </div>
             <ul class="services-list list-unstyled d-flex justify-content-center mb-3 mt-4">
                 @foreach ($services as $service)
-                    <li data-service="{{ $service->title }}" class="service-item active">{{ $service->title }}</li>
+                    <li data-service="{{ lang() == 'ar' ? $service->title_ar :$service->title }}" class="service-item active">{{lang() == 'ar' ? $service->title_ar : $service->title }}</li>
                 @endforeach
             </ul>
             <!-- service card -->
             <div class="row">
                 @foreach ($services as $service)
                     @foreach ($service->category as $categ)
-                        <div class="col-lg-6 wow fadeInUp spa salon service-item {{ $service->title }}-item"
-                             data-service="{{ $service->title }}" data-category="{{ $categ->title }}"
+                        <div class="col-lg-6 wow fadeInUp spa salon service-item {{ lang() == 'ar' ?  $service->title_ar :$service->title }}-item"
+                             data-service="{{ lang() == 'ar' ? $service->title_ar : $service->title }}" data-category="{{ lang() == 'ar' ? $categ->title_ar :$categ->title }}"
                              data-wow-duration="1s">
                             <div class="tf__services_item">
                                 <div class="tf__services_img">
@@ -53,9 +53,9 @@
                                     <div class="btn-toggle" data-bs-toggle="collapse"
                                          data-bs-target="#div{{ $categ->id }}" aria-expanded="false"
                                          aria-controls="{{ $categ->id }}">
-                                        <a class="title">{{ $categ->title }}</a>
+                                        <a class="title">{{ lang() == 'ar' ? $categ->title_ar:$categ->title }}</a>
                                         <p>
-                                            {{ $categ->description }}
+                                            {{ lang() == 'ar' ? $categ->description_ar :$categ->description }}
                                         </p>
                                         <div class="icon-toggle">
                                             <i class="fas fa-angle-down"></i>
@@ -64,7 +64,7 @@
                                     <div class="collapse" id="div{{ $categ->id }}">
                                         <ul class="list-services">
                                             @foreach($categ->page as $page)
-                                                <li><a href="{{ route('getSingleService',$page->id) }}">{{ $page->top_title }}</a></li>
+                                                <li><a href="{{ route('getSingleService',$page->id) }}">{{ lang() == 'ar' ? $page->top_title_ar :$page->top_title }}</a></li>
                                             @endforeach
                                         </ul>
                                     </div>

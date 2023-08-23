@@ -4,7 +4,7 @@
             <div class="col-xl-8 col-lg-9">
                 <ul class="tf__topbar_left d-flex flex-wrap">
                     <li>
-                        <p><i class="fas fa-map-marker-alt"></i> {{ $settings->address }}</p>
+                        <p><i class="fas fa-map-marker-alt"></i> {{ lang() == 'ar' ? $settings->address_ar :$settings->address }}</p>
                     </li>
                     <li><a href="mailto:{{ $settings->email }}"><i class="fas fa-envelope"></i>
                         {{ $settings->email }}</a></li>

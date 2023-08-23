@@ -268,7 +268,7 @@
             <div class="row justify-content-between">
                 <div class="col-xl-5 col-lg-6 col-md-10 wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__section_heading tf__heading_left mb_25">
-                        <h5>{{trans('website.hy Choose Us')}}</h5>
+                        <h5>{{trans('website.Why_Choose_Us')}}</h5>
                         <h3>{{trans('website.Why You Choose alia beauty lounge')}}</h3>
                     </div>
                     <div class="tf__why_choose_text">
