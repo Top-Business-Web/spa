@@ -52,10 +52,7 @@
                         <a class="dropdown-item" href="{{route('myProfile')}}">
                             <i class="dropdown-icon mdi mdi-account-outline"></i> الحساب
                         </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="dropdown-icon  mdi mdi-settings"></i> اعدادات الحساب
-                        </a>
-                        <a class="dropdown-item" href="http://motaweron.com/contact-us.html" target="_blank">
+                        <a class="dropdown-item" href="https://topbusiness.io/" target="_blank">
                             <i class="dropdown-icon mdi mdi-compass-outline"></i> تحتاج مساعدة ؟
                         </a>
                         <a class="dropdown-item" href="{{route('admin.logout')}}">
