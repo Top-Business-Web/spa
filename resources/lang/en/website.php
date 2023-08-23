@@ -134,7 +134,7 @@ return [
     "NO Offers" => "NO Offers",
     "Top Categories" => "Top Categories",
     "Explore Categories" => "Explore Categories",
-    "Why Choose Us" => "Why Choose Us",
+    "Why_Choose_Us" => "Why Choose Us",
     "Why You Choose alia beauty lounge" => "Why You Choose alia beauty lounge",
     "p_one" => "Excepteur sint occaecat cupidatat non proident,sunt inculpk qui officia deserunt mollit anim id est laborum.sed do eiusmod.",
     "h4_1" => "Qualified Staff",

@@ -169,7 +169,7 @@
                                           required></textarea>
                             </div>
                             <div class="col-12 mt-3">
-                                <button type="button" class="common_btn">{{trans('website.Submit Now')}}</button>
+                                <button type="button" class="common_btn">{{trans('website.submit now')}}</button>
                             </div>
                         </form>
                     </div>
