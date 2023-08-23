@@ -71,6 +71,9 @@ Route::group(
     Route::get('terms_condition', [TermsConditionController::class, 'index'])->name('terms_condition');
 
 
+    #### get pages as categories ####
+    Route::get('getService',[HomeController::class,'getService'])->name('getService');
+
 });
 
 

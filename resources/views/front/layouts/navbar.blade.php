@@ -34,6 +34,7 @@
 
             <ul class="menu_right d-flex flex-wrap">
                 <li><a class="reservation" href="#" data-bs-toggle="modal"
+                       id="reservationBtn"
                        data-bs-target="#staticBackdrop">{{trans('website.reservation')}}</a></li>
                 <li class="dropdown btn-lang" style="z-index: 100000;">
                     <button onclick="setLocale('ar')" class="btn-language dropdown-toggle" type="button"
