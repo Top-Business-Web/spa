@@ -32,38 +32,45 @@ Route::get('/clear', function () {
 
     return 'Cache cleared successfully.';
 });
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    ], function () {
 
-#### Index Home ####
-Route::get('/', [HomeController::class, 'index'])->name('home');
+    #### Index Home ####
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 
-#### About Us ####
-Route::get('about_us', [AboutUsController::class, 'index'])->name('about_us');
+    #### About Us ####
+    Route::get('about_us', [AboutUsController::class, 'index'])->name('about_us');
 
-#### Services ####
-Route::get('services', [ServiceController::class, 'index'])->name('services');
-Route::get('/search', [ServiceController::class, 'search'])->name('searchCategory');
-Route::post('/review/store', [ServiceController::class, 'storeReview'])->name('review.store');
-Route::put('/reviews/update-status/{id}', [ServiceController::class, 'updateStatus'])->name('reviews.update-status');
+    #### Services ####
+    Route::get('services', [ServiceController::class, 'index'])->name('services');
+    Route::get('/search', [ServiceController::class, 'search'])->name('searchCategory');
+    Route::post('/review/store', [ServiceController::class, 'storeReview'])->name('review.store');
+    Route::put('/reviews/update-status/{id}', [ServiceController::class, 'updateStatus'])->name('reviews.update-status');
 
-Route::get('services/category/page/{category}', [ServiceController::class, 'getSingleService'])->name('getSingleService');
-
-
-#### Galleries ####
-Route::get('galleries/{page?}', [GalleryController::class, 'index'])->name('galleries');
-
-
-#### Contacts ####
-Route::get('contacts', [ContatcController::class, 'index'])->name('contacts');
-Route::post('/contact/store', [ContatcController::class, 'storeContact'])->name('contact.store');
+    Route::get('services/category/page/{category}', [ServiceController::class, 'getSingleService'])->name('getSingleService');
 
 
-#### Faqs ####
-Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
+    #### Galleries ####
+    Route::get('galleries/{page?}', [GalleryController::class, 'index'])->name('galleries');
 
-#### Privacy Policy ####
-Route::get('privacy_policy', [PrivacyPolicyController::class, 'index'])->name('privacy_policy');
+    #### Contacts ####
+    Route::get('contacts', [ContatcController::class, 'index'])->name('contacts');
+    Route::post('/contact/store', [ContatcController::class, 'storeContact'])->name('contact.store');
 
-#### Terms Condition ####
-Route::get('terms_condition', [TermsConditionController::class, 'index'])->name('terms_condition');
+
+    #### Faqs ####
+    Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
+
+    #### Privacy Policy ####
+    Route::get('privacy_policy', [PrivacyPolicyController::class, 'index'])->name('privacy_policy');
+
+    #### Terms Condition ####
+    Route::get('terms_condition', [TermsConditionController::class, 'index'])->name('terms_condition');
+
+
+});
 
 

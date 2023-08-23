@@ -18,6 +18,7 @@
     @include('front.layouts.scripts')
     @yield('js')
 
+
 </body>
 
 </html>
