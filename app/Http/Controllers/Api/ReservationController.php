@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Page;
+use Carbon\Carbon;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
@@ -26,6 +27,8 @@ class ReservationController extends Controller
             'time' => $request->time,
             'message' => $request->message,
         ];
+        $formateDate = Carbon::parse($request->date)->format('Y-m-d H:i:s');
+        $data['date'] = Carbon::parse($formateDate)->addHours(-3)->format('Y-m-d H:i:s');
 
 
         $client = new Client();
@@ -63,9 +66,9 @@ class ReservationController extends Controller
             'json' => [
                 'params' => [
                     'data' => [
-                        "name" => $request->name,
-                        "mobile" => $request->phone,
-                        "street" => $request->address,
+                        "name" => $data['name'],
+                        "mobile" => $data['phone'],
+                        "street" => $data['address'],
                         "country_id" => "2"
                     ]
                 ]
@@ -76,9 +79,33 @@ class ReservationController extends Controller
                 'Accept' => '*/*'
             ]
         ]);
+
         $clientId = json_decode($clientId->getBody()->getContents(), true);
         $clientId = $clientId['result'];
 
+        // Create partner
+        $createBook = $client->post($baseUrl . '/api/salon.booking/', [
+            'json' => [
+                'params' => [
+                    'data' => [
+                        "name" => $data['name'],
+                        "phone" => $data['phone'],
+                        "service_ids" => [$data['service']],
+                        "time" => $data['date'],
+                        "chair_id" => false
+                    ]
+                ]
+            ],
+            'headers' => [
+                'Cookie' => 'session_id=' . $sessionId,
+                'Content-Type' => 'application/json',
+                'Accept' => '*/*'
+            ]
+        ]);
+
+        $createBook = json_decode($createBook->getBody()->getContents(), true);
+
+        dd($createBook);
 
     }
 }
