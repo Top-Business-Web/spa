@@ -105,7 +105,7 @@ class ReservationController extends Controller
 
         $createBook = json_decode($createBook->getBody()->getContents(), true);
 
-        dd($createBook);
+        return redirect('/thanks');
 
     }
 }
