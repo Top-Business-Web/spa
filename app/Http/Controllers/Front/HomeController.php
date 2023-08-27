@@ -31,6 +31,7 @@ class HomeController extends Controller
         $categoriesTop = Category::orderBy('view', 'desc')->take(6)->get();
         $categories = $categoryModel->select('*')
             ->where('top', 1)
+            ->with('page')
             ->latest()
             ->take(8)
             ->get();

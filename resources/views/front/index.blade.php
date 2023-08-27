@@ -230,23 +230,39 @@
                     </div>
                 </div>
             </div>
+            <!-- service card -->
             <div class="row">
-                @foreach ($categoriesTop as $categoryTop)
-                    <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s">
+                @foreach ($categories as $categ)
+                    <div class="col-lg-6 wow fadeInUp spa salon service-item "
+                         data-wow-duration="1s">
                         <div class="tf__services_item">
                             <div class="tf__services_img">
-                                <img src="{{ $categoryTop->image }}" alt="services" class="img-fluid w-100">
+                                <img src="{{ asset($categ->image) }}" alt="services" class="img-fluid w-100">
                             </div>
                             <div class="tf__services_text d-flex flex-column justify-content-between">
-                                <div>
-                                    <a class="title"
-                                       href="{{ route('getSingleService', $categoryTop->id) }}">{{ lang() == 'ar' ?$categoryTop->title_ar :$categoryTop->title }}</a>
-                                    <p>{{ lang() == 'ar' ? $categoryTop->description_ar :  $categoryTop->description }}</p>
+                                <div class="btn-toggle" data-bs-toggle="collapse"
+                                     data-bs-target="#div{{ $categ->id }}" aria-expanded="false"
+                                     aria-controls="{{ $categ->id }}">
+                                    <a class="title">{{ lang() == 'ar' ? $categ->title_ar:$categ->title }}</a>
+                                    <p>
+                                        {{ lang() == 'ar' ? $categ->description_ar :$categ->description }}
+                                    </p>
+                                    <div class="icon-toggle">
+                                        <i class="fas fa-angle-down"></i>
+                                    </div>
                                 </div>
-                                <div class="tf__services_btn_area">
-                                    <a class="read_btn"
-                                       href="{{ route('getSingleService', $categoryTop->id) }}">{{trans('website.read more')}}</a>
+                                <div class="collapse" id="div{{ $categ->id }}">
+                                    <ul class="list-services">
+                                        @foreach($categ->page as $page)
+                                            <li>
+                                                <a href="{{ route('getSingleService',$page->id) }}">{{ lang() == 'ar' ? $page->top_title_ar :$page->top_title }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
                                 </div>
+                                <!-- <div class="tf__services_btn_area">
+                                    <a class="read_btn" href="service_details.html">read more</a>
+                                </div> -->
                             </div>
                         </div>
                     </div>
