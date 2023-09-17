@@ -128,7 +128,7 @@ return [
     //home page of website
     "welcome To alia beauty lounge" => "welcome To alia beauty lounge",
     "Intro Video" => "Intro Video",
-    "Service!!" => "Service!!ه",
+    "Service!!" => "Service!!",
     "What We're Offering" => "What We're Offering",
     "For Your Future Services" => "For Your Future Services",
     "NO Offers" => "NO Offers",
@@ -160,22 +160,10 @@ return [
     // TESTIMONIAL START
     "our_testimonial" => "our testimonial",
     "What Our Clients Says" => "What Our Clients Says",
-    "our_testimonial_p_1" => "Duis aute irure dolor in reprehenderit into volupjl
-                                tate velit esse cillum dolore eu fugiat nulla partr
-                                iatur sunt in culp qui officia deserunt mollit",
+    "our_testimonial_p_1" => "Wow, what an incredible massage experience! I recently visited SPA and had the most relaxing and rejuvenating massage ever. The ambiance was so peaceful, and the therapist truly knew their craft. I opted for the [type of massage] and it worked wonders on my stressed muscles. The attention to detail and the soothing music in the background made the whole experience truly exceptional. I left feeling completely refreshed and tension-free. I highly recommend to anyone in need of some self-care and relaxation. I'll definitely be returning for another session soon!",
     "Courtney Henry" => "Courtney Henry",
-    "our_testimonial_p_2" => "  Duis aute irure dolor in reprehenderit into volupjl
-                                tate velit esse cillum dolore eu fugiat nulla partr
-                                iatur sunt in culp qui officia deserunt mollit",
     "Rishmika Lane" => "Rishmika Lane",
-    "our_testimonial_p_3" => " Duis aute irure dolor in reprehenderit into volupjl
-                                tate velit esse cillum dolore eu fugiat nulla partr
-                                iatur sunt in culp qui officia deserunt mollit",
     "Letitia Shelton" => "Letitia Shelton",
-    "our_testimonial_p_4" => "Duis aute irure dolor in reprehenderit into volupjl
-                                tate velit esse cillum dolore eu fugiat nulla partr
-                                iatur sunt in culp qui officia deserunt mollit",
-
     "What We are Offering" => "What We are Offering",
 
 ];

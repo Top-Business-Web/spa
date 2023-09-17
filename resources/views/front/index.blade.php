@@ -424,7 +424,7 @@
                                 <i class="fas fa-star"></i>
                             </p>
                             <p class="cliect_comment">
-                                {{trans('website.our_testimonial_p_2')}}
+                                {{trans('website.our_testimonial_p_1')}}
                             </p>
                             <h3 class="title">{{trans('website.Rishmika Lane')}}</h3>
                         </div>
@@ -446,7 +446,7 @@
                             </p>
                             <p class="cliect_comment">
 
-                                {{trans('website.our_testimonial_p_3')}}
+                                {{trans('website.our_testimonial_p_1')}}
                             </p>
                             <h3 class="title">{{trans('website.Letitia Shelton')}}</h3>
                         </div>
@@ -467,7 +467,7 @@
                                 <i class="fas fa-star"></i>
                             </p>
                             <p class="cliect_comment">
-                                {{trans('website.our_testimonial_p_4')}}
+                                {{trans('website.our_testimonial_p_1')}}
                             </p>
                             <h3 class="title">{{trans('website.Rishmika Lane')}}</h3>
                         </div>
