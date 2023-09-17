@@ -24,6 +24,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
+
 // Route to clear the application cache
 Route::get('/clear', function () {
     Artisan::call('cache:clear');
