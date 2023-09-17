@@ -28,7 +28,6 @@
                                 <th class="min-w-25px">#</th>
                                 <th class="min-w-125px">Image</th>
                                 <th class="min-w-50px">Title</th>
-                                <th class="min-w-50px">View</th>
                                 <th class="min-w-50px">Top</th>
                                 <th class="min-w-50px">Service</th>
                                 <th class="min-w-50px">Description</th>
@@ -93,7 +92,6 @@
             {data: 'id', name: 'id'},
             {data: 'image', name: 'image'},
             {data: 'title', name: 'title'},
-            {data: 'view', name: 'view'},
             {data: 'top', name: 'top'},
             {data: 'service_id', name: 'service_id'},
             {data: 'description', name: 'description'},

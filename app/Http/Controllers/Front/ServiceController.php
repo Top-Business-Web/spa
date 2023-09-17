@@ -9,6 +9,7 @@ use App\Models\Category;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests\ReviewStoreRequest;
 
 class ServiceController extends Controller
@@ -21,23 +22,21 @@ class ServiceController extends Controller
         return view('front.services.services', compact('services'));
     }
 
-    public function getSingleService($page, Review $reviewModel): View
+    public function getSingleService($pageId, Review $reviewModel)
     {
-        $page = Page::find($page);
+        $page = Page::find($pageId);
+
+        if (!Session::has('page_visited_' . $page->id)) {
+            $page->increment('view');
+
+            Session::put('page_visited_' . $page->id, true);
+        }
+
         $category = Category::find($page->category_id);
         $relatedCategories = $this->getRelatedCategories($category);
         $pagesRelatedWithCategory = $this->getPagesRelatedCategory($category->id);
         $reviews = $this->getApprovedReviews($page, $reviewModel);
         $reviewCount = $this->getReviewCount($page);
-
-//        $data = ['page' =>$page,
-//            'category' =>$category,
-//            'relatedCategories' =>$relatedCategories,
-//            'pagesRelatedWithCategory' =>$pagesRelatedWithCategory,
-//            'reviews' =>$reviews,
-//            'reviewCount' =>$reviewCount];
-//
-//        dd($data);
 
         return view('front.services.service_details', compact(
             'page',

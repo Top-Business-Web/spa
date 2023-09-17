@@ -20,7 +20,6 @@ class CreateCategoriesTable extends Migration
             $table->string('title_ar');
             $table->text('description');
             $table->text('description_ar');
-            $table->bigInteger('view');
             $table->boolean('top')->default(false);
             $table->unsignedBigInteger('service_id');
             $table->foreign('service_id', 'service')

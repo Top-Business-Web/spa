@@ -28,6 +28,7 @@ class PageStoreRequest extends FormRequest
             'top_title_ar' => 'required',
             'top_description' => 'required',
             'top_description_ar' => 'required',
+            'view' => 'required',
             'down_title' => 'required',
             'down_title_ar' => 'required',
             'down_description' => 'required',

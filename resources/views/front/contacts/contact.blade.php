@@ -68,7 +68,7 @@
                 <div class="col-xl-5 wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__contact_map">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110502.61185042534!2d31.176062177288465!3d30.059611343358817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fa60b21beeb%3A0x79dfb296e8423bba!2sCairo%2C%20Cairo%20Governorate!5e0!3m2!1sen!2seg!4v1689494480215!5m2!1sen!2seg"
+                            src="{{ $settings->map }}"
                             style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>

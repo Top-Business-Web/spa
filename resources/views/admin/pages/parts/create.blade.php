@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="form-group">
                     <label for="category_id">Category :</label>
                     <select name="category_id" class="form-control">
@@ -39,6 +39,12 @@
                             </option>
                         @endforeach
                     </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="category_id">View :</label>
+                    <input type="number" name="view" class="form-control">
                 </div>
             </div>
         </div>

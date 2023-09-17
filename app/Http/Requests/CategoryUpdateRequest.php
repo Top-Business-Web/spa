@@ -29,7 +29,6 @@ class CategoryUpdateRequest extends FormRequest
             'title_ar' => 'required',
             'description' => 'required',
             'description_ar' => 'required',
-            'view' => 'required',
             'top' => 'required',
             'service_id' => 'required',
         ];
