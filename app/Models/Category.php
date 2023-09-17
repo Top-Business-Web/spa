@@ -18,7 +18,6 @@ class Category extends Model
         'title_ar',
         'description',
         'description_ar',
-        'view',
         'top',
         'service_id',
     ];

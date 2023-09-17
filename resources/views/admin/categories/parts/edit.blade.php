@@ -45,13 +45,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="view">View :</label>
-                    <input type="number" value="{{ $category->view }}" class="form-control" name="view" />
-                </div>
-            </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="form-group">
                     <label for="title">Top :</label>
                     <input type="number" value="{{ $category->top }}" class="form-control" name="top" />

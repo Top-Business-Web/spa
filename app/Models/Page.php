@@ -18,6 +18,7 @@ class Page extends Model
         'top_title_ar',
         'top_description',
         'top_description_ar',
+        'view',
         'down_title',
         'down_title_ar',
         'down_description',

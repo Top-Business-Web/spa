@@ -28,6 +28,7 @@
                                 <th class="min-w-25px">#</th>
                                 <th class="min-w-125px">Top Title</th>
                                 <th class="min-w-50px">Down Tilte</th>
+                                <th class="min-w-50px">View</th>
                                 <th class="min-w-50px">Category</th>
                                 <th class="min-w-50px">Top Description</th>
                                 <th class="min-w-50px">Down Description</th>
@@ -92,6 +93,7 @@
             {data: 'id', name: 'id'},
             {data: 'top_title', name: 'top_title'},
             {data: 'down_title', name: 'down_title'},
+            {data: 'view', name: 'view'},
             {data: 'category_id', name: 'category_id'},
             {data: 'top_description', name: 'top_description'},
             {data: 'down_description', name: 'down_description'},

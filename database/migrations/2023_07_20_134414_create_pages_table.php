@@ -17,6 +17,7 @@ class CreatePagesTable extends Migration
             $table->id();
             $table->string('top_title');
             $table->string('top_title_ar');
+            $table->bigInteger('view');
             $table->longText('top_description');
             $table->longText('top_description_ar');
             $table->string('down_title');
