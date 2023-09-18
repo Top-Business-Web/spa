@@ -28,7 +28,7 @@ class HomeController extends Controller
     {
         $sliders = $sliderModel->all();
         $about_us = $aboutUsModel->first();
-        $categoriesTop = Category::orderBy('view', 'desc')->take(6)->get();
+        $categoriesTop = Category::orderBy('top', 'desc')->take(6)->get();
         $categories = $categoryModel->select('*')
             ->where('top', 1)
             ->with('page')
