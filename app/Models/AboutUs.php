@@ -20,6 +20,7 @@ class AboutUs extends Model
         'down_description',
         'down_description_ar',
         'year',
+        'top_image'
     ];
 
     protected $casts = [

@@ -170,9 +170,9 @@
                         <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/xsnCYCEbdr4">
                             <i class="fas fa-play"></i>
                         </a>
-                        <img src="{{ asset($about_us->images[0]) }}" alt="about us" class="img-fluid-100 large_img_1">
-                        <img src="{{ asset($about_us->images[1]) }}" alt="about us" class="img-fluid-100 large_img_2">
-                        <img src="{{ asset($about_us->images[2]) }}" alt="about us" class="img-fluid-100 large_img_3">
+                        <img src="{{ asset($about_us->top_image) }}" alt="about us" class="img-fluid-100 large_img_1">
+                        <img src="{{ asset($about_us->images[0]) }}" alt="about us" class="img-fluid-100 large_img_2">
+                        <img src="{{ asset($about_us->images[1]) }}" alt="about us" class="img-fluid-100 large_img_3">
                     </div>
                 </div>
             </div>

@@ -25,7 +25,9 @@ class AboutUsUpdateRequest extends FormRequest
     {
 
         return [
-            'images' => 'nullable',
+            'images.*' => 'nullable',
+            'images' => 'array|between:2,2',
+            'top_image' => 'nullable',
             'top_title' => 'required',
             'down_title' => 'required',
             'top_description' => 'required',
