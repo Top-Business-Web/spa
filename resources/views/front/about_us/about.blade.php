@@ -116,10 +116,10 @@
                         <div class="tf__about_page_about_text_area">
                             <div class="tf__section_heading tf__heading_left mb_25">
                                 <h5>{{trans('website.about us')}}</h5>
-                                <h3>{{ lang() == 'ar' ? $about_us->down_title_ar :$about_us->down_title }}</h3>
+                                <h3>{!! lang() == 'ar' ? $about_us->down_title_ar :$about_us->down_title !!}</h3>
                             </div>
                             <div class="tf__about_page_about_text">
-                                <p>{{ lang() == 'ar' ? $about_us->down_description_ar :$about_us->down_description }}</p>
+                                <p>{!! lang() == 'ar' ? $about_us->down_description_ar :$about_us->down_description !!}</p>
                                 <ul>
                                     <li>
                                         <h3> {{trans('website.h3_1')}}</h3>
