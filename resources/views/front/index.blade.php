@@ -157,7 +157,7 @@
                         <div class="col-12">
                             <div class="tf__about_text">
                                 <div class="tf_about_text_center">
-                                    <p>{{ lang() == 'ar' ? $about_us->top_description_ar :  $about_us->top_description }}</p>
+                                    <p>{!! lang() == 'ar' ? $about_us->top_description_ar :  $about_us->top_description !!}</p>
                                 </div>
                                 <a class="common_btn mt_25"
                                    href="{{ route('about_us') }}">{{trans('website.read more')}}</a>
