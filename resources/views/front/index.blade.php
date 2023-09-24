@@ -157,7 +157,7 @@
                         <div class="col-12">
                             <div class="tf__about_text">
                                 <div class="tf_about_text_center">
-                                    <p>{{ lang() == 'ar' ? $about_us->top_description_ar :  $about_us->top_description }}</p>
+                                    <p>{!! lang() == 'ar' ? $about_us->top_description_ar :  $about_us->top_description !!}</p>
                                 </div>
                                 <a class="common_btn mt_25"
                                    href="{{ route('about_us') }}">{{trans('website.read more')}}</a>
@@ -170,9 +170,9 @@
                         <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/xsnCYCEbdr4">
                             <i class="fas fa-play"></i>
                         </a>
-                        <img src="{{ asset($about_us->images[0]) }}" alt="about us" class="img-fluid-100 large_img_1">
-                        <img src="{{ asset($about_us->images[1]) }}" alt="about us" class="img-fluid-100 large_img_2">
-                        <img src="{{ asset($about_us->images[2]) }}" alt="about us" class="img-fluid-100 large_img_3">
+                        <img src="{{ asset($about_us->top_image) }}" alt="about us" class="img-fluid-100 large_img_1">
+                        <img src="{{ asset($about_us->images[0]) }}" alt="about us" class="img-fluid-100 large_img_2">
+                        <img src="{{ asset($about_us->images[1]) }}" alt="about us" class="img-fluid-100 large_img_3">
                     </div>
                 </div>
             </div>

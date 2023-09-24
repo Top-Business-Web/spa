@@ -20,16 +20,23 @@
                     </div>
                     <!-- Start Row -->
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name" class="form-control-label">Images</label>
                                 <input type="file" class="dropify" name="images[]" multiple="multiple"
-                                    data-default-file="{{ asset($about_us->images[3]) }}"
+                                    data-default-file="{{ asset($about_us->images[0]) }}"
                                     accept="image/png,image/webp , image/gif, image/jpeg,image/jpg" />
                                 <span class="form-text text-danger text-center">
-                                    You are required to include a minimum of Six images in any of the following formats. The
-                                    first three images you add will be displayed on the home page, while the remaining three
+                                    You are required to include a minimum of two images in any of the following formats.
                                     images will be shown on the "About Us" page, all in JPG format.</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="name" class="form-control-label">Top Image</label>
+                                <input type="file" class="dropify" name="top_image"
+                                    data-default-file="{{ asset($about_us->top_image) }}"
+                                    accept="image/png,image/webp , image/gif, image/jpeg,image/jpg" />
                             </div>
                         </div>
                     </div>
