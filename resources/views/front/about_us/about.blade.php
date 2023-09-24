@@ -89,7 +89,7 @@
                     <div class="col-xl-6 col-lg-6 wow fadeInUp" data-wow-duration="1s">
                         <div class="tf__about_page_welcome_text">
                             <h2>{{ lang() == 'ar' ? $about_us->top_title_ar :$about_us->top_title }}</h2>
-                            <p>{{ lang() == 'ar' ? $about_us->top_description_ar :$about_us->top_description }}</p>
+                            <p>{!! lang() == 'ar' ? $about_us->top_description_ar :$about_us->top_description !!}</p>
                         </div>
                     </div>
                 </div>
