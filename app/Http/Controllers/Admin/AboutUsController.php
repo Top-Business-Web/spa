@@ -25,9 +25,13 @@ class AboutUsController extends Controller
         // Prepare the inputs directly here
         $inputs = $request->all();
 
-        if($request->has('top_image')){
-            $inputs['top_image'] = $this->saveImage($request->top_image,'uploads/about_us', 'image');
+        if ($request->hasFile('top_image')) {
+            $image = $request->file('top_image');
+            $imageName = uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->move('uploads/about_us', $imageName);
+            $inputs['top_image'] = 'uploads/about_us/' . $imageName;
         }
+        
 
         if ($request->hasFile('images')) {
             $this->deleteOldImages($about_us);
