@@ -31,7 +31,7 @@ class SliderController extends Controller
                 })
                 ->editColumn('image', function ($sliders) {
                     return '
-                    <img alt="image" onclick="window.open(this.src)" class="avatar avatar-md rounded-circle" src="' . asset($sliders->image) . '">
+                    <img alt="image" onclick="window.open(this.src)" class="avatar avatar-md rounded-circle" src="' . asset('uploads/admins/sliders/'.$sliders->image) . '">
                     ';
                 })
                 ->escapeColumns([])
@@ -88,8 +88,8 @@ class SliderController extends Controller
             $inputs = $request->validated();
 
             if ($request->hasFile('image')) {
-                if ($slider->image && file_exists(public_path('uploads/admins/sliders/') . $slider->image)) {
-                    unlink(public_path('uploads/admins/sliders/') . $slider->image);
+                if ($slider->image && file_exists(public_path('uploads/admins/sliders') . $slider->image)) {
+                    unlink(public_path('uploads/admins/sliders') . $slider->image);
                 }
                 $inputs['image'] = $this->saveImage($request->file('image'), 'uploads/admins/sliders');
             } else {
