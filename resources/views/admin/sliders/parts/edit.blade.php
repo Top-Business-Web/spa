@@ -8,7 +8,7 @@
                 <div class="form-group">
                     <label for="title">Image :</label>
                     <input type="file" class="dropify" name="image"
-                        data-default-file="{{ asset($slider->image) }}"
+                        data-default-file="{{ asset('uploads/admins/sliders/'.$slider->image) }}"
                         accept="image/png,image/webp , image/gif, image/jpeg,image/jpg" />
                     <span class="form-text text-danger text-center">Only the following formats are allowed : png, gif,
                         jpeg, jpg,webp</span>

@@ -167,7 +167,7 @@
                 </div>
                 <div class="col-xl-6 col-lg-6 wow fadeInUp" data-wow-duration="1s">
                     <div class="tf__about_img">
-                        <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/xsnCYCEbdr4">
+                        <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=vd0aR9KnaoQ">
                             <i class="fas fa-play"></i>
                         </a>
                         <img src="{{ asset($about_us->top_image) }}" alt="about us" class="img-fluid-100 large_img_1">
@@ -316,7 +316,7 @@
                             <img src="{{ asset('assets/front') }}/images/why_choose_img_2.jpg" alt="why choose"
                                  class="img-fluid w-100">
                         </div>
-                        <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://youtu.be/xsnCYCEbdr4">
+                        <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=vd0aR9KnaoQ">
                             <i class="fas fa-play"></i>
                         </a>
                     </div>
