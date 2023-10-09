@@ -70,7 +70,7 @@
         <div class="row banner_slider">
             @foreach ($sliders as $slider)
                 <div class="col-12">
-                    <div class="tf__single_slider" style="background: url(&quot;{{ asset($slider->image) }}&quot;);">
+                    <div class="tf__single_slider" style="background: url(&quot;{{ asset('uploads/admins/sliders/'.$slider->image) }}&quot;);">
                         <div class="container">
                             <div class="row">
                                 <div class="col-xl-6 col-md-8">
